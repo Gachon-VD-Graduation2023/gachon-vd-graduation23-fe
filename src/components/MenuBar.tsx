@@ -1,12 +1,17 @@
 'use client'
 import React from 'react'
 import styled from 'styled-components'
+import '../../public/fonts/font.css'
 
 function MenuBar() {
   return (
     <MenuBarComponent>
       <MenuBak src='images/menu-bak.png' />
       <TitleLogo src='images/title-logo.png' />
+      <MenuBtn>ABOUT</MenuBtn>
+      <MenuBtn>WORKS</MenuBtn>
+      <MenuBtn>OBJECT</MenuBtn>
+      <MenuBtn>GUEST BOOK</MenuBtn>
     </MenuBarComponent>
   )
 }
@@ -23,6 +28,7 @@ const MenuBarComponent = styled.div`
   border-right: 2px solid var(--unnamed, #000);
   &::before,
   &::after {
+    pointer-events: none;
     content: '';
     position: absolute;
     top: 0px;
@@ -42,6 +48,19 @@ const MenuBak = styled.img`
 const TitleLogo = styled.img`
   width: 73px;
   height: 161px;
+  margin-bottom: 60px;
+`
+const MenuBtn = styled.div`
+  width: 150px;
+  height: 34px;
+  line-height: 34px;
+  padding: 0px 16px;
+  border: 1px solid var(--unnamed, #000);
+  font-family: DOSSaemmul;
+  font-size: 23px;
+  margin-bottom: 27px;
+  cursor: pointer;
+  z-index: 999;
 `
 
 export default MenuBar
