@@ -7,7 +7,7 @@ function MenuBar() {
   return (
     <MenuBarComponent>
       <MenuBak src='images/menu-bak.png' />
-      <TitleLogo src='images/title-logo.png' />
+      <TitleLogo src={process.env.NEXT_PUBLIC_URL + '/images/title-logo.png'} />
       <MenuBtn>ABOUT</MenuBtn>
       <MenuBtn>WORKS</MenuBtn>
       <MenuBtn>OBJECT</MenuBtn>
