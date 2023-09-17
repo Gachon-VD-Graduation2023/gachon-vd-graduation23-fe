@@ -13,4 +13,7 @@ module.exports = {
     // config를 반환해야 이전 설정과 병합 가능합니다.
     return config
   },
+  env: {
+    NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
+  },
 }
