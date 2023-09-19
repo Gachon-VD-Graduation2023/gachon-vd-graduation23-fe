@@ -2,13 +2,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import '../../public/fonts/font.css'
+import { useRouter } from 'next/navigation'
 
 function MenuBar() {
+  const router = useRouter()
+
   return (
     <MenuBarComponent>
       <MenuBak src='images/menu-bak.png' />
       <TitleLogo src={process.env.NEXT_PUBLIC_URL + '/images/title-logo.png'} />
-      <MenuBtn>ABOUT</MenuBtn>
+      <MenuBtn onClick={() => router.push('/about')}>ABOUT</MenuBtn>
       <MenuBtn>WORKS</MenuBtn>
       <MenuBtn>OBJECT</MenuBtn>
       <MenuBtn>GUEST BOOK</MenuBtn>
@@ -18,7 +21,7 @@ function MenuBar() {
 
 const MenuBarComponent = styled.div`
   width: 201px;
-  height: 100vw;
+  height: 100vh;
   background: var(--unnamed, #f4f9fb);
   position: fixed;
   padding-top: 40px;
