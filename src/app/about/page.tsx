@@ -4,11 +4,12 @@ import { styled } from 'styled-components'
 import * as aboutData from './aboutData'
 import ReactHtmlParser from 'react-html-parser'
 import { IconDot } from '../../../public/svgs'
+import Image from 'next/image'
 
 const About = () => {
   return (
     <Container>
-      <TopContainer top={239} left={56}>
+      <TopContainer top={239} left={56} style={{ zIndex: 1 }}>
         <MainContainer width={380} height={106} padding={'10px 0px'}>
           <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
           {ReactHtmlParser(aboutData.ABOUT_TITLE)}
@@ -20,19 +21,64 @@ const About = () => {
           {aboutData.ABOUT_CONTENT_ENG_1}
         </OverlayContainer>
       </TopContainer>
+      <Image
+        src={process.env.NEXT_PUBLIC_URL + '/images/about/image-about-asset-1.png'}
+        width={1250}
+        height={1456}
+        alt={''}
+        style={{ position: 'absolute', left: 350 }}
+      />
+      <Image
+        src={process.env.NEXT_PUBLIC_URL + '/images/about/image-about-asset-2.png'}
+        width={610}
+        height={610}
+        alt={''}
+        style={{ position: 'absolute', left: -230, top: 1478 }}
+      />
+      <Image
+        src={process.env.NEXT_PUBLIC_URL + '/images/about/image-about-asset-3.png'}
+        width={2582.5}
+        height={3021}
+        alt={''}
+        style={{ position: 'absolute', left: -350, bottom: -800 }}
+      />
+      <Image
+        src={process.env.NEXT_PUBLIC_URL + '/images/about/image-about-asset-4.png'}
+        width={791}
+        height={847}
+        alt={''}
+        style={{ position: 'absolute', left: 328, top: 1259 }}
+      />
+      <Image
+        src={process.env.NEXT_PUBLIC_URL + '/images/about/image-about-asset-5.png'}
+        width={854}
+        height={1693}
+        alt={''}
+        style={{ position: 'absolute', left: 86, top: 900 }}
+      />
       <TopContainer top={1730} left={56}>
         <SubTitleContainer width={268} height={50} padding={'0'}>
           <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
           <div>{aboutData.ABOUT_SUB_TITLE_1}</div>
         </SubTitleContainer>
-        <ContentContainer width={483} height={174} padding={'0 32px'}>
+        <ContentContainer
+          width={483}
+          height={174}
+          padding={'0 32px'}
+          style={{ marginLeft: '31px' }}
+        >
           {aboutData.ABOUT_CONTENT_2}
         </ContentContainer>
-        <OverlayContainer width={483} height={225} padding={'0 40px'}>
+        <OverlayContainer
+          width={483}
+          height={225}
+          padding={'0 40px'}
+          style={{ marginLeft: '31px' }}
+        >
           {aboutData.ABOUT_CONTENT_ENG_2}
         </OverlayContainer>
       </TopContainer>
-      <TopContainer top={2872} left={418}>
+      <TopContainer top={2872} left={418} style={{ zIndex: 1 }}>
         <SubTitleContainer width={411} height={50}>
           <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
           <div>{aboutData.ABOUT_SUB_TITLE_2}</div>
@@ -62,7 +108,7 @@ const About = () => {
           </OverlayContainer>
         </div>
       </TopContainer>
-      <TopContainer top={3289} left={418}>
+      <TopContainer top={3289} left={418} style={{ zIndex: 1 }}>
         <SubTitleContainer width={199} height={44}>
           <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
           <div>{aboutData.ABOUT_SUB_TITLE_3}</div>
@@ -99,6 +145,7 @@ const Container = styled.div`
   background: linear-gradient(180deg, #17b6ec 0%, #fcfeff 100%);
   margin-left: 201px;
   position: relative;
+  overflow: hidden;
 `
 
 const TopContainer = styled.div<{
@@ -142,7 +189,7 @@ const ContentContainer = styled.div<{
 `
 
 const LastContainer = styled.div`
-  width: inherit;
+  width: 100vw;
   height: 342px;
   padding: 48px 135px 89px 74px;
   margin-left: -418px;

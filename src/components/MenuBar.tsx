@@ -40,6 +40,7 @@ const MenuBarComponent = styled.div`
     bottom: 0px;
     border-right: 1px solid; /* 두 번째 border */
   }
+  z-index: 1000;
 `
 const MenuBak = styled.img`
   position: absolute;
