@@ -7,24 +7,28 @@
 
 @font-face {
   font-family: 'Pretendard';
-  src: url('./Pretendard-Regular.ttf');
+  src: url('./Pretendard-Regular.ttf') format('ttf');
   font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard';
-  src: url('./Pretendard-Medium.ttf');
+  src: url('./Pretendard-Medium.ttf') format('ttf');
   font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard';
-  src: url('./Pretendard-SemiBold.ttf');
+  src: url('./Pretendard-SemiBold.ttf') format('ttf');
   font-weight: 600;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard';
-  src: url('./Pretendard-Bold.ttf');
+  src: url('./Pretendard-Bold.ttf') format('ttf');
   font-weight: 700;
+  font-style: normal;
 }
