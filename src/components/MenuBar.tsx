@@ -1,17 +1,49 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useRouter, usePathname } from 'next/navigation'
 import '../../public/fonts/font.css'
 
 function MenuBar() {
+  const menuList = ['about', 'works', 'object', 'guest book']
+  const [currentMenu, setCurrentMenu] = useState('')
+  const baseUrl = process.env.NEXT_PUBLIC_URL
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const getCurrentMenu = () => {
+    //url에서 현재 메뉴 값 받아오기
+    const url = window.location.href
+    const startIndex = url.indexOf(baseUrl!) + baseUrl!.length + 1 // 시작 인덱스
+    const endIndex = url.indexOf('/', startIndex) // '/' 다음 인덱스를
+
+    const subString =
+      endIndex !== -1 ? url.substring(startIndex, endIndex) : url.substring(startIndex)
+
+    setCurrentMenu(subString)
+  }
+
+  useEffect(() => {
+    getCurrentMenu()
+  }, [pathname])
+
   return (
     <MenuBarComponent>
       <MenuBak src='images/menu-bak.png' />
-      <TitleLogo src={process.env.NEXT_PUBLIC_URL + '/images/title-logo.png'} />
-      <MenuBtn>ABOUT</MenuBtn>
-      <MenuBtn>WORKS</MenuBtn>
-      <MenuBtn>OBJECT</MenuBtn>
-      <MenuBtn>GUEST BOOK</MenuBtn>
+      <TitleLogo src={baseUrl + '/images/title-logo.png'} />
+      {menuList.map((menu, i) => {
+        return menu === currentMenu ? (
+          <SelectedMenuBtn>
+            <BottomLeftCorner />
+            <BottomRightCorner />
+            <TopRightCorner />
+            <TopLeftCorner />
+            {menu.toUpperCase()}
+          </SelectedMenuBtn>
+        ) : (
+          <MenuBtn onClick={() => router.push(`${menu}`)}>{menu.toUpperCase()}</MenuBtn>
+        )
+      })}
     </MenuBarComponent>
   )
 }
@@ -61,6 +93,63 @@ const MenuBtn = styled.div`
   margin-bottom: 27px;
   cursor: pointer;
   z-index: 999;
+`
+const SelectedMenuBtn = styled.div`
+  width: 150px;
+  height: 34px;
+  line-height: 34px;
+  padding: 0px 16px;
+  border: 1px solid var(--unnamed, #000);
+  font-family: DOSSaemmul;
+  font-size: 23px;
+  margin-bottom: 27px;
+  cursor: pointer;
+  z-index: 999;
+  position: relative;
+`
+
+const TopLeftCorner = styled.div`
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border: 1px solid;
+`
+
+const TopRightCorner = styled.div`
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border: 1px solid;
+`
+
+const BottomLeftCorner = styled.div`
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border: 1px solid;
+`
+
+const BottomRightCorner = styled.div`
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border: 1px solid;
 `
 
 export default MenuBar
