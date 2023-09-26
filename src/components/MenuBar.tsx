@@ -14,7 +14,7 @@ function MenuBar() {
       <MenuBtn onClick={() => router.push('/about')}>ABOUT</MenuBtn>
       <MenuBtn>WORKS</MenuBtn>
       <MenuBtn>OBJECT</MenuBtn>
-      <MenuBtn>GUEST BOOK</MenuBtn>
+      <MenuBtn onClick={() => router.push('/guest')}>GUEST BOOK</MenuBtn>
     </MenuBarComponent>
   )
 }
