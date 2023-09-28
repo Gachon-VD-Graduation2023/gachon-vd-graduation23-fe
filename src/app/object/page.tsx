@@ -14,6 +14,8 @@ var Engine = Matter.Engine,
   MouseConstraint = Matter.MouseConstraint
 
 export default function Object() {
+  const menu = ['ALL', 'BX', 'Graphic', 'Illustration', 'Media', 'UX/UI']
+  const [currentMenu, setCurrentMenu] = useState('ALL')
   const targetCanvas = useRef<HTMLCanvasElement>(null)
   let engine: Matter.Engine | null = null
   let render: Matter.Render | null = null
@@ -125,6 +127,11 @@ export default function Object() {
   }, [])
   return (
     <Container>
+      <MenuBar>
+        {menu.map((menu, i) => {
+          return <MenuBtn>{menu}</MenuBtn>
+        })}
+      </MenuBar>
       <Canvas ref={targetCanvas}></Canvas>
     </Container>
   )
@@ -138,4 +145,17 @@ const Container = styled.div`
 const Canvas = styled.canvas`
   width: 100%;
   height: 100%;
+`
+const MenuBar = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: 24px;
+  position: fixed;
+  border-bottom: 1px solid black;
+`
+const MenuBtn = styled.div`
+  border: 1px solid black;
+  padding: 4px 20px 4px 20px;
+  font-size: 20px;
+  font-weight: 700;
 `
