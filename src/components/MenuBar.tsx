@@ -29,7 +29,7 @@ function MenuBar() {
 
   return (
     <MenuBarComponent>
-      <MenuBak src='images/menu-bak.png' />
+      <MenuBak src={baseUrl + '/images/menu-bak.png'} />
       <TitleLogo src={baseUrl + '/images/title-logo.png'} />
       {menuList.map((menu, i) => {
         return menu === currentMenu ? (
@@ -41,7 +41,14 @@ function MenuBar() {
             {menu.toUpperCase()}
           </SelectedMenuBtn>
         ) : (
-          <MenuBtn onClick={() => router.push(`${menu}`)}>{menu.toUpperCase()}</MenuBtn>
+          <MenuBtn
+            onClick={() => {
+              if (menu === 'object') router.push('/object/all')
+              else router.push(`${menu}`)
+            }}
+          >
+            {menu.toUpperCase()}
+          </MenuBtn>
         )
       })}
     </MenuBarComponent>
