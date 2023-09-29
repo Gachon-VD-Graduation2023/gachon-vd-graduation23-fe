@@ -44,7 +44,7 @@ function MenuBar() {
           <MenuBtn
             onClick={() => {
               if (menu === 'object') router.push('/object/all')
-              else router.push(`${menu}`)
+              else router.push(`/${menu}`)
             }}
           >
             {menu.toUpperCase()}
