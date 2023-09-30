@@ -3,25 +3,26 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useRouter, usePathname } from 'next/navigation'
 import '../../public/fonts/font.css'
+import { subscribe } from 'diagnostics_channel'
 
 function MenuBar() {
   const menuList = ['about', 'works', 'object', 'guest book']
-  const [currentMenu, setCurrentMenu] = useState('')
+  const worksMenuList = ['all', 'bx', 'graphic', 'illustration', 'media', 'uxui']
   const baseUrl = process.env.NEXT_PUBLIC_URL
   const router = useRouter()
   const pathname = usePathname()
 
   const getCurrentMenu = () => {
-    //url에서 현재 메뉴 값 받아오기
-    const url = window.location.href
-    const startIndex = url.indexOf(baseUrl!) + baseUrl!.length + 1 // 시작 인덱스
-    const endIndex = url.indexOf('/', startIndex) // '/' 다음 인덱스를
-
-    const subString =
-      endIndex !== -1 ? url.substring(startIndex, endIndex) : url.substring(startIndex)
-
-    setCurrentMenu(subString)
+    const parts = pathname.split('/') // 경로를 "/"로 분할
+    return parts[1] || '' // 첫 번째 분할된 부분을 현재 메뉴로 반환
   }
+  const [currentMenu, setCurrentMenu] = useState(getCurrentMenu())
+
+  const getCurrentWorksMenu = () => {
+    const parts = pathname.split('/')
+    return parts[2] || '' // 세 번째 분할된 부분을 works 서브메뉴로 반환
+  }
+  const [currentWorksMenu, setCurrentWorksMenu] = useState(getCurrentWorksMenu())
 
   useEffect(() => {
     getCurrentMenu()
@@ -32,23 +33,57 @@ function MenuBar() {
       <MenuBak src={baseUrl + '/images/menu-bak.png'} />
       <TitleLogo src={baseUrl + '/images/title-logo.png'} />
       {menuList.map((menu, i) => {
-        return menu === currentMenu ? (
-          <SelectedMenuBtn>
-            <BottomLeftCorner />
-            <BottomRightCorner />
-            <TopRightCorner />
-            <TopLeftCorner />
-            {menu.toUpperCase()}
-          </SelectedMenuBtn>
-        ) : (
-          <MenuBtn
-            onClick={() => {
-              if (menu === 'object') router.push('/object/all')
-              else router.push(`/${menu}`)
-            }}
-          >
-            {menu.toUpperCase()}
-          </MenuBtn>
+        return (
+          <>
+            {menu === currentMenu ? (
+              <SelectedMenuBtn>
+                <BottomLeftCorner />
+                <BottomRightCorner />
+                <TopRightCorner />
+                <TopLeftCorner />
+                {menu.toUpperCase()}
+              </SelectedMenuBtn>
+            ) : (
+              <MenuBtn
+                onClick={() => {
+                  if (menu === 'object') {
+                    setCurrentMenu('object')
+                    router.push('/object/all')
+                  } else if (menu !== 'works') {
+                    setCurrentMenu(menu)
+                    router.push(`/${menu}`)
+                  } else {
+                    setCurrentMenu('works')
+                  }
+                }}
+              >
+                {menu.toUpperCase()}
+              </MenuBtn>
+            )}
+
+            {menu === 'works' && currentMenu === 'works' ? (
+              <WorksMenuContainer>
+                {worksMenuList.map((worksMenu, i) => (
+                  <div>
+                    {worksMenu === currentWorksMenu ? (
+                      <SelectedWorksMenu>
+                        {worksMenu === 'uxui' ? 'UX/UI' : worksMenu.toUpperCase()}
+                      </SelectedWorksMenu>
+                    ) : (
+                      <WorksMenu
+                        onClick={() => {
+                          setCurrentWorksMenu(worksMenu)
+                          router.push(`/works/${worksMenu}`)
+                        }}
+                      >
+                        {worksMenu === 'uxui' ? 'UX/UI' : worksMenu.toUpperCase()}
+                      </WorksMenu>
+                    )}
+                  </div>
+                ))}
+              </WorksMenuContainer>
+            ) : null}
+          </>
         )
       })}
     </MenuBarComponent>
@@ -157,6 +192,35 @@ const BottomRightCorner = styled.div`
   height: 8px;
   background-color: white;
   border: 1px solid;
+`
+const WorksMenuContainer = styled.div`
+  padding-left: 11px;
+  padding-top: 20px;
+  padding-bottom: 4px;
+  margin-top: -27px;
+`
+const SelectedWorksMenu = styled.div`
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    margin-right: 6px; /* 박스와 텍스트 사이 간격 조절 */
+  }
+`
+const WorksMenu = styled.div`
+  color: #7a7a7a;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  cursor: pointer;
+  margin-left: 14px;
 `
 
 export default MenuBar
