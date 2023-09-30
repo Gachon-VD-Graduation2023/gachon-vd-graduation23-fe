@@ -13,14 +13,16 @@ function MenuBar() {
   const pathname = usePathname()
 
   const getCurrentMenu = () => {
-    const parts = pathname.split('/') // 경로를 "/"로 분할
-    return parts[1] || '' // 첫 번째 분할된 부분을 현재 메뉴로 반환
+    const parts = pathname.split('/')
+    return parts[1] || ''
   }
   const [currentMenu, setCurrentMenu] = useState(getCurrentMenu())
 
   const getCurrentWorksMenu = () => {
-    const parts = pathname.split('/')
-    return parts[2] || '' // 세 번째 분할된 부분을 works 서브메뉴로 반환
+    if (currentMenu === 'works') {
+      const parts = pathname.split('/')
+      return parts[2] || ''
+    } else return ''
   }
   const [currentWorksMenu, setCurrentWorksMenu] = useState(getCurrentWorksMenu())
 
@@ -48,9 +50,11 @@ function MenuBar() {
                 onClick={() => {
                   if (menu === 'object') {
                     setCurrentMenu('object')
+                    setCurrentWorksMenu('')
                     router.push('/object/all')
                   } else if (menu !== 'works') {
                     setCurrentMenu(menu)
+                    setCurrentWorksMenu('')
                     router.push(`/${menu}`)
                   } else {
                     setCurrentMenu('works')
