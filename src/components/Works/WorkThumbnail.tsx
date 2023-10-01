@@ -34,7 +34,7 @@ const Container = styled.div`
   height: 357px;
   background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(24px);
-  box-shadow: 0px 0px 1px 0.5px black; /* box-shadow를 사용하여 대체 */
+  box-shadow: 0px 0px 1px 0.5px black;
 `
 const ThumbnailImage = styled.div`
   width: 288px;
