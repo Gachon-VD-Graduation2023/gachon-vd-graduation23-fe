@@ -3,6 +3,7 @@ import React from 'react'
 import WorkThumbnail from '@/components/Works/WorkThumbnail'
 import SplashThumbnail from '@/components/Works/SplashThumbnail'
 import styled from 'styled-components'
+import Footer from '@/components/Footer'
 
 export default function Works() {
   const data = [
@@ -30,19 +31,22 @@ export default function Works() {
     { img: '', title: '작품20', artist: '작가22' },
   ]
   return (
-    <Root>
-      <Container>
-        <Contents>
-          {data.map((data, i) =>
-            i !== 0 && (i + 1) % 7 === 0 ? (
-              <SplashThumbnail idx={i} />
-            ) : (
-              <WorkThumbnail data={data} key={i} />
-            ),
-          )}
-        </Contents>
-      </Container>
-    </Root>
+    <>
+      <Root>
+        <Container>
+          <Contents>
+            {data.map((data, i) =>
+              i !== 0 && (i + 1) % 7 === 0 ? (
+                <SplashThumbnail idx={i} />
+              ) : (
+                <WorkThumbnail data={data} key={i} />
+              ),
+            )}
+          </Contents>
+        </Container>
+      </Root>
+      <Footer />
+    </>
   )
 }
 const Root = styled.div`

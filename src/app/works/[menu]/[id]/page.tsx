@@ -2,61 +2,20 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import useBetterMediaQuery from '@/utils/common.util'
+import Footer from '@/components/Footer'
 
 export default function WorksDetail() {
   const isUnder1000 = useBetterMediaQuery('(max-width: 1000px)')
   const baseUrl = process.env.NEXT_PUBLIC_URL
   return (
-    <Container>
-      <Banner>
-        <BannerImg src={baseUrl + '/images/works/works_detail/banner_sample.png'} />
-      </Banner>
-      {!isUnder1000 ? (
-        <Introduce>
-          <Artist type='largeScreen'>
-            <IntroduceIndicator />
-            <ProfileImg src={baseUrl + '/images/works/works_detail/profile_sample.png'} />
-            <div>
-              <div className='title'>이름</div>
-              <div className='info' style={{ marginBottom: '8px' }}>
-                chain1999@naver.com
-              </div>
-              <div className='info'>@naver_insta</div>
-            </div>
-          </Artist>
-          <Describe type='largeScreen'>
-            <IntroduceIndicator />
-            <div className='title'>제목</div>
-            <div className='info'>
-              설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-              적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
-              설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-              적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
-              설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-              적어봅시다.
-            </div>
-          </Describe>
-          <Object type='largeScreen'>
-            <IntroduceIndicator />
-            <img src={baseUrl + '/images/works/works_detail/object_sample.png'} />
-          </Object>
-        </Introduce>
-      ) : (
-        <div>
-          <Describe type='smallScreen'>
-            <IntroduceIndicator />
-            <div className='title'>제목</div>
-            <div className='info'>
-              설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-              적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
-              설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-              적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
-              설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-              적어봅시다.
-            </div>
-          </Describe>
-          <div style={{ display: 'flex' }}>
-            <Artist type='smallScreen'>
+    <>
+      <Container>
+        <Banner>
+          <BannerImg src={baseUrl + '/images/works/works_detail/banner_sample.png'} />
+        </Banner>
+        {!isUnder1000 ? (
+          <Introduce>
+            <Artist type='largeScreen'>
               <IntroduceIndicator />
               <ProfileImg src={baseUrl + '/images/works/works_detail/profile_sample.png'} />
               <div>
@@ -67,16 +26,61 @@ export default function WorksDetail() {
                 <div className='info'>@naver_insta</div>
               </div>
             </Artist>
-            <Object type='smallScreen'>
+            <Describe type='largeScreen'>
+              <IntroduceIndicator />
+              <div className='title'>제목</div>
+              <div className='info'>
+                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
+                적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
+                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
+                적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
+                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
+                적어봅시다.
+              </div>
+            </Describe>
+            <Object type='largeScreen'>
               <IntroduceIndicator />
               <img src={baseUrl + '/images/works/works_detail/object_sample.png'} />
             </Object>
+          </Introduce>
+        ) : (
+          <div>
+            <Describe type='smallScreen'>
+              <IntroduceIndicator />
+              <div className='title'>제목</div>
+              <div className='info'>
+                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
+                적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
+                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
+                적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
+                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
+                적어봅시다.
+              </div>
+            </Describe>
+            <div style={{ display: 'flex' }}>
+              <Artist type='smallScreen'>
+                <IntroduceIndicator />
+                <ProfileImg src={baseUrl + '/images/works/works_detail/profile_sample.png'} />
+                <div>
+                  <div className='title'>이름</div>
+                  <div className='info' style={{ marginBottom: '8px' }}>
+                    chain1999@naver.com
+                  </div>
+                  <div className='info'>@naver_insta</div>
+                </div>
+              </Artist>
+              <Object type='smallScreen'>
+                <IntroduceIndicator />
+                <img src={baseUrl + '/images/works/works_detail/object_sample.png'} />
+              </Object>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <div>{/* 상세페이지 이미지 영역 */}</div>
-    </Container>
+        <div>{/* 상세페이지 이미지 영역 */}</div>
+      </Container>
+      <Footer />
+    </>
   )
 }
 

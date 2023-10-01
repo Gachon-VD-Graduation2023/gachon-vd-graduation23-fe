@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useRouter, usePathname } from 'next/navigation'
 import '../../public/fonts/font.css'
-import { subscribe } from 'diagnostics_channel'
 
 function MenuBar() {
   const menuList = ['about', 'works', 'object', 'guest book']

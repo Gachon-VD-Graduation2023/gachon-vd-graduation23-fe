@@ -11,6 +11,7 @@ import {
 } from '@/components/Object/ObjectData'
 import { ObjectProp } from '../../../../types/object.type'
 import { useRouter, usePathname } from 'next/navigation'
+import Footer from '@/components/Footer'
 
 var Engine = Matter.Engine,
   Render = Matter.Render,
@@ -158,24 +159,27 @@ export default function Object({ params }: { params: { menu: string } }) {
     }, 50)
   }, [])
   return (
-    <Container>
-      <MenuBar>
-        {menu.map((menu, i) => {
-          return menu.toLowerCase() === params.menu ? (
-            <SelectedMenuBtn>{menu === 'UXUI' ? 'UX/UI' : menu}</SelectedMenuBtn>
-          ) : (
-            <MenuBtn
-              onClick={() => {
-                router.push(`/object/${menu.toLowerCase()}`)
-              }}
-            >
-              {menu === 'UXUI' ? 'UX/UI' : menu}
-            </MenuBtn>
-          )
-        })}
-      </MenuBar>
-      <Canvas ref={targetCanvas}></Canvas>
-    </Container>
+    <>
+      <Container>
+        <MenuBar>
+          {menu.map((menu, i) => {
+            return menu.toLowerCase() === params.menu ? (
+              <SelectedMenuBtn>{menu === 'UXUI' ? 'UX/UI' : menu}</SelectedMenuBtn>
+            ) : (
+              <MenuBtn
+                onClick={() => {
+                  router.push(`/object/${menu.toLowerCase()}`)
+                }}
+              >
+                {menu === 'UXUI' ? 'UX/UI' : menu}
+              </MenuBtn>
+            )
+          })}
+        </MenuBar>
+        <Canvas ref={targetCanvas}></Canvas>
+      </Container>
+      <Footer />
+    </>
   )
 }
 
