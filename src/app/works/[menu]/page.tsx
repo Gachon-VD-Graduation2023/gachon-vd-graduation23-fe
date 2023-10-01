@@ -30,22 +30,29 @@ export default function Works() {
     { img: '', title: '작품20', artist: '작가22' },
   ]
   return (
-    <Container>
-      <Contents>
-        {data.map((data, i) =>
-          i !== 0 && (i + 1) % 7 === 0 ? (
-            <SplashThumbnail idx={i} />
-          ) : (
-            <WorkThumbnail data={data} key={i} />
-          ),
-        )}
-      </Contents>
-    </Container>
+    <Root>
+      <Container>
+        <Contents>
+          {data.map((data, i) =>
+            i !== 0 && (i + 1) % 7 === 0 ? (
+              <SplashThumbnail idx={i} />
+            ) : (
+              <WorkThumbnail data={data} key={i} />
+            ),
+          )}
+        </Contents>
+      </Container>
+    </Root>
   )
 }
+const Root = styled.div`
+  background-color: white;
+  min-height: 100vh;
+  background-image: url(https://i.imgur.com/yCV1WP3.jpg);
+  background-size: cover;
+`
 const Container = styled.div`
   padding: 62px 0px 62px 201px;
-  background: skyblue;
   min-height: 100vh;
 `
 const Contents = styled.div`
