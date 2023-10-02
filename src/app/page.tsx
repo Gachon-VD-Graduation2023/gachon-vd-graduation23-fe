@@ -4,10 +4,5 @@ import { IconNext, IconVercel } from '../../public/svgs'
 import MenuBar from '@/components/MenuBar'
 
 export default function Home() {
-  return (
-    <main>
-      {/* 좌측 고정 메뉴바 */}
-      <MenuBar />
-    </main>
-  )
+  return <main></main>
 }
