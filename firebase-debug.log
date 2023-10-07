@@ -1,0 +1,58 @@
+[debug] [2023-10-02T14:03:09.004Z] ----------------------------------------------------------------------
+[debug] [2023-10-02T14:03:09.005Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2023-10-02T14:03:09.005Z] CLI Version:   12.5.4
+[debug] [2023-10-02T14:03:09.005Z] Platform:      darwin
+[debug] [2023-10-02T14:03:09.005Z] Node Version:  v18.14.2
+[debug] [2023-10-02T14:03:09.006Z] Time:          Mon Oct 02 2023 23:03:09 GMT+0900 (Korean Standard Time)
+[debug] [2023-10-02T14:03:09.006Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-02T14:03:09.042Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-02T14:03:09.042Z] > authorizing via signed-in user (gcvd.graduation@gmail.com)
+[debug] [2023-10-02T14:03:09.042Z] [iam] checking project gcvd2023 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-10-02T14:03:09.043Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/gcvd2023:testIamPermissions [none]
+[debug] [2023-10-02T14:03:09.043Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/gcvd2023:testIamPermissions x-goog-quota-user=projects/gcvd2023
+[debug] [2023-10-02T14:03:09.043Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gcvd2023:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-02T14:03:10.409Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/gcvd2023:testIamPermissions 200
+[debug] [2023-10-02T14:03:10.410Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gcvd2023:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-02T14:03:10.411Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gcvd2023 [none]
+[debug] [2023-10-02T14:03:10.995Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gcvd2023 200
+[debug] [2023-10-02T14:03:10.997Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gcvd2023 {"projectId":"gcvd2023","projectNumber":"885615248957","displayName":"gcvd2023","name":"projects/gcvd2023","resources":{"hostingSite":"gcvd2023-c7b45"},"state":"ACTIVE","etag":"1_c57b6825-2207-4f19-974d-b89be712ee49"}
+[debug] [2023-10-02T14:03:12.284Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/gcvd2023/sites pageToken=&pageSize=10
+[debug] [2023-10-02T14:03:13.503Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/gcvd2023/sites 200
+[debug] [2023-10-02T14:03:13.504Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/gcvd2023/sites {"sites":[{"name":"projects/gcvd2023/sites/gcvd2023-c7b45","defaultUrl":"https://gcvd2023-c7b45.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-10-02T14:03:13.504Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/gcvd2023/sites 
+[debug] [2023-10-02T14:03:14.413Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/gcvd2023/sites 200
+[debug] [2023-10-02T14:03:14.414Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/gcvd2023/sites {"sites":[{"name":"projects/gcvd2023/sites/gcvd2023-c7b45","defaultUrl":"https://gcvd2023-c7b45.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-10-02T14:03:14.414Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gcvd2023/webApps/-/config [none]
+[debug] [2023-10-02T14:03:15.572Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gcvd2023/webApps/-/config 200
+[debug] [2023-10-02T14:03:15.575Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gcvd2023/webApps/-/config {"projectId":"gcvd2023","storageBucket":"gcvd2023.appspot.com","apiKey":"AIzaSyDd0i3M03r61Ov4aJoAegWZ4Y7FoJEVWOE","authDomain":"gcvd2023-c7b45.firebaseapp.com","messagingSenderId":"885615248957"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] - info Loaded env from /Users/lee/Documents/GitHub/gachon-vd-graduation23-fe/.env.local
+
+[info] - info Loaded env from /Users/lee/Documents/GitHub/gachon-vd-graduation23-fe/.env
+
+[info] - info Creating an optimized production build...
+
+[info] Failed to compile.
+
+
+[info] ./src/app/about/page.tsx
+Module not found: Can't resolve 'react-html-parser'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+> Build failed because of webpack errors
+
+[debug] [2023-10-02T14:03:25.866Z] Error: ENOENT: no such file or directory, open '/Users/lee/Documents/GitHub/gachon-vd-graduation23-fe/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.

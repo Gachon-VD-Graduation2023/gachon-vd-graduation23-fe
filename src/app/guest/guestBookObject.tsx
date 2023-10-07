@@ -1,16 +1,45 @@
 import { styled } from 'styled-components'
 
-const GuestBookObject = () => {
+// const GuestBookObject = () => {
+//   return (
+//     <Container>
+//       <ReadSenderGuestBookContainer>
+//         <p>from. {'차인차인차'}</p>
+//       </ReadSenderGuestBookContainer>
+//       <ReadContentGuestBookContainer>
+//         <p>{'안녕하세요\n네'}</p>
+//         <UpdateDateGuestBookContainer>
+//           <p>{'2023.04.20'}</p>
+//           <p>{'03:12PM'}</p>
+//         </UpdateDateGuestBookContainer>
+//       </ReadContentGuestBookContainer>
+//     </Container>
+//   )
+// }
+
+type GuestBookType = {
+  name: string
+  content: string
+  date: string
+}
+
+type GuestBookObjectProps = {
+  data: GuestBookType
+}
+
+const GuestBookObject: React.FC<GuestBookObjectProps> = ({ data }) => {
+  const [date, time] = data.date.split('\n')
+
   return (
     <Container>
       <ReadSenderGuestBookContainer>
-        <p>from. {'차인차인차'}</p>
+        <p>from. {data.name}</p>
       </ReadSenderGuestBookContainer>
       <ReadContentGuestBookContainer>
-        <p>{'안녕하세요\n네'}</p>
+        <p>{data.content}</p>
         <UpdateDateGuestBookContainer>
-          <p>{'2023.04.20'}</p>
-          <p>{'03:12PM'}</p>
+          <p>{date}</p>
+          <p>{time}</p>
         </UpdateDateGuestBookContainer>
       </ReadContentGuestBookContainer>
     </Container>
@@ -30,7 +59,8 @@ const ReadSenderGuestBookContainer = styled.div`
   background-color: #fff;
   padding: 8px 12px;
 
-  color: var(--, #000);
+  // color: var(--, #000);
+  color: #000;
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;

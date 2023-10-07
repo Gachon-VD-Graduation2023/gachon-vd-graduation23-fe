@@ -13,26 +13,39 @@ type GuestBookType = {
 
 const Guest = () => {
   const [mounted, setMounted] = useState<boolean>(false)
-  const [guestBooks, setGuestBooks] = useState<GuestBookType[]>([
-    {
-      name: '황남주',
-      content: '그동안 반가웠습니다',
-      date: '2023.04.20\n15:12PM',
-    },
-    {
-      name: '황남주',
-      content: '그동안 반가웠습니다',
-      date: '2023.04.20\n15:12PM',
-    },
-    {
-      name: '황남주',
-      content: '그동안 반가웠습니다',
-      date: '2023.04.20\n15:12PM',
-    },
-  ])
+  const [guestBooks, setGuestBooks] = useState<GuestBookType[]>([])
+  // const [guestBooks, setGuestBooks] = useState<GuestBookType[]>([
+  //   {
+  //     name: '황남주',
+  //     content: '그동안 반가웠습니다',
+  //     date: '2023.04.20\n15:12PM',
+  //   },
+  //   {
+  //     name: '황남주',
+  //     content: '그동안 반가웠습니다',
+  //     date: '2023.04.20\n15:12PM',
+  //   },
+  //   {
+  //     name: '황남주',
+  //     content: '그동안 반가웠습니다',
+  //     date: '2023.04.20\n15:12PM',
+  //   },
+  // ])
 
   useEffect(() => {
     setMounted(true)
+
+    // REST API를 사용하여 데이터 가져오기
+    fetch('https://gcvd-2023-graduation-default-rtdb.firebaseio.com/guestBooks.json')
+      .then((response) => response.json())
+      .then((data) => {
+        const formattedData = Object.values(data).map((item: any) => ({
+          name: item.guestName,
+          content: item.writeDetail,
+          date: item.createdAt,
+        }))
+        setGuestBooks(formattedData)
+      })
   }, [])
 
   return (
@@ -49,12 +62,15 @@ const Guest = () => {
           </CreateContentContainer>
         </CreateGuestBookContainer>
         <ReadGuestBooksContainer>
+          {guestBooks.map((book, index) => (
+            <GuestBookObject key={index} data={book} />
+          ))}
+          {/* <GuestBookObject />
           <GuestBookObject />
           <GuestBookObject />
           <GuestBookObject />
           <GuestBookObject />
-          <GuestBookObject />
-          <GuestBookObject />
+          <GuestBookObject /> */}
         </ReadGuestBooksContainer>
       </Container>
     )
