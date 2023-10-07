@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import styled, { css } from 'styled-components'
-import useBetterMediaQuery from '@/utils/common.util'
+import { useBetterMediaQuery } from '@/utils/common.util'
 import Footer from '@/components/Footer'
 
 export default function WorksDetail() {

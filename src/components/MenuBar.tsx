@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useRouter, usePathname } from 'next/navigation'
 import '../../public/fonts/font.css'
-import useBetterMediaQuery from '@/utils/common.util'
+import { useBetterMediaQuery, useVh } from '@/utils/common.util'
 
 function MenuBar() {
   const isMobile = useBetterMediaQuery('(max-width: 500px)')
@@ -15,6 +15,7 @@ function MenuBar() {
   const [currentMenu, setCurrentMenu] = useState('')
   const [currentWorksMenu, setCurrentWorksMenu] = useState('')
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const vh = useVh()
 
   const getCurrentMenu = () => {
     //url에서 현재 메뉴 값 받아오기
@@ -26,6 +27,7 @@ function MenuBar() {
     //현재 works 페이지 일 경우, works 메뉴 값 받아오기
     const parts = pathname.split('/')
     if (parts[1] === 'works') setCurrentWorksMenu(parts[2])
+    else setCurrentWorksMenu('')
   }
 
   useEffect(() => {
@@ -76,12 +78,11 @@ function MenuBar() {
                     {worksMenuList.map((worksMenu, j) => (
                       <div key={j}>
                         {worksMenu === currentWorksMenu ? (
-                          <SelectedWorksMenu mobile='false'>
+                          <SelectedWorksMenu>
                             {worksMenu === 'uxui' ? 'UX/UI' : worksMenu.toUpperCase()}
                           </SelectedWorksMenu>
                         ) : (
                           <WorksMenu
-                            mobile='false'
                             onClick={() => {
                               setCurrentWorksMenu(worksMenu)
                               router.push(`/works/${worksMenu}`)
@@ -106,8 +107,8 @@ function MenuBar() {
               setShowMobileMenu(true)
             }}
           />
-          {showMobileMenu ? <MobileBgArea /> : null}
-          <MobileMenuBarComponent showmenu={showMobileMenu.toString()}>
+          {showMobileMenu ? <MobileBgArea vh={vh} /> : null}
+          <MobileMenuBarComponent showmenu={showMobileMenu.toString()} vh={vh}>
             <div style={{ display: 'flex' }}>
               <MobileTitleLogo src={baseUrl + '/images/title-logo.png'} />
               <img
@@ -134,6 +135,7 @@ function MenuBar() {
                     <MenuBtn
                       mobile='true'
                       onClick={() => {
+                        setShowMobileMenu(false)
                         if (menu === 'object') {
                           setCurrentMenu('object')
                           setCurrentWorksMenu('')
@@ -144,37 +146,13 @@ function MenuBar() {
                           router.push(`/${menu}`)
                         } else {
                           setCurrentMenu('works')
+                          router.push('/works/bx')
                         }
                       }}
                     >
                       {menu.toUpperCase()}
                     </MenuBtn>
                   )}
-
-                  {menu === 'works' && currentMenu === 'works' ? (
-                    <WorksMenuContainer>
-                      {worksMenuList.map((worksMenu, j) => (
-                        <div key={j}>
-                          {worksMenu === currentWorksMenu ? (
-                            <SelectedWorksMenu mobile='true'>
-                              {worksMenu === 'uxui' ? 'UX/UI' : worksMenu.toUpperCase()}
-                            </SelectedWorksMenu>
-                          ) : (
-                            <WorksMenu
-                              mobile='true'
-                              onClick={() => {
-                                setShowMobileMenu(false)
-                                setCurrentWorksMenu(worksMenu)
-                                router.push(`/works/${worksMenu}`)
-                              }}
-                            >
-                              {worksMenu === 'uxui' ? 'UX/UI' : worksMenu.toUpperCase()}
-                            </WorksMenu>
-                          )}
-                        </div>
-                      ))}
-                    </WorksMenuContainer>
-                  ) : null}
                 </div>
               )
             })}
@@ -211,16 +189,16 @@ const MenuBarComponent = styled.div`
   z-index: 1000;
 `
 //모바일 메뉴 활성화 되어있을 때 메뉴 이외에 검은색 반투명 레이어
-const MobileBgArea = styled.div`
+const MobileBgArea = styled.div<{ vh: number }>`
   width: 100vw;
-  height: 100vh;
+  height: ${(props) => `${100 * props.vh}px`};
   position: absolute;
   z-index: 900;
   background: rgba(0, 0, 0, 0.4);
 `
-const MobileMenuBarComponent = styled.div<{ showmenu: string }>`
+const MobileMenuBarComponent = styled.div<{ showmenu: string; vh: number }>`
   width: 235px;
-  height: 100vh;
+  height: ${(props) => `${100 * props.vh}px`};
   padding-top: 16px;
   padding-left: 16px;
   position: absolute;
@@ -354,10 +332,10 @@ const WorksMenuContainer = styled.div`
   padding-bottom: 4px;
   margin-top: -27px;
 `
-const SelectedWorksMenu = styled.div<{ mobile: string }>`
-  font-size: ${(props) => (props.mobile === 'true' ? '12px' : '16px')};
+const SelectedWorksMenu = styled.div`
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: ${(props) => (props.mobile === 'true' ? '12px' : '16px')};
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
 
@@ -369,22 +347,23 @@ const SelectedWorksMenu = styled.div<{ mobile: string }>`
     margin-right: 6px; /* 박스와 텍스트 사이 간격 조절 */
   }
 `
-const WorksMenu = styled.div<{ mobile: string }>`
+const WorksMenu = styled.div`
   color: #7a7a7a;
-  font-size: ${(props) => (props.mobile === 'true' ? '12px' : '16px')};
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: ${(props) => (props.mobile === 'true' ? '12px' : '16px')};
+  margin-bottom: 16px;
   cursor: pointer;
   margin-left: 14px;
 `
 
 const HamburgerIcon = styled.img`
-  position: absolute;
+  position: fixed;
   top: 16px;
   left: 16px;
   width: 24px;
   height: 16px;
   cursor: pointer;
+  z-index: 999;
 `
 
 export default MenuBar
