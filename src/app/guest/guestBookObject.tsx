@@ -1,16 +1,24 @@
 import { styled } from 'styled-components'
 
-const GuestBookObject = () => {
+type GuestBookType = {
+  name: string
+  content: string
+  date: string
+}
+
+const GuestBookObject = (guestBook: GuestBookType) => {
+  const { name, content, date } = guestBook
+
   return (
     <Container>
       <ReadSenderGuestBookContainer>
-        <p>from. {'차인차인차'}</p>
+        <p>from. {name}</p>
       </ReadSenderGuestBookContainer>
       <ReadContentGuestBookContainer>
-        <p>{'안녕하세요\n네'}</p>
+        <p>{content}</p>
         <UpdateDateGuestBookContainer>
-          <p>{'2023.04.20'}</p>
-          <p>{'03:12PM'}</p>
+          <p>{date}</p>
+          <p>{date}</p>
         </UpdateDateGuestBookContainer>
       </ReadContentGuestBookContainer>
     </Container>
