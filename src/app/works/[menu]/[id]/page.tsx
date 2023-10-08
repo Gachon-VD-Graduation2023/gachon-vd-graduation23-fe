@@ -1,23 +1,28 @@
 'use client'
 import React from 'react'
 import styled, { css } from 'styled-components'
-import useBetterMediaQuery from '@/utils/common.util'
 import Footer from '@/components/Footer'
+import { useBetterMediaQuery, useVh } from '@/utils/common.util'
 
 export default function WorksDetail() {
   const isUnder1000 = useBetterMediaQuery('(max-width: 1000px)')
+  const isMobile = useBetterMediaQuery('(max-width: 500px)')
   const baseUrl = process.env.NEXT_PUBLIC_URL
+  const vh = useVh()
   return (
     <>
-      <Container>
+      <Container mobile={isMobile?.toString()} vh={vh}>
         <Banner>
           <BannerImg src={baseUrl + '/images/works/works_detail/banner_sample.png'} />
         </Banner>
         {!isUnder1000 ? (
           <Introduce>
-            <Artist type='largeScreen'>
+            <Artist type='largeScreen' mobile={isMobile?.toString()}>
               <IntroduceIndicator />
-              <ProfileImg src={baseUrl + '/images/works/works_detail/profile_sample.png'} />
+              <ProfileImg
+                src={baseUrl + '/images/works/works_detail/profile_sample.png'}
+                mobile={isMobile?.toString()}
+              />
               <div>
                 <div className='title'>이름</div>
                 <div className='info' style={{ marginBottom: '8px' }}>
@@ -26,7 +31,7 @@ export default function WorksDetail() {
                 <div className='info'>@naver_insta</div>
               </div>
             </Artist>
-            <Describe type='largeScreen'>
+            <Describe type='largeScreen' mobile={isMobile?.toString()}>
               <IntroduceIndicator />
               <div className='title'>제목</div>
               <div className='info'>
@@ -45,7 +50,7 @@ export default function WorksDetail() {
           </Introduce>
         ) : (
           <div>
-            <Describe type='smallScreen'>
+            <Describe type='smallScreen' mobile={isMobile?.toString()}>
               <IntroduceIndicator />
               <div className='title'>제목</div>
               <div className='info'>
@@ -58,12 +63,15 @@ export default function WorksDetail() {
               </div>
             </Describe>
             <div style={{ display: 'flex' }}>
-              <Artist type='smallScreen'>
+              <Artist type='smallScreen' mobile={isMobile?.toString()}>
                 <IntroduceIndicator />
-                <ProfileImg src={baseUrl + '/images/works/works_detail/profile_sample.png'} />
+                <ProfileImg
+                  src={baseUrl + '/images/works/works_detail/profile_sample.png'}
+                  mobile={isMobile?.toString()}
+                />
                 <div>
                   <div className='title'>이름</div>
-                  <div className='info' style={{ marginBottom: '8px' }}>
+                  <div className='info' style={{ marginBottom: isMobile ? '6px' : '8px' }}>
                     chain1999@naver.com
                   </div>
                   <div className='info'>@naver_insta</div>
@@ -84,9 +92,9 @@ export default function WorksDetail() {
   )
 }
 
-const Container = styled.div`
-  padding-left: 201px;
-  min-height: 100vh;
+const Container = styled.div<{ mobile?: string; vh: number }>`
+  padding-left: ${(props) => (props.mobile === 'true' ? '0px' : '201px')};
+  // min-height: ${(props) => `${100 * props.vh}px`};
   background: white;
 `
 const Banner = styled.div`
@@ -111,24 +119,43 @@ const IntroduceIndicator = styled.div`
   background: black;
 `
 
-const Artist = styled.div<{ type: string }>`
+const Artist = styled.div<{ type: string; mobile?: string }>`
   border: 1px solid black;
   min-height: 281px;
   position: relative;
-  padding: 29px 0px 29px 24px;
+  // padding: 29px 0px 29px 24px;
+  padding: ${(props) => (props.mobile === 'true' ? '20px 16px 20px 16px;' : '29px 0px 29px 24px')};
   display: flex;
   flex-wrap: wrap;
 
-  .title {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  .info {
-    color: #3F3F3;
-    font-size: 16px;
-    font-weight: 500;
-  }
+  ${(props) =>
+    props.mobile === 'true'
+      ? `
+      padding: 20px 16px 24px 16px;
+    .title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .info {
+      color: #3F3F3;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  `
+      : `
+    padding: 29px 0px 29px 24px;
+    .title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .info {
+      color: #3F3F3;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  `}
 
   ${(props) =>
     props.type === 'smallScreen' &&
@@ -141,13 +168,23 @@ const Artist = styled.div<{ type: string }>`
       width: 32.5%;
     `}
 `
-const ProfileImg = styled.img`
+const ProfileImg = styled.img<{ mobile?: string }>`
+  ${(props) =>
+    props.mobile === 'true'
+      ? `
+      width: 100%;
+      height: auto;
+      margin-right: 19px;
+      margin-bottom: 20px;
+    `
+      : `
   width: 168px;
   height: 168px;
   margin-right: 19px;
   margin-bottom: 20px;
+  `}
 `
-const Describe = styled.div<{ type: string }>`
+const Describe = styled.div<{ type: string; mobile?: string }>`
   border: 1px solid black;
   ${(props) =>
     props.type === 'smallScreen' &&
@@ -158,24 +195,44 @@ const Describe = styled.div<{ type: string }>`
     props.type !== 'smallScreen' &&
     css`
       width: 47.5%;
+      min-height: 281px;
     `}
 
-  min-height: 281px;
   position: relative;
   padding: 29px 34px 29px 28px;
-  .title {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  .info {
-    color: #3F3F3;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 150%;
-  }
+
+  ${(props) =>
+    props.mobile === 'true'
+      ? `
+      padding: 20px 16px 24px 16px;
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .info {
+      color: #3F3F3;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 150%;
+    }
+  `
+      : `
+    padding: 29px 34px 29px 28px;
+    .title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .info {
+      color: #3F3F3;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 150%;
+    }
+  `}
 `
-const Object = styled.div<{ type: string }>`
+const Object = styled.div<{ type: string; mobile?: string }>`
   border: 1px solid black;
   min-height: 281px;
   position: relative;
@@ -185,7 +242,7 @@ const Object = styled.div<{ type: string }>`
 
   & > img {
     width: auto;
-    height: 200px;
+    height: ${(props) => (props.mobile === 'true' ? '150px' : '170px')};
   }
 
   ${(props) =>
