@@ -13,6 +13,7 @@ import {
 import { ObjectProp } from '../../../../types/object.type'
 import { useRouter, usePathname } from 'next/navigation'
 import Footer from '@/components/Footer'
+import { useBetterMediaQuery, useVh } from '@/utils/common.util'
 
 var Engine = Matter.Engine,
   Render = Matter.Render,
@@ -24,8 +25,11 @@ var Engine = Matter.Engine,
   Events = Matter.Events
 
 export default function Object({ params }: { params: { menu: string } }) {
+  const isMobile = useBetterMediaQuery('(max-width: 500px)')
+  const vh = useVh()
   const router = useRouter()
   const menu = ['ALL', 'BX', 'Graphic', 'Illustration', 'Media', 'UXUI']
+  const mobileMenu = ['BX', 'Graphic', 'Illustration', 'Media', 'UXUI']
 
   const targetCanvas = useRef<HTMLCanvasElement>(null)
   let engine: Matter.Engine | null = null
@@ -175,6 +179,24 @@ export default function Object({ params }: { params: { menu: string } }) {
         },
       })
 
+      mouseConstraint.mouse.element.removeEventListener(
+        'mousewheel',
+        mouseConstraint.mouse.mousewheel,
+      )
+      mouseConstraint.mouse.element.removeEventListener(
+        'DOMMouseScroll',
+        mouseConstraint.mouse.mousewheel,
+      )
+      mouseConstraint.mouse.element.removeEventListener(
+        'touchmove',
+        mouseConstraint.mouse.mousemove,
+      )
+      mouseConstraint.mouse.element.removeEventListener(
+        'touchstart',
+        mouseConstraint.mouse.mousedown,
+      )
+      mouseConstraint.mouse.element.removeEventListener('touchend', mouseConstraint.mouse.mouseup)
+
       Events.on(mouseConstraint, 'mousedown', (event) => {
         handleClick(event)
       })
@@ -191,45 +213,67 @@ export default function Object({ params }: { params: { menu: string } }) {
   }, [])
   return (
     <>
-      <Container>
-        <MenuBar>
-          {menu.map((menu, i) => {
-            return menu.toLowerCase() === params.menu ? (
-              <SelectedMenuBtn>{menu === 'UXUI' ? 'UX/UI' : menu}</SelectedMenuBtn>
-            ) : (
-              <MenuBtn
-                onClick={() => {
-                  router.push(`/object/${menu.toLowerCase()}`)
-                }}
-              >
-                {menu === 'UXUI' ? 'UX/UI' : menu}
-              </MenuBtn>
-            )
-          })}
+      <Container mobile={isMobile?.toString()} vh={vh}>
+        <MenuBar mobile={isMobile?.toString()}>
+          {!isMobile
+            ? menu.map((menu, i) => {
+                return menu.toLowerCase() === params.menu ? (
+                  <SelectedMenuBtn key={i}>{menu === 'UXUI' ? 'UX/UI' : menu}</SelectedMenuBtn>
+                ) : (
+                  <MenuBtn
+                    key={i}
+                    onClick={() => {
+                      router.push(`/object/${menu.toLowerCase()}`)
+                    }}
+                  >
+                    {menu === 'UXUI' ? 'UX/UI' : menu}
+                  </MenuBtn>
+                )
+              })
+            : mobileMenu.map((menu, i) => {
+                return menu.toLowerCase() === params.menu ? (
+                  <MobileSelectedMenuBtn key={i}>
+                    {menu === 'UXUI' ? 'UX/UI' : menu}
+                  </MobileSelectedMenuBtn>
+                ) : (
+                  <MobileMenuBtn
+                    key={i}
+                    onClick={() => {
+                      router.push(`/object/${menu.toLowerCase()}`)
+                    }}
+                  >
+                    {menu === 'UXUI' ? 'UX/UI' : menu}
+                  </MobileMenuBtn>
+                )
+              })}
         </MenuBar>
         <Canvas ref={targetCanvas}></Canvas>
       </Container>
+
       <Footer />
     </>
   )
 }
 
-const Container = styled.div`
-  padding-left: 201px;
-  height: 100vh;
+const Container = styled.div<{ mobile?: string; vh: number }>`
+  height: ${(props) => `${100 * props.vh}px`};
   background: linear-gradient(180deg, #19b7ec 0%, #f3f3f3 100%);
+  padding-left: ${(props) => (props.mobile === 'true' ? '0px' : '201px')};
 `
+
 const Canvas = styled.canvas`
   width: 100%;
   height: 100%;
 `
-const MenuBar = styled.div`
+const MenuBar = styled.div<{ mobile?: string }>`
   display: flex;
   width: 100%;
-  margin-top: 24px;
+  margin-top: ${(props) => (props.mobile === 'true' ? '56px' : '24px')};
   position: fixed;
-  border-bottom: 1px solid black;
+  border-bottom: ${(props) => (props.mobile === 'true' ? '0px' : '1px solid black')};
+  z-index: 998;
 `
+
 const MenuBtn = styled.div`
   border: 1px solid black;
   padding: 4px 20px 4px 20px;
@@ -244,4 +288,35 @@ const SelectedMenuBtn = styled.div`
   font-weight: 700;
   background-color: black;
   color: white;
+`
+
+const MobileMenuBtn = styled.div`
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 0.5px solid black;
+  border-right: 0.5px solid black;
+  padding: 3px 0px 3px 0px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-grow: 1;
+  text-align: center;
+  &:first-child {
+    border-left: none;
+  }
+  &:last-child {
+    border-right: none;
+  }
+`
+const MobileSelectedMenuBtn = styled.div`
+  border: 1px solid black;
+  padding: 3px 0px 3px 0px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  flex-grow: 1;
+  text-align: center;
 `
