@@ -53,10 +53,9 @@ export default function Works({ params }: { params: { menu: string } }) {
               </Contents>
             </Container>
           </Root>
-          <Footer />
         </>
       ) : (
-        <MobileContainer vh={vh}>
+        <>
           <MenuBar>
             {menu.map((menu, i) => {
               return menu.toLowerCase() === params.menu ? (
@@ -81,8 +80,9 @@ export default function Works({ params }: { params: { menu: string } }) {
               ),
             )}
           </MobileContents>
-        </MobileContainer>
+        </>
       )}
+      <Footer />
     </>
   )
 }
@@ -103,31 +103,37 @@ const Contents = styled.div`
   justify-content: center;
   grid-row-gap: 10px;
 `
-const MobileContainer = styled.div<{ vh: number }>`
-  overflow-y: hidden;
-  background-color: white;
-  height: ${(props) => `${100 * props.vh}px`};
+// const MobileContainer = styled.div<{ vh: number }>`
+//   // overflow-y: hidden;
+//   background-color: white;
+//   height: ${(props) => `${100 * props.vh}px`};
+//   // background-image: url(https://i.imgur.com/6Vak1vl.png);
+//   // background-size: cover;
+//   // min-height: ${(props) => `${100 * props.vh}px`};
+// `
+const MobileContents = styled.div<{ vh: number }>`
+  overflow-y: scroll;
+  min-height: ${(props) => `${100 * props.vh}px`};
   background-image: url(https://i.imgur.com/6Vak1vl.png);
   background-size: cover;
-  min-height: ${(props) => `${100 * props.vh}px`};
-`
-const MobileContents = styled.div<{ vh: number }>`
-  overflow-y: auto;
-  max-height: ${(props) => `${100 * props.vh - 56}px`};
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(157px, max-content));
+  grid-template-columns: repeat(2, minmax(157px, max-content));
+  background-attachment: scroll;
   justify-content: center;
   grid-gap: 8px;
-  padding-top: 20px;
+  padding-top: 100px;
   padding-bottom: 56px;
 `
 const MenuBar = styled.div`
+  background-image: url(https://i.imgur.com/6Vak1vl.png);
+  background-size: cover;
   overflow-y: hidden;
   display: flex;
   width: 100%;
   padding-top: 56px;
-  position: static;
+  position: fixed;
+  z-index: 998;
 `
 const MenuBtn = styled.div`
   border-top: 1px solid black;
