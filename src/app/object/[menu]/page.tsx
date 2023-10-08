@@ -20,7 +20,8 @@ var Engine = Matter.Engine,
   Runner = Matter.Runner,
   Composite = Matter.Composite,
   Mouse = Matter.Mouse,
-  MouseConstraint = Matter.MouseConstraint
+  MouseConstraint = Matter.MouseConstraint,
+  Events = Matter.Events
 
 export default function Object({ params }: { params: { menu: string } }) {
   const router = useRouter()
@@ -58,6 +59,7 @@ export default function Object({ params }: { params: { menu: string } }) {
         objectProps.height,
         {
           render: objectProps.render,
+          objectProps: objectProps as any,
         },
       )
 
@@ -67,6 +69,23 @@ export default function Object({ params }: { params: { menu: string } }) {
     setTimeout(() => {
       addObject(index + 1)
     }, 50)
+  }
+
+  //클릭 이벤트
+  function handleClick(event: any) {
+    const mousePosition = event.mouse.position
+    if (engine) {
+      const clickedObjects = Matter.Query.point(engine.world.bodies, mousePosition)
+
+      if (clickedObjects.length > 0) {
+        const clickedObject = clickedObjects[0]
+        const objectProps = (clickedObject as any).objectProps
+
+        if (objectProps && objectProps.target) {
+          router.push(`/works/${params.menu}/${objectProps.target}`)
+        }
+      }
+    }
   }
 
   //matter.js 셋업
@@ -146,6 +165,29 @@ export default function Object({ params }: { params: { menu: string } }) {
     setTimeout(() => {
       addObject(0)
     }, 50)
+
+    if (engine && render) {
+      const mouse = Mouse.create(render.canvas)
+      const mouseConstraint = MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+          stiffness: 0.2,
+        },
+      })
+
+      Events.on(mouseConstraint, 'mousedown', (event) => {
+        handleClick(event)
+      })
+
+      Composite.add(engine.world, mouseConstraint)
+
+      return () => {
+        // 클릭 이벤트 핸들러를 제거합니다. (clean-up)
+        if (engine) {
+          Composite.remove(engine.world, mouseConstraint)
+        }
+      }
+    }
   }, [])
   return (
     <>
