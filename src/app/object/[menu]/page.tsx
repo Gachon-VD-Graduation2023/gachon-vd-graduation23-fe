@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import * as Matter from 'matter-js'
 import {
+  allObjectData,
   bxObjectData,
   mediaObjectData,
   uxuiObjectData,
@@ -24,17 +25,6 @@ var Engine = Matter.Engine,
 export default function Object({ params }: { params: { menu: string } }) {
   const router = useRouter()
   const menu = ['ALL', 'BX', 'Graphic', 'Illustration', 'Media', 'UXUI']
-  const allObject = [
-    ...bxObjectData,
-    ...mediaObjectData,
-    ...uxuiObjectData,
-    ...graphicObjectData,
-    ...illustrationObjectData,
-  ]
-
-  // useEffect(() => {
-  //   console.log(params.menu)
-  // }, [])
 
   const targetCanvas = useRef<HTMLCanvasElement>(null)
   let engine: Matter.Engine | null = null
@@ -127,9 +117,8 @@ export default function Object({ params }: { params: { menu: string } }) {
     } else if (params.menu === 'illustration') {
       objectPropsArr = shuffleArray(illustrationObjectData)
     } else {
-      objectPropsArr = shuffleArray(allObject)
+      objectPropsArr = shuffleArray(allObjectData)
     }
-    // objectPropsArr = shuffleArray(objectData)
 
     window.addEventListener('resize', () => handleResize())
   }
