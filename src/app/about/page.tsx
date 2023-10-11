@@ -6,8 +6,11 @@ import ReactHtmlParser from 'react-html-parser'
 import { IconDot } from '../../../public/svgs'
 import Image from 'next/image'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import useBetterMediaQuery from '@/utils/common.util'
 
 const About = () => {
+  const isUnder1000 = useBetterMediaQuery('(max-width: 500px)')
+
   const aboutImageRef_1 = useRef<any>(null)
   const topContainer = useRef<any>(null)
   const [lastScrollTop, setLastScrollTop] = useState(0)
@@ -19,19 +22,273 @@ const About = () => {
     setMounted(true)
   }, [])
 
-  const handleScroll = (e: any) => {
-    setScrollY(Math.abs(topContainer.current.getBoundingClientRect().top))
-    console.log(topContainer.current.getBoundingClientRect().top)
+  // const handleScroll = (e: any) => {
+  //   setScrollY(Math.abs(topContainer.current.getBoundingClientRect().top))
+  //   console.log(topContainer.current.getBoundingClientRect().top)
 
-    console.log(window.scrollY)
-  }
-  useEffect(() => {
-    document.body.addEventListener('scroll', handleScroll)
-    return () => document.body.removeEventListener('scroll', handleScroll)
-  }, [])
+  //   console.log(window.scrollY)
+  // }
+  // useEffect(() => {
+  //   if (!isUnder1000) {
+  //     document.body.addEventListener('scroll', handleScroll)
+  //     return () => document.body.removeEventListener('scroll', handleScroll)
+  //   }
+  // }, [])
 
   return (
-    mounted && (
+    mounted &&
+    (isUnder1000 ? (
+      <MobileContainer>
+        <TopContainer top={'283px'} left={'42px'} style={{ zIndex: 1 }}>
+          <MobileMainContainer width={239} height={67} padding={'8px 0'}>
+            <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
+            {ReactHtmlParser(aboutData.MOBILE_ABOUT_TITLE)}
+          </MobileMainContainer>
+          <MobileContentContainer
+            width={269}
+            height={419}
+            padding={'20px'}
+            style={{ marginLeft: '17px' }}
+          >
+            <div>{ReactHtmlParser(aboutData.ABOUT_CONTENT_1)}</div>
+          </MobileContentContainer>
+          <MobileOverlayContainer
+            width={269}
+            height={526}
+            padding={'21px'}
+            style={{ marginLeft: '17px' }}
+          >
+            {aboutData.MOBILE_CONTENT_ENG_1}
+          </MobileOverlayContainer>
+        </TopContainer>
+        <Image
+          src={process.env.NEXT_PUBLIC_URL + '/images/about/mobile/image-about-asset-1.png'}
+          width={288}
+          height={288}
+          alt={''}
+          style={{
+            position: 'absolute',
+            left: -200,
+            top: 983,
+          }}
+          priority
+        />
+        <Image
+          src={process.env.NEXT_PUBLIC_URL + '/images/about/mobile/image-about-asset-2.png'}
+          width={341}
+          height={1852}
+          alt={''}
+          style={{
+            position: 'absolute',
+            left: 20,
+            top: 1390,
+          }}
+        />
+        <Image
+          src={process.env.NEXT_PUBLIC_URL + '/images/about/mobile/image-about-asset-3.png'}
+          width={475}
+          height={2124}
+          alt={''}
+          style={{
+            position: 'absolute',
+            left: 25,
+            top: 774,
+          }}
+        />
+        <Image
+          src={process.env.NEXT_PUBLIC_URL + '/images/about/mobile/image-about-asset-4.png'}
+          width={1200}
+          height={1405}
+          alt={''}
+          style={{
+            position: 'absolute',
+            left: -328,
+            top: 2821,
+          }}
+        />
+        <Image
+          src={process.env.NEXT_PUBLIC_URL + '/images/about/mobile/image-about-asset-5.png'}
+          width={502}
+          height={585}
+          alt={''}
+          style={{
+            position: 'absolute',
+            left: 86,
+            top: -100,
+          }}
+        />
+        <Image
+          src={process.env.NEXT_PUBLIC_URL + '/images/about/mobile/image-poster.png'}
+          width={289}
+          height={410}
+          alt={''}
+          style={{ position: 'absolute', left: 42, top: 1499 }}
+        />
+        <TopContainer top={'2161px'} left={'42px'}>
+          <MobileSubTitleContainer width={186} height={35} padding={'0'}>
+            <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
+            <div>{aboutData.ABOUT_SUB_TITLE_1}</div>
+          </MobileSubTitleContainer>
+          <MobileContentContainer
+            width={269}
+            height={187}
+            padding={'20px'}
+            style={{ marginLeft: '18px' }}
+          >
+            {aboutData.ABOUT_CONTENT_2}
+          </MobileContentContainer>
+          <MobileOverlayContainer
+            width={269}
+            height={220}
+            padding={'20px'}
+            style={{ marginLeft: '18px' }}
+          >
+            {aboutData.MOBILE_CONTENT_ENG_2}
+          </MobileOverlayContainer>
+        </TopContainer>
+        <TopContainer top={'2789px'} left={'40px'} style={{ zIndex: 1 }}>
+          <MobileSubTitleContainer
+            width={270}
+            height={73}
+            padding={'10px 0px 10px 24px'}
+            style={{ fontSize: '20px', justifyContent: 'flex-start', lineHeight: '130%' }}
+          >
+            <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
+            <div>{aboutData.MOBILE_ABOUT_SUB_TITLE_2}</div>
+          </MobileSubTitleContainer>
+          <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '19px' }}>
+            <MobileContentContainer
+              width={269}
+              height={259}
+              padding='20px 0 20px 20px'
+              style={{
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                justifyContent: 'space-between',
+              }}
+            >
+              {aboutData.ABOUT_CATEGORIES.map(({ title, content }, index) => {
+                return (
+                  <div key={index} style={{ fontSize: '14px', fontWeight: 500 }}>
+                    <div style={{ marginBottom: '5px' }}>
+                      <b>{title}</b>
+                    </div>
+                    <div>{content}</div>
+                  </div>
+                )
+              })}
+            </MobileContentContainer>
+            <MobileOverlayContainer
+              width={269}
+              height={281}
+              padding='20px'
+              style={{
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                justifyContent: 'space-between',
+              }}
+            >
+              {aboutData.MOBILE_ABOUT_CATEGORIES_ENG.map(({ title, content }, index) => {
+                return (
+                  <div key={index} style={{ fontSize: '14px', fontWeight: 500 }}>
+                    <div style={{ marginBottom: '5px' }}>
+                      <b>{title}</b>
+                    </div>
+                    <div>{content}</div>
+                  </div>
+                )
+              })}
+            </MobileOverlayContainer>
+          </div>
+        </TopContainer>
+        <TopContainer top={'3532px'} left={'0'} style={{ zIndex: 1, alignItems: 'center' }}>
+          <MobileLastContainer>
+            {aboutData.MOBILE_ABOUT_CONTENT_3.map(({ title, subContent }, index) => {
+              return (
+                <Table key={index}>
+                  <div style={{ width: '73px' }}>{title === '' ? <div></div> : title}</div>
+                  {title === '졸업준비위원회' ? (
+                    <div
+                      style={{
+                        width: '300px',
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        gap: '16px',
+                      }}
+                    >
+                      {subContent.map(({ subTitle, name }, index) => {
+                        return (
+                          <MobileFinalInnerTable
+                            style={{ width: index % 2 == 0 ? '110px' : '170px' }}
+                            key={index}
+                          >
+                            <div
+                              style={{
+                                width: '42px',
+                                color: '#6A6A6A',
+                                fontWeight: 500,
+                                letterSpacing: subTitle === '웹 팀' ? '2.8px' : '0',
+                              }}
+                            >
+                              {subTitle}
+                            </div>
+                            {name.length > 1 ? (
+                              <div
+                                style={{
+                                  width: '100px',
+                                  display: 'flex',
+                                  flexWrap: 'wrap',
+                                  gap: '13px',
+                                }}
+                              >
+                                {name.map((obj) => (
+                                  <p style={{ marginRight: '8px' }}>{obj}</p>
+                                ))}
+                              </div>
+                            ) : (
+                              <div>
+                                {name.map((obj) => (
+                                  <p style={{ marginRight: '8px' }}>{obj}</p>
+                                ))}
+                              </div>
+                            )}
+                          </MobileFinalInnerTable>
+                        )
+                      })}
+                    </div>
+                  ) : (
+                    <div>
+                      {subContent.map(({ subTitle, name }, index) => {
+                        return (
+                          <MobileFinalInnerTable key={index}>
+                            <div
+                              style={{
+                                width: '42px',
+                                marginBottom: '16px',
+                                color: '#6A6A6A',
+                                fontWeight: 500,
+                              }}
+                            >
+                              {subTitle}
+                            </div>
+                            <div style={{ display: 'flex' }}>
+                              {name.map((obj) => (
+                                <p style={{ marginRight: '8px' }}>{obj}</p>
+                              ))}
+                            </div>
+                          </MobileFinalInnerTable>
+                        )
+                      })}
+                    </div>
+                  )}
+                </Table>
+              )
+            })}
+          </MobileLastContainer>
+          <MobileTag>GCVD 2023 Graduation Exhibition</MobileTag>
+        </TopContainer>
+      </MobileContainer>
+    ) : (
       <Container ref={topContainer}>
         <TopContainer top={'239px'} left={'56px'} style={{ zIndex: 1 }}>
           <MainContainer width={380} height={106} padding={'10px 0px'}>
@@ -207,11 +464,22 @@ const About = () => {
           </LastContainer>
         </TopContainer>
       </Container>
-    )
+    ))
   )
 }
 
 export default About
+
+const MobileContainer = styled.div`
+  width: 100%;
+  max-width: 480px;
+  height: 4061px;
+  background: linear-gradient(180deg, #18b6ec 0%, #d0f0fb 41.98%, #fff 100%);
+  padding-top: 56px;
+
+  position: relative;
+  overflow: hidden;
+`
 
 const Container = styled.div`
   width: calc(100vw - 201px);
@@ -232,6 +500,35 @@ const TopContainer = styled.div<{
 
   display: flex;
   flex-direction: column;
+`
+
+const MobileContentContainer = styled.div<{
+  width: number
+  height: number
+  padding?: string
+}>`
+  width: ${(props) => `${props.width}px`};
+  height: ${(props) => `${props.height}px`};
+  padding: ${(props) => (props.padding ? `${props.padding}` : '0px')};
+
+  border: 1px solid #080504;
+  background: #fff;
+  font-family: Pretendard;
+
+  word-wrap: break-word;
+  white-space: pre-line;
+  word-break: break-all;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 150%; /* 21px */
+  letter-spacing: -0.35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
 `
 
 const ContentContainer = styled.div<{
@@ -262,6 +559,30 @@ const ContentContainer = styled.div<{
   position: relative;
 `
 
+const MobileLastContainer = styled.div`
+  width: 100vw;
+  max-width: 500px;
+  height: 429px;
+  padding: 36px 0 0 20px;
+
+  border-top: 1px solid #080504;
+  background: #fff;
+  font-family: Pretendard;
+
+  word-wrap: break-word;
+  white-space: pre-line;
+  word-break: break-all;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+
+  display: flex;
+  gap: 60px;
+  flex-direction: column;
+  position: relative;
+`
+
 const LastContainer = styled.div`
   width: 100vw;
   height: 342px;
@@ -283,6 +604,17 @@ const LastContainer = styled.div`
   gap: 100px;
   position: relative;
 `
+const MobileMainContainer = styled(MobileContentContainer)`
+  color: var(--, #000);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 133.5%; /* 42.72px */
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`
 
 const MainContainer = styled(ContentContainer)`
   color: var(--, #000);
@@ -296,9 +628,28 @@ const MainContainer = styled(ContentContainer)`
   justify-content: center;
 `
 
+const MobileOverlayContainer = styled(MobileContentContainer)`
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  font-size: 12px;
+  word-break: keep-all;
+  line-height: 150%;
+`
+
 const OverlayContainer = styled(ContentContainer)`
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(15px);
+`
+
+const MobileSubTitleContainer = styled(MobileContentContainer)`
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const SubTitleContainer = styled(ContentContainer)`
@@ -322,8 +673,29 @@ const FinalTable = styled.div`
   flex-direction: column;
   gap: 38px;
 `
+const MobileFinalInnerTable = styled.div`
+  display: flex;
+  gap: 12px;
+`
 
 const FinalInnerTable = styled.div`
   display: flex;
   gap: 20px;
+`
+
+const MobileTag = styled.div`
+  width: 100vw;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #fff;
+
+  color: #575757;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 12px */
 `

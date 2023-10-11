@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <body className={inter.className}>
         {/* 좌측 메뉴바 */}
-        <MenuBar />
+        {/* <MenuBar /> */}
         {children}
       </body>
     </html>

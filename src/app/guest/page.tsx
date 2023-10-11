@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { styled } from 'styled-components'
-import { IconSend } from '../../../public/svgs'
+import { IconSend, MobileIconSend } from '../../../public/svgs'
 import GuestBookObject from './guestBookObject'
 import { useInfiniteQuery } from 'react-query'
+import useBetterMediaQuery from '@/utils/common.util'
+import MobileGuestBookObject from './mobileGuestBookObject'
 
 type GuestBookType = {
   name: string
@@ -24,53 +26,94 @@ interface IApiError {
 
 const Guest = () => {
   const [mounted, setMounted] = useState<boolean>(false)
-  const [guestBooks, setGuestBooks] = useState<GuestBookType[]>([])
-  const [loadMore, setLoadMore] = useState<boolean>(false)
-  const { data, status, error, fetchNextPage, isFetchingNextPage, hasNextPage } = useInfiniteQuery(
-    ['getList'],
-    ({ pageParam = 1 }) => getList({ pageParam }),
+  const [guestBooks, setGuestBooks] = useState<GuestBookType[]>([
     {
-      onSettled: (res) => {
-        setLoadMore(true)
-      },
-      getNextPageParam: (lastPage) => {
-        return lastPage.total > lastPage.page * lastPage.limit ? lastPage.page + 1 : false
-      },
-      onError: (err: IApiError) => err,
+      name: '감사합니다',
+      content: '안녕하세요',
+      date: ' 202020',
     },
-  )
+    {
+      name: '감사합니다',
+      content: '안녕하세요',
+      date: ' 202020',
+    },
+    {
+      name: '감사합니다',
+      content: '안녕하세요',
+      date: ' 202020',
+    },
+
+    {
+      name: '감사합니다',
+      content: '안녕하세요',
+      date: ' 202020',
+    },
+
+    {
+      name: '감사합니다',
+      content: '안녕하세요',
+      date: ' 202020',
+    },
+
+    {
+      name: '감사합니다',
+      content: '안녕하세요',
+      date: ' 202020',
+    },
+
+    {
+      name: '감사합니다',
+      content: '안녕하세요',
+      date: ' 202020',
+    },
+  ])
+  const isUnder1000 = useBetterMediaQuery('(max-width: 480px)')
+  // const [loadMore, setLoadMore] = useState<boolean>(false)
+  // const { data, status, error, fetchNextPage, isFetchingNextPage, hasNextPage } = useInfiniteQuery(
+  //   ['getList'],
+  //   ({ pageParam = 1 }) => getList({ pageParam }),
+  //   {
+  //     onSettled: (res) => {
+  //       setLoadMore(true)
+  //     },
+  //     getNextPageParam: (lastPage) => {
+  //       return lastPage.total > lastPage.page * lastPage.limit ? lastPage.page + 1 : false
+  //     },
+  //     onError: (err: IApiError) => err,
+  //   },
+  // )
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const isScroll = () => {
-    let padding = 100
-    let scrollY = window.scrollY
-    let screenHeight = window.innerHeight
-    let bodyHeight = document.documentElement.offsetHeight
-    let scrollEnd = scrollY + screenHeight
-    let pos = scrollEnd + padding
-    let isEnd = pos >= bodyHeight
+  // const isScroll = () => {
+  //   let padding = 100
+  //   let scrollY = window.scrollY
+  //   let screenHeight = window.innerHeight
+  //   let bodyHeight = document.documentElement.offsetHeight
+  //   let scrollEnd = scrollY + screenHeight
+  //   let pos = scrollEnd + padding
+  //   let isEnd = pos >= bodyHeight
 
-    // 스크롤이 맨끝에 도달했고 추가 패치를 실행하지않았다면 패치 실행
-    if (isEnd && !loadMore) {
-      setLoadMore(true)
-    }
-  }
+  //   // 스크롤이 맨끝에 도달했고 추가 패치를 실행하지않았다면 패치 실행
+  //   if (isEnd && !loadMore) {
+  //     setLoadMore(true)
+  //   }
+  // }
 
   // 스크롤 이벤트 발생
-  useEffect(() => {
-    window.addEventListener('scroll', isScroll)
-    return () => window.removeEventListener('scroll', isScroll)
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener('scroll', isScroll)
+  //   return () => window.removeEventListener('scroll', isScroll)
+  // }, [])
 
   // loadMore가 true로 변경될때 fetchNextPage 실행
-  useEffect(() => {
-    if (loadMore) {
-      fetchNextPage()
-    }
-  }, [loadMore])
+  // useEffect(() => {
+  //   if (loadMore) {
+  //     fetchNextPage()
+  //   }
+  // }, [loadMore])
 
   const getList = async ({ pageParam = 1 }) => {
     const url = `https://dapi.kakao.com/v2/search/web?query=${'안녕'}&page=${pageParam}`
@@ -84,7 +127,26 @@ const Guest = () => {
   }
 
   return (
-    mounted && (
+    mounted &&
+    (isUnder1000 ? (
+      <MobileContainer>
+        <MobileReadGuestBooksContainer>
+          {guestBooks.map((guestBook: GuestBookType, index: number) => (
+            <MobileGuestBookObject key={index} {...guestBook} />
+          ))}
+        </MobileReadGuestBooksContainer>
+        <MobileCreateGuestBookContainer>
+          <MobileCreateSenderContainer>
+            <p>From: </p>
+            <MobileCreateSenderInputContainer />
+          </MobileCreateSenderContainer>
+          <MobileCreateContentContainer>
+            <MobileCreateInputContainer />
+            <MobileIconSend width={44} height={44} style={{ cursor: 'pointer' }} />
+          </MobileCreateContentContainer>
+        </MobileCreateGuestBookContainer>
+      </MobileContainer>
+    ) : (
       <Container>
         <CreateGuestBookContainer>
           <CreateSenderContainer>
@@ -102,7 +164,7 @@ const Guest = () => {
           ))}
         </ReadGuestBooksContainer>
       </Container>
-    )
+    ))
   )
 }
 
@@ -200,4 +262,109 @@ const ReadGuestBooksContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px 12px;
+`
+
+/////////////////////
+
+const MobileContainer = styled.div`
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  background: linear-gradient(180deg, #18b6ec 0%, #d0f0fb 41.98%, #fff 100%);
+  padding-top: 56px;
+
+  position: relative;
+`
+
+const MobileReadGuestBooksContainer = styled.div`
+  padding: 16px;
+  width: 100%;
+  overflow-y: auto; // 세로 방향으로 스크롤이 가능하게 합니다.
+  height: calc(100vh - 56px - 130px);
+
+  max-width: 480px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+`
+
+const MobileCreateGuestBookContainer = styled.div`
+  position: flx;
+  bottom: 0;
+
+  width: 100vw;
+
+  background: #f4f9fb;
+
+  color: var(--, #000);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`
+
+const MobileCreateSenderContainer = styled.div`
+  width: 100vw;
+  height: 51px;
+  padding: 16px 0px 16px 16px;
+
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+
+  display: flex;
+  gap: 5px;
+`
+
+const MobileCreateSenderInputContainer = styled.input`
+  width: 100vw;
+  height: 20px;
+
+  padding: 0;
+  margin: 0;
+
+  background: #f4f9fb;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`
+
+const MobileCreateContentContainer = styled.div`
+  width: 100vw;
+  padding: 8px 13px 27px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+`
+
+const MobileCreateInputContainer = styled.textarea`
+  flex-grow: 1;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+
+  border: 1px solid;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background: #f4f9fb;
+
+  resize: none;
 `

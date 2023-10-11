@@ -94,6 +94,89 @@ const ABOUT_CONTENT_3 = [
   },
 ]
 
+const MOBILE_ABOUT_CONTENT_3 = [
+  {
+    title: '교수진',
+    subContent: [
+      {
+        subTitle: '학 과 장',
+        name: ['박기성'],
+      },
+      {
+        subTitle: '전임교수',
+        name: ['김창수', '박인창', '정동림', '김성래'],
+      },
+      {
+        subTitle: '겸임교수',
+        name: ['김진영', '곽송호'],
+      },
+    ],
+  },
+  {
+    title: '졸업준비위원회',
+    subContent: [
+      {
+        subTitle: '위원장',
+        name: ['성진루빈'],
+      },
+      {
+        subTitle: '편집팀',
+        name: ['김도연', '김주영'],
+      },
+      {
+        subTitle: '회계팀',
+        name: ['김민기'],
+      },
+      {
+        subTitle: '영상팀',
+        name: ['유수영'],
+      },
+      {
+        subTitle: '홍보팀',
+        name: ['최민희'],
+      },
+      {
+        subTitle: '웹 팀',
+        name: ['박세영', '차 인', '송재민', '이연희', '황남주'],
+      },
+    ],
+  },
+  {
+    title: '후원',
+    subContent: [
+      {
+        subTitle: '폰 트',
+        name: ['산돌구름'],
+      },
+    ],
+  },
+]
+
+const MOBILE_ABOUT_TITLE =
+  "<p>대박(大舶)을&nbsp;&nbsp;</p> <img src='/svgs/mobile-icon-left-stroke.svg'/> <p>&nbsp;향한</p> <img src='/svgs/mobile-icon-right-stroke.svg'/> <p>&nbsp;&nbsp;대박(大拍)</p>"
+
+const MOBILE_CONTENT_ENG_1 =
+  "\"The theme of the 2023 Gachon\nUniversity Visual Design graduation exhibition is 'Daebak,' which utilizes two Chinese characters: 舶 (meaning “pear” ) and 拍 (meaning \"to break open\"). This encapsulates the idea of 'a great success toward a grand breakthrough.'\n\n'박 (Park)' symbolizes the world of each individual student in the Gachon\nUniversity Visual Design program. These students have been filling their own '박'\nwhile facing society's norms, standards,\nand evaluations, and contemplating their own identities and directions for a long\ntime.\nNow, they are ready to break it open.\n\nJust like pieces of confetti flying freely,\nthe identity of a designer bursts forth as they break free from the role of being a student. Without exception, each one is a great success (大박). Congratulations on graduating from your student status, and let’s cheer on the challenge of stepping\nout into the world by breaking open a\ngrand success (大박)."
+
+const MOBILE_CONTENT_ENG_2 =
+  "\"Based on the concept of 'bursting open\nthe box in the digital' the square box\nshape of pixels was used as a design element to express the characteristics of the Visual Design program and to elevate the completeness of the visual identity. In the posters, every time the box 'bursts,' intricate graphics within reveal\nfragmented and recombined images, showing a new form.\""
+
+const MOBILE_ABOUT_CATEGORIES_ENG = [
+  {
+    title: 'Exhibition Venue',
+    content: 'Gachon University\nVision Tower B101',
+  },
+  {
+    title: 'Viewing Hours',
+    content: 'Mon-Sat\n10:00 - 20:00',
+  },
+  {
+    title: 'Exhibition Period',
+    content: 'Week 1: 10.17-10.22\nWeek 2: 10.24-10.29',
+  },
+]
+
+const MOBILE_ABOUT_SUB_TITLE_2 = '2023 GCVD\nGraduation Exhibition'
 export {
   ABOUT_TITLE,
   ABOUT_CONTENT_1,
@@ -106,4 +189,10 @@ export {
   ABOUT_CATEGORIES,
   ABOUT_SUB_TITLE_3,
   ABOUT_CONTENT_3,
+  MOBILE_ABOUT_TITLE,
+  MOBILE_CONTENT_ENG_1,
+  MOBILE_CONTENT_ENG_2,
+  MOBILE_ABOUT_SUB_TITLE_2,
+  MOBILE_ABOUT_CATEGORIES_ENG,
+  MOBILE_ABOUT_CONTENT_3,
 }
