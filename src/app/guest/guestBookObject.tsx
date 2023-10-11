@@ -1,24 +1,23 @@
 import { styled } from 'styled-components'
 
 type GuestBookType = {
-  name: string
-  content: string
-  date: string
+  guestName: string
+  writeDetail: string
+  createdAt: string
 }
-
 const GuestBookObject = (guestBook: GuestBookType) => {
-  const { name, content, date } = guestBook
+  const { guestName, writeDetail, createdAt } = guestBook
 
   return (
     <Container>
       <ReadSenderGuestBookContainer>
-        <p>from. {name}</p>
+        <p>from. {guestName}</p>
       </ReadSenderGuestBookContainer>
       <ReadContentGuestBookContainer>
-        <p>{content}</p>
+        <p>{writeDetail}</p>
         <UpdateDateGuestBookContainer>
-          <p>{date}</p>
-          <p>{date}</p>
+          <p>{createdAt}</p>
+          <p>{createdAt}</p>
         </UpdateDateGuestBookContainer>
       </ReadContentGuestBookContainer>
     </Container>
@@ -63,7 +62,7 @@ const ReadContentGuestBookContainer = styled.div`
     width: 294px;
     height: 177px;
 
-    white-space: pre;
+    white-space: pre-line;
     word-break: break-all;
     word-wrap: break-word;
   }

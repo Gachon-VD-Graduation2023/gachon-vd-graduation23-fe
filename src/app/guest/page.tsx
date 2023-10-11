@@ -9,9 +9,9 @@ import useBetterMediaQuery from '@/utils/common.util'
 import MobileGuestBookObject from './mobileGuestBookObject'
 
 type GuestBookType = {
-  name: string
-  content: string
-  date: string
+  guestName: string
+  writeDetail: string
+  createdAt: any
 }
 
 const fetchGuestBooks = async (pageParam: number) => {
@@ -26,48 +26,10 @@ interface IApiError {
 
 const Guest = () => {
   const [mounted, setMounted] = useState<boolean>(false)
-  const [guestBooks, setGuestBooks] = useState<GuestBookType[]>([
-    {
-      name: '감사합니다',
-      content: '안녕하세요',
-      date: ' 202020',
-    },
-    {
-      name: '감사합니다',
-      content: '안녕하세요',
-      date: ' 202020',
-    },
-    {
-      name: '감사합니다',
-      content: '안녕하세요',
-      date: ' 202020',
-    },
-
-    {
-      name: '감사합니다',
-      content: '안녕하세요',
-      date: ' 202020',
-    },
-
-    {
-      name: '감사합니다',
-      content: '안녕하세요',
-      date: ' 202020',
-    },
-
-    {
-      name: '감사합니다',
-      content: '안녕하세요',
-      date: ' 202020',
-    },
-
-    {
-      name: '감사합니다',
-      content: '안녕하세요',
-      date: ' 202020',
-    },
-  ])
+  const [guestBooks, setGuestBooks] = useState<GuestBookType[]>([])
   const isUnder1000 = useBetterMediaQuery('(max-width: 480px)')
+  const [name, setName] = useState<string>('')
+  const [content, setContent] = useState<string>('')
   // const [loadMore, setLoadMore] = useState<boolean>(false)
   // const { data, status, error, fetchNextPage, isFetchingNextPage, hasNextPage } = useInfiniteQuery(
   //   ['getList'],
@@ -85,7 +47,48 @@ const Guest = () => {
 
   useEffect(() => {
     setMounted(true)
+
+    // REST API를 사용하여 데이터 가져오기
+    fetch('https://gcvd-2023-graduation-default-rtdb.firebaseio.com/guestBooks.json')
+      .then((response) => response.json())
+      .then((data) => {
+        const formattedData = Object.values(data).map((item: any) => ({
+          guestName: item.guestName,
+          writeDetail: item.writeDetail,
+          createdAt: item.createdAt,
+        }))
+        setGuestBooks(formattedData)
+      })
   }, [])
+
+  const postMessage = (guestName: string, writeDetail: string) => {
+    // REST API를 사용하여 데이터 가져오기
+    fetch('https://gcvd-2023-graduation-default-rtdb.firebaseio.com/guestBooks.json', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        guestName: name,
+        writeDetail: content,
+        createdAt: new Date(),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // 데이터가 성공적으로 전송된 후, guestBooks 배열에 게시글 추가
+        setGuestBooks((prevGuestBooks) => [
+          ...prevGuestBooks,
+          {
+            guestName,
+            writeDetail,
+            createdAt: new Date().toString(),
+          },
+        ])
+        setContent('')
+        setName('')
+      })
+  }
 
   // const isScroll = () => {
   //   let padding = 100
@@ -115,17 +118,6 @@ const Guest = () => {
   //   }
   // }, [loadMore])
 
-  const getList = async ({ pageParam = 1 }) => {
-    const url = `https://dapi.kakao.com/v2/search/web?query=${'안녕'}&page=${pageParam}`
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Authorization: 'cc9566c085f7b5f099c13dd3ac7a0071',
-      },
-    })
-    return res.json()
-  }
-
   return (
     mounted &&
     (isUnder1000 ? (
@@ -138,11 +130,22 @@ const Guest = () => {
         <MobileCreateGuestBookContainer>
           <MobileCreateSenderContainer>
             <p>From: </p>
-            <MobileCreateSenderInputContainer />
+            <MobileCreateSenderInputContainer
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
           </MobileCreateSenderContainer>
           <MobileCreateContentContainer>
-            <MobileCreateInputContainer />
-            <MobileIconSend width={44} height={44} style={{ cursor: 'pointer' }} />
+            <MobileCreateInputContainer
+              onChange={(e) => setContent(e.target.value)}
+              value={content}
+            />
+            <MobileIconSend
+              width={44}
+              height={44}
+              style={{ cursor: 'pointer' }}
+              onClick={() => postMessage(name, content)}
+            />
           </MobileCreateContentContainer>
         </MobileCreateGuestBookContainer>
       </MobileContainer>
@@ -151,11 +154,16 @@ const Guest = () => {
         <CreateGuestBookContainer>
           <CreateSenderContainer>
             <p>From: </p>
-            <CreateSenderInputContainer />
+            <CreateSenderInputContainer onChange={(e) => setName(e.target.value)} value={name} />
           </CreateSenderContainer>
           <CreateContentContainer>
-            <CreateInputContainer />
-            <IconSend width={44} height={33} style={{ cursor: 'pointer' }} />
+            <CreateInputContainer onChange={(e) => setContent(e.target.value)} value={content} />
+            <IconSend
+              width={44}
+              height={33}
+              style={{ cursor: 'pointer' }}
+              onClick={() => postMessage(name, content)}
+            />
           </CreateContentContainer>
         </CreateGuestBookContainer>
         <ReadGuestBooksContainer>
