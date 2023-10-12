@@ -139,7 +139,7 @@ function MenuBar() {
                         if (menu === 'object') {
                           setCurrentMenu('object')
                           setCurrentWorksMenu('')
-                          router.push('/object/all')
+                          router.push('/object/bx')
                         } else if (menu !== 'works') {
                           setCurrentMenu(menu)
                           setCurrentWorksMenu('')
@@ -192,8 +192,8 @@ const MenuBarComponent = styled.div`
 const MobileBgArea = styled.div<{ vh: number }>`
   width: 100vw;
   height: ${(props) => `${100 * props.vh}px`};
-  position: absolute;
-  z-index: 900;
+  position: fixed;
+  z-index: 999;
   background: rgba(0, 0, 0, 0.4);
 `
 const MobileMenuBarComponent = styled.div<{ showmenu: string; vh: number }>`
@@ -201,7 +201,7 @@ const MobileMenuBarComponent = styled.div<{ showmenu: string; vh: number }>`
   height: ${(props) => `${100 * props.vh}px`};
   padding-top: 16px;
   padding-left: 16px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: ${(props) => (props.showmenu === 'true' ? '0' : '-235px')};
   transition: left 0.3s ease;
