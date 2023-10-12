@@ -9,7 +9,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import useBetterMediaQuery from '@/utils/common.util'
 
 const About = () => {
-  const isUnder1000 = useBetterMediaQuery('(max-width: 500px)')
+  const isMobile = useBetterMediaQuery('(max-width: 500px)')
 
   const aboutImageRef_1 = useRef<any>(null)
   const topContainer = useRef<any>(null)
@@ -18,27 +18,25 @@ const About = () => {
   const [scrollY, setScrollY] = useState(0)
   const [mounted, setMounted] = useState<boolean>(false)
 
+  const handleScroll = (e: any) => {
+    setScrollY(Math.abs(topContainer.current.getBoundingClientRect().top))
+    console.log(topContainer.current.getBoundingClientRect().top)
+
+    console.log(window.scrollY)
+  }
+
   useEffect(() => {
     setMounted(true)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+    // document.body.addEventListener('scroll', handleScroll)
+    // return () => document.body.removeEventListener('scroll', handleScroll)
   }, [])
-
-  // const handleScroll = (e: any) => {
-  //   setScrollY(Math.abs(topContainer.current.getBoundingClientRect().top))
-  //   console.log(topContainer.current.getBoundingClientRect().top)
-
-  //   console.log(window.scrollY)
-  // }
-  // useEffect(() => {
-  //   if (!isUnder1000) {
-  //     document.body.addEventListener('scroll', handleScroll)
-  //     return () => document.body.removeEventListener('scroll', handleScroll)
-  //   }
-  // }, [])
 
   return (
     mounted &&
-    (isUnder1000 ? (
-      <MobileContainer>
+    (isMobile ? (
+      <MobileContainer ref={topContainer}>
         <TopContainer top={'283px'} left={'42px'} style={{ zIndex: 1 }}>
           <MobileMainContainer width={239} height={67} padding={'8px 0'}>
             <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
@@ -68,8 +66,8 @@ const About = () => {
           alt={''}
           style={{
             position: 'absolute',
-            left: -200,
-            top: 983,
+            left: -88,
+            top: scrollY < 620 ? 900 : 900 + (scrollY - 620) * 0.4,
           }}
           priority
         />
@@ -80,8 +78,8 @@ const About = () => {
           alt={''}
           style={{
             position: 'absolute',
-            left: 20,
-            top: 1390,
+            left: 5,
+            top: scrollY < 1200 ? 1280 : 1280 + (scrollY - 1200) * 0.6,
           }}
         />
         <Image
@@ -91,8 +89,8 @@ const About = () => {
           alt={''}
           style={{
             position: 'absolute',
-            left: 25,
-            top: 774,
+            left: -60,
+            top: scrollY < 390 ? 700 : 700 + (scrollY - 390) * 0.3,
           }}
         />
         <Image
@@ -102,8 +100,8 @@ const About = () => {
           alt={''}
           style={{
             position: 'absolute',
-            left: -328,
-            top: 2821,
+            left: -248,
+            top: scrollY < 2255 ? 2600 : 2600 + (scrollY - 2255) * 0.4,
           }}
         />
         <Image
@@ -113,8 +111,8 @@ const About = () => {
           alt={''}
           style={{
             position: 'absolute',
-            left: 86,
-            top: -100,
+            left: 20,
+            top: scrollY * 0.4,
           }}
         />
         <Image
@@ -205,26 +203,26 @@ const About = () => {
           <MobileLastContainer>
             {aboutData.MOBILE_ABOUT_CONTENT_3.map(({ title, subContent }, index) => {
               return (
-                <Table key={index}>
-                  <div style={{ width: '73px' }}>{title === '' ? <div></div> : title}</div>
+                <MobileTable key={index}>
+                  <div style={{ width: '90px' }}>{title === '' ? <div></div> : title}</div>
                   {title === '졸업준비위원회' ? (
                     <div
                       style={{
-                        width: '300px',
+                        width: '230px',
                         display: 'flex',
                         flexWrap: 'wrap',
-                        gap: '16px',
+                        gap: '16px 0',
                       }}
                     >
                       {subContent.map(({ subTitle, name }, index) => {
                         return (
                           <MobileFinalInnerTable
-                            style={{ width: index % 2 == 0 ? '110px' : '170px' }}
+                            style={{ width: index % 2 == 0 ? '100px' : 'auto' }}
                             key={index}
                           >
                             <div
                               style={{
-                                width: '42px',
+                                width: '36px',
                                 color: '#6A6A6A',
                                 fontWeight: 500,
                                 letterSpacing: subTitle === '웹 팀' ? '2.8px' : '0',
@@ -235,20 +233,20 @@ const About = () => {
                             {name.length > 1 ? (
                               <div
                                 style={{
-                                  width: '100px',
+                                  width: '80px',
                                   display: 'flex',
                                   flexWrap: 'wrap',
-                                  gap: '13px',
+                                  gap: '8px',
                                 }}
                               >
                                 {name.map((obj) => (
-                                  <p style={{ marginRight: '8px' }}>{obj}</p>
+                                  <p>{obj}</p>
                                 ))}
                               </div>
                             ) : (
                               <div>
                                 {name.map((obj) => (
-                                  <p style={{ marginRight: '8px' }}>{obj}</p>
+                                  <p>{obj}</p>
                                 ))}
                               </div>
                             )}
@@ -281,7 +279,7 @@ const About = () => {
                       })}
                     </div>
                   )}
-                </Table>
+                </MobileTable>
               )
             })}
           </MobileLastContainer>
@@ -310,7 +308,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: 380,
-            top: scrollY > 400 ? -225 + 400 * 0.4 : -225 + scrollY * 0.4,
+            top: -225 + scrollY * 0.4,
           }}
           ref={aboutImageRef_1}
           priority
@@ -323,12 +321,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: -230,
-            top:
-              scrollY < 600
-                ? 1478
-                : scrollY > 1400
-                ? 1478 + (1400 - 600) * 0.4
-                : 1478 + (scrollY - 600) * 0.4,
+            top: scrollY < 600 ? 1300 : 1300 + (scrollY - 600) * 0.4,
           }}
         />
         <Image
@@ -339,12 +332,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: -355,
-            top:
-              scrollY < 1400
-                ? 1400
-                : scrollY > 2000
-                ? 1400 + (scrollY - 1400) * 0.4
-                : 1400 + (scrollY - 1400) * 0.4,
+            top: scrollY < 1300 ? 1400 : 1400 + (scrollY - 1300) * 0.4,
           }}
         />
         <Image
@@ -355,12 +343,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: 328,
-            top:
-              scrollY < 400
-                ? 1259
-                : scrollY > 1200
-                ? 1259 + (1200 - 400) * 0.6
-                : 1259 + (scrollY - 400) * 0.6,
+            top: scrollY < 400 ? 1100 : 1100 + (scrollY - 400) * 0.6,
           }}
         />
         <Image
@@ -371,12 +354,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: 86,
-            top:
-              scrollY < 350
-                ? 900
-                : scrollY > 1200
-                ? 900 + (1200 - 350) * 0.3
-                : 900 + (scrollY - 350) * 0.3,
+            top: scrollY < 350 ? 900 : 900 + (scrollY - 350) * 0.3,
           }}
         />
         <Image
@@ -562,7 +540,7 @@ const ContentContainer = styled.div<{
 const MobileLastContainer = styled.div`
   width: 100vw;
   max-width: 500px;
-  height: 429px;
+  height: 600px;
   padding: 36px 0 0 20px;
 
   border-top: 1px solid #080504;
@@ -662,6 +640,11 @@ const SubTitleContainer = styled(ContentContainer)`
   justify-content: center;
 `
 
+const MobileTable = styled.div`
+  display: flex;
+  gap: 27px;
+`
+
 const Table = styled.div`
   display: flex;
   gap: 36px;
@@ -675,7 +658,7 @@ const FinalTable = styled.div`
 `
 const MobileFinalInnerTable = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 8px;
 `
 
 const FinalInnerTable = styled.div`
@@ -685,7 +668,7 @@ const FinalInnerTable = styled.div`
 
 const MobileTag = styled.div`
   width: 100vw;
-  height: 48px;
+  height: 95px;
   display: flex;
   align-items: center;
   justify-content: center;

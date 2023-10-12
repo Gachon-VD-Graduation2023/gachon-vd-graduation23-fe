@@ -151,6 +151,7 @@ const Guest = () => {
             <MobileCreateInputContainer
               onChange={(e) => setContent(e.target.value)}
               value={content}
+              placeholder='방명록은 한 번 작성하면 지울 수 없어요!'
             />
             <MobileIconSend
               width={44}
@@ -169,7 +170,11 @@ const Guest = () => {
             <CreateSenderInputContainer onChange={(e) => setName(e.target.value)} value={name} />
           </CreateSenderContainer>
           <CreateContentContainer>
-            <CreateInputContainer onChange={(e) => setContent(e.target.value)} value={content} />
+            <CreateInputContainer
+              onChange={(e) => setContent(e.target.value)}
+              value={content}
+              placeholder='방명록은 한 번 작성하면 지울 수 없어요!'
+            />
             <IconSend
               width={44}
               height={33}
