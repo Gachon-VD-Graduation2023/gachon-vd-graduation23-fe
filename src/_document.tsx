@@ -29,7 +29,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>// 각종 메타 태그 및 웹 폰트</Head>
+        <Head>
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
+        </Head>
         <body>
           <Main />
           <NextScript />

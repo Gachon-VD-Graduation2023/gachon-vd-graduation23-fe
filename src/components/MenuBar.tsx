@@ -5,7 +5,7 @@ import { useRouter, usePathname } from 'next/navigation'
 import '../../public/fonts/font.css'
 
 function MenuBar() {
-  const menuList = ['about', 'works', 'object', 'guest book']
+  const menuList = ['about', 'works', 'object', 'guest']
   const worksMenuList = ['all', 'bx', 'graphic', 'illustration', 'media', 'uxui']
   const baseUrl = process.env.NEXT_PUBLIC_URL
   const router = useRouter()
@@ -95,7 +95,7 @@ function MenuBar() {
 
 const MenuBarComponent = styled.div`
   width: 201px;
-  height: 100vw;
+  height: 100vh;
   background: var(--unnamed, #f4f9fb);
   position: fixed;
   padding-top: 40px;
@@ -114,7 +114,6 @@ const MenuBarComponent = styled.div`
     bottom: 0px;
     border-right: 1px solid; /* 두 번째 border */
   }
-
   z-index: 1000;
 `
 const MenuBak = styled.img`
