@@ -14,30 +14,35 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true)
-  }, [])
 
-  return mounted && isMobile ? (
-    <Wrapper>
-      <IntroVideo>
-        <Video muted autoPlay loop>
-          <source
-            src={process.env.NEXT_PUBLIC_URL + '/videos/video-home-mobile.mp4'}
-            type='video/mp4'
-          />
-        </Video>
-      </IntroVideo>
-    </Wrapper>
-  ) : (
-    <Wrapper>
-      <IntroVideo>
-        <Video muted autoPlay loop>
-          <source
-            src={process.env.NEXT_PUBLIC_URL + '/videos/video-home-web.mp4'}
-            type='video/mp4'
-          />
-        </Video>
-      </IntroVideo>
-    </Wrapper>
+    // window resize 이벤트 리스너 추가
+    const handleResize = () => {
+      setMounted(false)
+      setTimeout(() => setMounted(true), 0)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    // cleanup 함수에서 이벤트 리스너 제거
+    return () => window.removeEventListener('resize', handleResize)
+  }, [isMobile]) // isMobile 값이 변경될 때 마다 실행
+
+  return (
+    mounted && (
+      <Wrapper>
+        <IntroVideo>
+          <Video muted autoPlay loop>
+            <source
+              src={
+                process.env.NEXT_PUBLIC_URL +
+                (isMobile ? '/videos/video-home-mobile.mp4' : '/videos/video-home-web.mp4')
+              }
+              type='video/mp4'
+            />
+          </Video>
+        </IntroVideo>
+      </Wrapper>
+    )
   )
 }
 

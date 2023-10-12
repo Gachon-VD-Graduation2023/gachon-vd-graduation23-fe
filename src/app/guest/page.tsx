@@ -1,12 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 import { IconSend, MobileIconSend } from '../../../public/svgs'
 import GuestBookObject from './guestBookObject'
 import { useInfiniteQuery } from 'react-query'
 import useBetterMediaQuery from '@/utils/common.util'
 import MobileGuestBookObject from './mobileGuestBookObject'
+import { useRouter } from 'next/navigation'
 
 type GuestBookType = {
   guestName: string
@@ -14,36 +15,16 @@ type GuestBookType = {
   createdAt: any
 }
 
-const fetchGuestBooks = async (pageParam: number) => {
-  // 페이지별 데이터를 가져오는 API 호출 또는 데이터를 가져오는 로직을 구현
-  const response = await fetch(`/api/guestBooks?page=${pageParam}`)
-  return response.json()
-}
-
-interface IApiError {
-  message: string
-}
+const PAGE_SIZE = 6 // 한 페이지에 표시할 아이템 수
+const PC_PAGE_SIZE = 9
 
 const Guest = () => {
   const [mounted, setMounted] = useState<boolean>(false)
   const [guestBooks, setGuestBooks] = useState<GuestBookType[]>([])
-  const isUnder1000 = useBetterMediaQuery('(max-width: 480px)')
+  const isUnder1000 = useBetterMediaQuery('(max-width: 500px)')
   const [name, setName] = useState<string>('')
   const [content, setContent] = useState<string>('')
-  // const [loadMore, setLoadMore] = useState<boolean>(false)
-  // const { data, status, error, fetchNextPage, isFetchingNextPage, hasNextPage } = useInfiniteQuery(
-  //   ['getList'],
-  //   ({ pageParam = 1 }) => getList({ pageParam }),
-  //   {
-  //     onSettled: (res) => {
-  //       setLoadMore(true)
-  //     },
-  //     getNextPageParam: (lastPage) => {
-  //       return lastPage.total > lastPage.page * lastPage.limit ? lastPage.page + 1 : false
-  //     },
-  //     onError: (err: IApiError) => err,
-  //   },
-  // )
+  const router = useRouter()
 
   useEffect(() => {
     setMounted(true)
@@ -58,11 +39,33 @@ const Guest = () => {
           createdAt: item.createdAt,
         }))
         setGuestBooks(formattedData)
+        console.log(formattedData)
       })
   }, [])
 
+  const fetchGuestBooks = async ({ pageParam = 0 }) => {
+    const response = await fetch(
+      `https://gcvd-2023-graduation-default-rtdb.firebaseio.com/guestBooks.json`,
+    )
+    if (!response.ok) throw new Error('Network response was not ok')
+    const data = await response.json()
+    const values = Object.values(data)
+    // 전체 데이터 중에서 현재 페이지의 부분집합만 반환합니다.
+    const pageSize = isUnder1000 ? PAGE_SIZE : PC_PAGE_SIZE
+    return values.slice(pageParam * pageSize, (pageParam + 1) * pageSize)
+  }
+
   const postMessage = (guestName: string, writeDetail: string) => {
     // REST API를 사용하여 데이터 가져오기
+    if (!guestName) {
+      alert('보내는 사람을 적어주세요!')
+      return
+    }
+
+    if (!writeDetail) {
+      alert('내용을 적어주세요!')
+      return
+    }
     fetch('https://gcvd-2023-graduation-default-rtdb.firebaseio.com/guestBooks.json', {
       method: 'POST',
       headers: {
@@ -85,47 +88,56 @@ const Guest = () => {
             createdAt: new Date().toString(),
           },
         ])
+        console.log(new Date().toString())
+        alert('방명록을 적었습니다! 감사합니다^0^')
+        router.refresh()
+
         setContent('')
         setName('')
       })
   }
 
-  // const isScroll = () => {
-  //   let padding = 100
-  //   let scrollY = window.scrollY
-  //   let screenHeight = window.innerHeight
-  //   let bodyHeight = document.documentElement.offsetHeight
-  //   let scrollEnd = scrollY + screenHeight
-  //   let pos = scrollEnd + padding
-  //   let isEnd = pos >= bodyHeight
+  const { data, error, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery(
+    'guestBooks',
+    fetchGuestBooks,
+    {
+      getNextPageParam: (lastPage, pages) => pages.length,
+      retry: false,
+    },
+  )
 
-  //   // 스크롤이 맨끝에 도달했고 추가 패치를 실행하지않았다면 패치 실행
-  //   if (isEnd && !loadMore) {
-  //     setLoadMore(true)
-  //   }
-  // }
+  // Scroll ref
+  const bottomBoundaryRef = useRef(null)
 
-  // 스크롤 이벤트 발생
-  // useEffect(() => {
-  //   window.addEventListener('scroll', isScroll)
-  //   return () => window.removeEventListener('scroll', isScroll)
-  // }, [])
+  useEffect(() => {
+    if (isFetchingNextPage || !data) return
+    let observer: IntersectionObserver
+    if (bottomBoundaryRef.current) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          console.log(entries[0].isIntersecting) // <-- 여기
+          entries[0].isIntersecting && fetchNextPage()
+        },
+        { threshold: 1 },
+      )
+      observer.observe(bottomBoundaryRef.current)
+    }
 
-  // loadMore가 true로 변경될때 fetchNextPage 실행
-  // useEffect(() => {
-  //   if (loadMore) {
-  //     fetchNextPage()
-  //   }
-  // }, [loadMore])
+    return () => observer && observer.disconnect()
+  }, [bottomBoundaryRef.current, fetchNextPage, isFetchingNextPage, data])
 
   return (
     mounted &&
     (isUnder1000 ? (
       <MobileContainer>
         <MobileReadGuestBooksContainer>
-          {guestBooks.map((guestBook: GuestBookType, index: number) => (
-            <MobileGuestBookObject key={index} {...guestBook} />
-          ))}
+          {data?.pages
+            .flat()
+            .map((guestBook: any, index: number) => (
+              <MobileGuestBookObject key={index} {...guestBook} />
+            ))}
+          {/* Scroll ref */}
+          <div id='page-bottom-boundary' ref={bottomBoundaryRef}></div>
         </MobileReadGuestBooksContainer>
         <MobileCreateGuestBookContainer>
           <MobileCreateSenderContainer>
@@ -167,9 +179,13 @@ const Guest = () => {
           </CreateContentContainer>
         </CreateGuestBookContainer>
         <ReadGuestBooksContainer>
-          {guestBooks.map((guestBook: GuestBookType, index: number) => (
-            <GuestBookObject key={index} {...guestBook} />
-          ))}
+          {data?.pages
+            .flat()
+            .map((guestBook: any, index: number) => <GuestBookObject key={index} {...guestBook} />)}
+          {/* Scroll ref */}
+          {!isFetchingNextPage && hasNextPage && (
+            <div id='page-bottom-boundary' ref={bottomBoundaryRef}></div>
+          )}
         </ReadGuestBooksContainer>
       </Container>
     ))
@@ -180,10 +196,11 @@ export default Guest
 
 const Container = styled.div`
   width: calc(100vw - 201px);
-  height: 3675px;
+  height: 100vh;
   background: linear-gradient(180deg, #1bb7ed 0%, #fff 100%);
   margin-left: 201px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 `
 
 const CreateGuestBookContainer = styled.div`
