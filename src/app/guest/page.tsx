@@ -33,11 +33,19 @@ const Guest = () => {
     fetch('https://gcvd-2023-graduation-default-rtdb.firebaseio.com/guestBooks.json')
       .then((response) => response.json())
       .then((data) => {
-        const formattedData = Object.values(data).map((item: any) => ({
+        const sortedData = Object.values(data).sort(
+          (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+        ) // <-- 데이터를 역순으로 정렬
+        const formattedData = sortedData.map((item: any) => ({
           guestName: item.guestName,
           writeDetail: item.writeDetail,
           createdAt: item.createdAt,
         }))
+        // const formattedData = Object.values(data).map((item: any) => ({
+        //   guestName: item.guestName,
+        //   writeDetail: item.writeDetail,
+        //   createdAt: item.createdAt,
+        // }))
         setGuestBooks(formattedData)
         console.log(formattedData)
       })
@@ -49,7 +57,11 @@ const Guest = () => {
     )
     if (!response.ok) throw new Error('Network response was not ok')
     const data = await response.json()
-    const values = Object.values(data)
+    const values = Object.values(data).sort(
+      (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+    ) // <-- 데이터를 역순으로 정렬
+
+    // const values = Object.values(data)
     // 전체 데이터 중에서 현재 페이지의 부분집합만 반환합니다.
     const pageSize = isUnder1000 ? PAGE_SIZE : PC_PAGE_SIZE
     return values.slice(pageParam * pageSize, (pageParam + 1) * pageSize)
