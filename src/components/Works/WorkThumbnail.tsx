@@ -31,7 +31,7 @@ export default function WorkThumbnail(props: PropsData) {
           </ThumbnailImage>
           <InfoContainer mobile='true'>
             <Title mobile='true'>{workName}</Title>
-            <Artist mobile='true'>{artistName}</Artist>
+            <Artist mobile='true'>{artistName.join(' ')}</Artist>
           </InfoContainer>
         </MobileContainer>
       )}
@@ -71,11 +71,15 @@ const InfoContainer = styled.div<{ mobile: string }>`
   margin-top: 0px;
 `
 const Title = styled.div<{ mobile: string }>`
+  position: absolute;
   color: #141414;
   font-size: ${(props) => (props.mobile === 'true' ? '14px' : '16px')};
   font-weight: 700;
 `
 const Artist = styled.div<{ mobile: string }>`
+  position: absolute;
+  right: ${(props) => (props.mobile === 'true' ? '12px' : '16px')};
+  bottom: ${(props) => (props.mobile === 'true' ? '12px' : '16px')};
   color: #6a6a6a;
   text-align: right;
   font-size: ${(props) => (props.mobile === 'true' ? '14px' : '16px')};
