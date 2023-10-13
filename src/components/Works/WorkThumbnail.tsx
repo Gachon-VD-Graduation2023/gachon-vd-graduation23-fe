@@ -2,19 +2,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useBetterMediaQuery } from '@/utils/common.util'
-
-type DataInfo = {
-  img: string
-  title: string
-  artist: string
-}
+import { WorkListData } from '@/types/works.type'
 
 interface PropsData {
-  data: DataInfo
+  data: WorkListData
 }
 
 export default function WorkThumbnail(props: PropsData) {
-  const { img, title, artist } = props.data
+  const { artistName, workId, workName, workThumb } = props.data
   const isMobile = useBetterMediaQuery('(max-width: 500px)')
 
   return (
@@ -22,21 +17,21 @@ export default function WorkThumbnail(props: PropsData) {
       {!isMobile ? (
         <Container>
           <ThumbnailImage mobile='false'>
-            <img src='http://www.goldinglass.com/images/Projects/288x288-Matrimandir.jpg' />
+            <img src={workThumb} />
           </ThumbnailImage>
           <InfoContainer mobile='false'>
-            <Title mobile='false'>{title}</Title>
-            <Artist mobile='false'>{artist}</Artist>
+            <Title mobile='false'>{workName}</Title>
+            <Artist mobile='false'>{artistName.join(' ')}</Artist>
           </InfoContainer>
         </Container>
       ) : (
         <MobileContainer>
           <ThumbnailImage mobile='true'>
-            <img src='http://www.goldinglass.com/images/Projects/288x288-Matrimandir.jpg' />
+            <img src={workThumb} />
           </ThumbnailImage>
           <InfoContainer mobile='true'>
-            <Title mobile='true'>{title}</Title>
-            <Artist mobile='true'>{artist}</Artist>
+            <Title mobile='true'>{workName}</Title>
+            <Artist mobile='true'>{artistName}</Artist>
           </InfoContainer>
         </MobileContainer>
       )}

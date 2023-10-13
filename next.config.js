@@ -15,5 +15,6 @@ module.exports = {
   },
   env: {
     NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
+    NEXT_DATABASE_URL: process.env.NEXT_DATABASE_URL,
   },
 }
