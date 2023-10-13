@@ -40,6 +40,7 @@ export default function WorkThumbnail(props: PropsData) {
 }
 
 const Container = styled.div`
+  position: relative;
   width: 288px;
   height: 357px;
   background: rgba(255, 255, 255, 0.45);
@@ -48,6 +49,7 @@ const Container = styled.div`
   cursor: pointer;
 `
 const MobileContainer = styled.div`
+  position: relative;
   width: 167px;
   height: 235px;
   background: rgba(255, 255, 255, 0.45);
