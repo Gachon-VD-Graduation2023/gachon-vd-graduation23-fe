@@ -2,7 +2,7 @@
 
 import { styled } from 'styled-components'
 import * as aboutData from './aboutData'
-import ReactHtmlParser from 'react-html-parser'
+import ReactHtmlParser from 'html-react-parser'
 import { IconDot, IconFont } from '../../../public/svgs'
 import Image from 'next/image'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
