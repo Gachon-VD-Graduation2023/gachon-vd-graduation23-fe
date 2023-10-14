@@ -30,7 +30,7 @@ const Guest = () => {
     setMounted(true)
 
     // REST API를 사용하여 데이터 가져오기
-    fetch('https://gcvd-2023-graduation-default-rtdb.firebaseio.com/guestBooks.json')
+    fetch(`${process.env.NEXT_DATABASE_URL}/guestBooks.json`)
       .then((response) => response.json())
       .then((data) => {
         const sortedData = Object.values(data).sort(
@@ -46,9 +46,7 @@ const Guest = () => {
   }, [])
 
   const fetchGuestBooks = async ({ pageParam = 0 }) => {
-    const response = await fetch(
-      `https://gcvd-2023-graduation-default-rtdb.firebaseio.com/guestBooks.json`,
-    )
+    const response = await fetch(`${process.env.NEXT_DATABASE_URL}/guestBooks.json`)
     if (!response.ok) throw new Error('Network response was not ok')
     const data = await response.json()
     const values = Object.values(data).sort(
@@ -70,7 +68,7 @@ const Guest = () => {
       alert('내용을 적어주세요!')
       return
     }
-    fetch('https://gcvd-2023-graduation-default-rtdb.firebaseio.com/guestBooks.json', {
+    fetch(`${process.env.NEXT_DATABASE_URL}/guestBooks.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

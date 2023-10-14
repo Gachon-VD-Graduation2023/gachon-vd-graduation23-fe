@@ -45,6 +45,7 @@ function MenuBar() {
           <TitleLogo
             src={baseUrl + '/images/title-logo.png'}
             onClick={() => {
+              setShowMobileMenu(false)
               router.push('/')
             }}
           />
@@ -125,6 +126,7 @@ function MenuBar() {
               <MobileTitleLogo
                 src={baseUrl + '/images/title-logo.png'}
                 onClick={() => {
+                  setShowMobileMenu(false)
                   router.push('/')
                 }}
               />
