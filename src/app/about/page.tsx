@@ -34,7 +34,7 @@ const About = () => {
     mounted &&
     (isMobile ? (
       <MobileContainer ref={topContainer}>
-        <TopContainer top={'283px'} left={'42px'} style={{ zIndex: 1 }}>
+        <TopContainer top={'339px'} left={'42px'} style={{ zIndex: 1 }}>
           <MobileMainContainer width={239} height={67} padding={'8px 0'}>
             <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
             {ReactHtmlParser(aboutData.MOBILE_ABOUT_TITLE)}
@@ -76,7 +76,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: 5,
-            top: scrollY < 1200 ? 1280 : 1280 + (scrollY - 1200) * 0.6,
+            top: scrollY < 1200 ? 1100 : 1100 + (scrollY - 1200) * 0.3,
           }}
         />
         <Image
@@ -87,7 +87,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: -60,
-            top: scrollY < 390 ? 700 : 700 + (scrollY - 390) * 0.3,
+            top: scrollY < 1400 ? 500 : 500 + (scrollY - 1400) * 0.5,
           }}
         />
         <Image
@@ -98,7 +98,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: -248,
-            top: scrollY < 2255 ? 2600 : 2600 + (scrollY - 2255) * 0.4,
+            top: scrollY < 2255 ? 2450 : 2450 + (scrollY - 2255) * 0.4,
           }}
         />
         <Image
@@ -333,7 +333,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: -355,
-            top: scrollY < 1300 ? 1400 : 1400 + (scrollY - 1300) * 0.4,
+            top: scrollY < 1300 ? 1200 : 1200 + (scrollY - 1300) * 0.4,
           }}
         />
         <Image
@@ -344,7 +344,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: 328,
-            top: scrollY < 400 ? 1100 : 1100 + (scrollY - 400) * 0.6,
+            top: scrollY < 400 ? 800 : 800 + (scrollY - 400) * 0.6,
           }}
         />
         <Image
@@ -355,7 +355,7 @@ const About = () => {
           style={{
             position: 'absolute',
             left: 86,
-            top: scrollY < 350 ? 900 : 900 + (scrollY - 350) * 0.3,
+            top: scrollY < 350 ? 700 : 700 + (scrollY - 350) * 0.3,
           }}
         />
         <Image
@@ -547,7 +547,6 @@ const MobileContainer = styled.div`
   max-width: 500px;
   height: 4061px;
   background: linear-gradient(180deg, #18b6ec 0%, #d0f0fb 41.98%, #fff 100%);
-  padding-top: 56px;
 
   position: relative;
   overflow: hidden;

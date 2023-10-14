@@ -9,7 +9,7 @@ const ABOUT_SUB_TITLE_1 = '디지털 박이 터진다면?'
 const ABOUT_CONTENT_2 =
   '‘디지털 상의 박터뜨리기’라는 상상을 토대로 픽셀의 네모 박스 형태를 디자인 요소로 사용하여 시각디자인과의 특성을 표현하고 비주얼 아이덴티티의 완성도를 높였다. 포스터에서는 박이 터질 때마다 섬세한 그래픽 내부의 쪼개지고 결합된 이미지가 드러나며 새로운 모습을 보여준다.'
 const ABOUT_CONTENT_ENG_2 =
-  'Based on the imagination of "breaking the box on digital," the square box shape of the pixel was used as a design element to express the characteristics of the visual design department and enhance the completeness of the visual identity. Every time the gourd bursts, the poster reveals a split and combined image inside the delicate graphic, showing a new look.'
+  'Based on the imagination of "breaking the box on\ndigital," the square box shape of the pixel was used as a design element to express the characteristics of the visual design department and enhance\nthe completeness of the visual identity. Every time the gourd bursts, the poster reveals a split and combined\nimage inside the delicate graphic, showing a new look.'
 
 const ABOUT_SUB_TITLE_2 = '2023 GCVD Graduation Exhibition'
 const ABOUT_CONTENT_ENG_3 =
