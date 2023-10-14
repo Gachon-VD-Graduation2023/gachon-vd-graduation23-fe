@@ -73,6 +73,18 @@ export const getWorkDetailData = async (workId: string): Promise<WorkDetailData>
     return data
   } catch (error) {
     console.error('Error fetching work data:', error)
-    return {}
+    return {
+      artistEmail: [],
+      artistImg: [],
+      artistInsta: [],
+      artistName: [],
+      workDetImgList: [],
+      workDetail: '',
+      workId: 0,
+      workName: '',
+      workObj: '',
+      workVid: [],
+      workbanner: '',
+    }
   }
 }
