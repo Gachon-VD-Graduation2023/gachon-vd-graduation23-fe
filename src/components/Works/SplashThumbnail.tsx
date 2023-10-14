@@ -16,9 +16,9 @@ function SplashThumbnail(props: PropsData) {
     <>
       {!isMobile ? (
         <Container mobile='false'>
-          {((idx + 1) / 7) % 3 === 0 ? (
+          {(idx / 6) % 3 === 0 ? (
             <BlueSplash src={baseUrl + '/images/works/splash_blue.png'} mobile='false' />
-          ) : ((idx + 1) / 7) % 2 === 0 ? (
+          ) : (idx / 6) % 2 === 0 ? (
             <GreenSplash src={baseUrl + '/images/works/splash_green.png'} mobile='false' />
           ) : (
             <WhiteSplash src={baseUrl + '/images/works/splash_white.png'} mobile='false' />
@@ -26,9 +26,9 @@ function SplashThumbnail(props: PropsData) {
         </Container>
       ) : (
         <Container mobile='true'>
-          {((idx + 1) / 5) % 3 === 0 ? (
+          {(idx / 4) % 3 === 0 ? (
             <BlueSplash src={baseUrl + '/images/works/splash_blue.png'} mobile='true' />
-          ) : ((idx + 1) / 5) % 2 === 0 ? (
+          ) : (idx / 4) % 2 === 0 ? (
             <GreenSplash src={baseUrl + '/images/works/splash_green.png'} mobile='true' />
           ) : (
             <WhiteSplash src={baseUrl + '/images/works/splash_white.png'} mobile='true' />

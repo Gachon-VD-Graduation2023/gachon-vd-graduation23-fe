@@ -1,4 +1,4 @@
-import { WorkListData } from '@/types/works.type'
+import { WorkListData, WorkDetailData } from '@/types/works.type'
 
 export const getAllWorkList = async (): Promise<WorkListData[]> => {
   try {
@@ -63,5 +63,16 @@ export const getIllustrationWorkList = async (): Promise<WorkListData[]> => {
   } catch (error) {
     console.error('Error fetching work list:', error)
     return []
+  }
+}
+
+export const getWorkDetailData = async (workId: string): Promise<WorkDetailData> => {
+  try {
+    const response = await fetch(`${process.env.NEXT_DATABASE_URL}/works/${workId}.json`)
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error('Error fetching work data:', error)
+    return {}
   }
 }

@@ -40,7 +40,12 @@ function MenuBar() {
       {!isMobile ? (
         <MenuBarComponent>
           <MenuBak src={baseUrl + '/images/menu-bak.png'} />
-          <TitleLogo src={baseUrl + '/images/title-logo.png'} />
+          <TitleLogo
+            src={baseUrl + '/images/title-logo.png'}
+            onClick={() => {
+              router.push('/')
+            }}
+          />
           {menuList.map((menu, i) => {
             return (
               <div key={i}>
@@ -110,7 +115,12 @@ function MenuBar() {
           {showMobileMenu ? <MobileBgArea vh={vh} /> : null}
           <MobileMenuBarComponent showmenu={showMobileMenu.toString()} vh={vh}>
             <div style={{ display: 'flex' }}>
-              <MobileTitleLogo src={baseUrl + '/images/title-logo.png'} />
+              <MobileTitleLogo
+                src={baseUrl + '/images/title-logo.png'}
+                onClick={() => {
+                  router.push('/')
+                }}
+              />
               <img
                 className='close-icon'
                 src={baseUrl + '/images/close-icon.png'}
@@ -250,11 +260,13 @@ const TitleLogo = styled.img`
   width: 73px;
   height: 161px;
   margin-bottom: 60px;
+  cursor: pointer;
 `
 const MobileTitleLogo = styled.img`
   width: 59px;
   height: 135px;
   margin-bottom: 46px;
+  cursor: pointer;
 `
 
 const MenuBtn = styled.div<{ mobile: string }>`

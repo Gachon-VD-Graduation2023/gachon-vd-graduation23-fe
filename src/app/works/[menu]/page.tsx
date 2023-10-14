@@ -5,7 +5,7 @@ import SplashThumbnail from '@/components/Works/SplashThumbnail'
 import styled from 'styled-components'
 import Footer from '@/components/Footer'
 import { useBetterMediaQuery, useVh } from '@/utils/common.util'
-import { useRouter, usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import {
   getAllWorkList,
   getBxWorkList,
@@ -24,25 +24,21 @@ export default function Works({ params }: { params: { menu: string } }) {
 
   const getWorkList = async () => {
     try {
+      let fetchedData: WorkListData[] = []
       if (params.menu === 'all') {
-        const fetchedData: WorkListData[] = await getAllWorkList()
-        setData(fetchedData)
+        fetchedData = await getAllWorkList()
       } else if (params.menu === 'bx') {
-        const fetchedData: WorkListData[] = await getBxWorkList()
-        setData(fetchedData)
+        fetchedData = await getBxWorkList()
       } else if (params.menu === 'graphic') {
-        const fetchedData: WorkListData[] = await getGraphicWorkList()
-        setData(fetchedData)
+        fetchedData = await getGraphicWorkList()
       } else if (params.menu === 'illustration') {
-        const fetchedData: WorkListData[] = await getIllustrationWorkList()
-        setData(fetchedData)
+        fetchedData = await getIllustrationWorkList()
       } else if (params.menu === 'media') {
-        const fetchedData: WorkListData[] = await getMediaWorkList()
-        setData(fetchedData)
+        fetchedData = await getMediaWorkList()
       } else if (params.menu === 'uxui') {
-        const fetchedData: WorkListData[] = await getUxuiWorkList()
-        setData(fetchedData)
+        fetchedData = await getUxuiWorkList()
       }
+      setData(fetchedData)
     } catch (error) {
       console.error('Error setting work list:', error)
     }
@@ -61,10 +57,13 @@ export default function Works({ params }: { params: { menu: string } }) {
             <Container>
               <Contents>
                 {data?.map((data, i) =>
-                  i !== 0 && (i + 1) % 7 === 0 ? (
-                    <SplashThumbnail idx={i} key={i} />
+                  i !== 0 && i % 6 === 0 ? (
+                    <React.Fragment key={`splash${i}`}>
+                      <SplashThumbnail idx={i} />
+                      <WorkThumbnail data={data} menu={params.menu} />
+                    </React.Fragment>
                   ) : (
-                    <WorkThumbnail data={data} key={i} />
+                    <WorkThumbnail data={data} menu={params.menu} key={i} />
                   ),
                 )}
               </Contents>
@@ -91,10 +90,13 @@ export default function Works({ params }: { params: { menu: string } }) {
           </MenuBar>
           <MobileContents vh={vh}>
             {data?.map((data, i) =>
-              i !== 0 && (i + 1) % 5 === 0 ? (
-                <SplashThumbnail idx={i} key={i} />
+              i !== 0 && i % 4 === 0 ? (
+                <React.Fragment key={`splash${i}`}>
+                  <SplashThumbnail idx={i} />
+                  <WorkThumbnail data={data} menu={params.menu} />
+                </React.Fragment>
               ) : (
-                <WorkThumbnail data={data} key={i} />
+                <WorkThumbnail data={data} key={i} menu={params.menu} />
               ),
             )}
           </MobileContents>

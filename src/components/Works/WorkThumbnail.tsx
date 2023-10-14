@@ -3,17 +3,24 @@ import React from 'react'
 import styled from 'styled-components'
 import { useBetterMediaQuery } from '@/utils/common.util'
 import { WorkListData } from '@/types/works.type'
+import { useRouter } from 'next/navigation'
 
 interface PropsData {
   data: WorkListData
+  menu: string
 }
 
 export default function WorkThumbnail(props: PropsData) {
   const { artistName, workId, workName, workThumb } = props.data
   const isMobile = useBetterMediaQuery('(max-width: 500px)')
+  const router = useRouter()
 
   return (
-    <>
+    <div
+      onClick={() => {
+        router.push(`/works/${props.menu}/${workId}`)
+      }}
+    >
       {!isMobile ? (
         <Container>
           <ThumbnailImage mobile='false'>
@@ -35,7 +42,7 @@ export default function WorkThumbnail(props: PropsData) {
           </InfoContainer>
         </MobileContainer>
       )}
-    </>
+    </div>
   )
 }
 
