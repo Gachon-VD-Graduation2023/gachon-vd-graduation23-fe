@@ -20,7 +20,9 @@ function MenuBar() {
   const getCurrentMenu = () => {
     //url에서 현재 메뉴 값 받아오기
     const parts = pathname.split('/')
-    setCurrentMenu(parts[1])
+    if (parts[1] === 'guest') {
+      setCurrentMenu('guest book')
+    } else setCurrentMenu(parts[1])
   }
 
   const getCurrentWorksMenu = () => {
@@ -61,16 +63,21 @@ function MenuBar() {
                   <MenuBtn
                     mobile='false'
                     onClick={() => {
+                      setShowMobileMenu(false)
                       if (menu === 'object') {
                         setCurrentMenu('object')
                         setCurrentWorksMenu('')
                         router.push('/object/all')
-                      } else if (menu !== 'works') {
+                      } else if (menu === 'works') {
+                        setCurrentMenu('works')
+                        router.push('/works/all')
+                      } else if (menu === 'guest book') {
+                        setCurrentMenu('guest book')
+                        router.push('/guest')
+                      } else {
                         setCurrentMenu(menu)
                         setCurrentWorksMenu('')
                         router.push(`/${menu}`)
-                      } else {
-                        setCurrentMenu('works')
                       }
                     }}
                   >
@@ -150,13 +157,16 @@ function MenuBar() {
                           setCurrentMenu('object')
                           setCurrentWorksMenu('')
                           router.push('/object/bx')
-                        } else if (menu !== 'works') {
+                        } else if (menu === 'works') {
+                          setCurrentMenu('works')
+                          router.push('/works/bx')
+                        } else if (menu === 'guest book') {
+                          setCurrentMenu('guest book')
+                          router.push('/guest')
+                        } else {
                           setCurrentMenu(menu)
                           setCurrentWorksMenu('')
                           router.push(`/${menu}`)
-                        } else {
-                          setCurrentMenu('works')
-                          router.push('/works/bx')
                         }
                       }}
                     >
