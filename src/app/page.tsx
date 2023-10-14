@@ -32,11 +32,15 @@ export default function Home() {
       <Wrapper>
         <IntroVideo>
           <Video
-            src={isMobile ? '/videos/video-home-mobile.mp4' : '/videos/video-home-web.mp4'}
+            src={
+              isMobile
+                ? process.env.NEXT_PUBLIC_URL + '/videos/video-home-mobile.mp4'
+                : process.env.NEXT_PUBLIC_URL + '/videos/video-home-web.mp4'
+            }
             muted
-            loop
             autoPlay
-            playsinline
+            playsInline
+            preload='metadata'
           ></Video>
           {/* <Video muted autoPlay loop playsinLine>
             <source
