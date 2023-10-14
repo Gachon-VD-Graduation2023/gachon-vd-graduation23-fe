@@ -1,5 +1,5 @@
 import * as Matter from 'matter-js'
-import { ObjectProp } from '../../../types/object.type'
+import { ObjectProp } from '@/types/object.type'
 
 export const allObjectData: ObjectProp[] = [
   {

@@ -16,7 +16,7 @@ import Footer from '@/components/Footer'
 
 var Engine = Matter.Engine,
   Render = Matter.Render,
-  Bodies = Matter.Bodies,
+  Bodies = Matter.Bodies as any,
   Runner = Matter.Runner,
   Composite = Matter.Composite,
   Mouse = Matter.Mouse,
@@ -164,7 +164,7 @@ export default function MobileObjectPage({ currentMenu }: { currentMenu: string 
 
     if (engine && render) {
       const mouse = Mouse.create(render.canvas)
-      const mouseConstraint = MouseConstraint.create(engine, {
+      const mouseConstraint: any = MouseConstraint.create(engine, {
         mouse: mouse,
         constraint: {
           stiffness: 0.2,
