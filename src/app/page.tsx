@@ -31,15 +31,19 @@ export default function Home() {
     mounted && (
       <Wrapper>
         <IntroVideo>
-          <Video muted autoPlay loop>
+          <Video
+            src={isMobile ? '/videos/video-home-mobile.mp4' : '/videos/video-home-web.mp4'}
+            muted
+            loop
+            autoPlay
+            playsinline
+          ></Video>
+          {/* <Video muted autoPlay loop playsinLine>
             <source
-              src={
-                process.env.NEXT_PUBLIC_URL +
-                (isMobile ? '/videos/video-home-mobile.mp4' : '/videos/video-home-web.mp4')
-              }
+              src={isMobile ? '/videos/video-home-mobile.mp4' : '/videos/video-home-web.mp4'}
               type='video/mp4'
             />
-          </Video>
+          </Video> */}
         </IntroVideo>
       </Wrapper>
     )

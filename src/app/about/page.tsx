@@ -13,13 +13,13 @@ const About = () => {
 
   const aboutImageRef_1 = useRef<any>(null)
   const topContainer = useRef<any>(null)
-  const [lastScrollTop, setLastScrollTop] = useState(0)
-  const [speeds, setSpeeds] = useState([1]) // 이미지마다 다른 속도 적용
   const [scrollY, setScrollY] = useState(0)
   const [mounted, setMounted] = useState<boolean>(false)
 
   const handleScroll = (e: any) => {
-    setScrollY(Math.abs(topContainer.current.getBoundingClientRect().top))
+    if (topContainer && topContainer.current) {
+      setScrollY(Math.abs(topContainer.current.getBoundingClientRect().top))
+    }
   }
 
   useEffect(() => {

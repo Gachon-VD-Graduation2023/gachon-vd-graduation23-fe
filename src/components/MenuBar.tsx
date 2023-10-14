@@ -208,6 +208,7 @@ const MenuBarComponent = styled.div`
     border-right: 1px solid #666; /* 두 번째 border */
   }
   z-index: 1000;
+  font-family: 'Pretendard';
 `
 //모바일 메뉴 활성화 되어있을 때 메뉴 이외에 검은색 반투명 레이어
 const MobileBgArea = styled.div<{ vh: number }>`
@@ -228,6 +229,7 @@ const MobileMenuBarComponent = styled.div<{ showmenu: string; vh: number }>`
   transition: left 0.3s ease;
   z-index: 999;
   background: white;
+  font-family: 'Pretendard';
 
   border-right: 1px solid;
   &::before,

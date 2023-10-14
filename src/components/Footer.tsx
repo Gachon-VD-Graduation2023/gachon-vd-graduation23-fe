@@ -33,6 +33,8 @@ const Container = styled.div<{ mobile?: string }>`
   height: ${(props) => (props.mobile === 'true' ? '76px;' : '101px')};
   padding-left: ${(props) => (props.mobile === 'true' ? '16px;' : '229px')};
   padding-right: ${(props) => (props.mobile === 'true' ? '16px;' : '40px')};
+
+  font-family: 'Pretendard';
 `
 const LogoImg = styled.img`
   display: block;

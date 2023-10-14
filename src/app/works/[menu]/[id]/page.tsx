@@ -191,6 +191,7 @@ const TopBar = styled.div<{ mobile?: string }>`
   background: white;
   z-index: 997;
   border-bottom: 1px solid black;
+  font-family: 'Pretendard';
 `
 
 const Container = styled.div<{ mobile?: string; vh: number }>`
@@ -224,6 +225,7 @@ const Artist = styled.div<{ type: string; mobile?: string }>`
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  font-family: 'Pretendard';
   // -webkit-box-decoration-break: clone;
   // box-decoration-break: clone;
 
@@ -297,6 +299,7 @@ const ProfileImg = styled.img<{ mobile?: string }>`
 `
 const Describe = styled.div<{ type: string; mobile?: string }>`
   border: 1px solid black;
+  font-family: 'Pretendard';
   ${(props) =>
     props.type === 'smallScreen' &&
     css`

@@ -239,6 +239,7 @@ const Container = styled.div<{ vh: number }>`
   height: ${(props) => `${100 * props.vh}px`};
   background: linear-gradient(180deg, #19b7ec 0%, #f3f3f3 100%);
   padding-left: 201px;
+  font-family: 'Pretendard';
 `
 
 const Canvas = styled.canvas`
@@ -252,6 +253,7 @@ const MenuBar = styled.div`
   position: fixed;
   border-bottom: 1px solid black;
   z-index: 998;
+  font-family: 'Pretendard';
 `
 
 const MenuBtn = styled.div`

@@ -54,6 +54,7 @@ const Container = styled.div`
   backdrop-filter: blur(24px);
   box-shadow: 0px 0px 1px 0.5px black;
   cursor: pointer;
+  font-family: 'Pretendard';
 `
 const MobileContainer = styled.div`
   position: relative;
@@ -63,6 +64,7 @@ const MobileContainer = styled.div`
   backdrop-filter: blur(24px);
   box-shadow: 0px 0px 1px 0.5px black;
   cursor: pointer;
+  font-family: 'Pretendard';
 `
 
 const ThumbnailImage = styled.div<{ mobile: string }>`

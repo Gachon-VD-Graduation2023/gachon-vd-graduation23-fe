@@ -122,6 +122,7 @@ const Contents = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(289px, max-content));
   justify-content: center;
   grid-row-gap: 10px;
+  font-family: 'Pretendard';
 `
 // const MobileContainer = styled.div<{ vh: number }>`
 //   // overflow-y: hidden;
@@ -154,6 +155,7 @@ const MenuBar = styled.div`
   padding-top: 56px;
   position: fixed;
   z-index: 998;
+  font-family: 'Pretendard';
 `
 const MenuBtn = styled.div`
   border-top: 1px solid black;

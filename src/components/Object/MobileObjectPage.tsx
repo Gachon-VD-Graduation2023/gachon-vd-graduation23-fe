@@ -235,6 +235,7 @@ const Container = styled.div`
   height: 900px;
   background: linear-gradient(180deg, #19b7ec 0%, #f3f3f3 100%);
   overflow-y: hidden;
+  font-family: 'Pretendard';
 `
 
 const Canvas = styled.canvas`
@@ -267,6 +268,7 @@ const MobileMenuBtn = styled.div`
   &:last-child {
     border-right: none;
   }
+  font-family: 'Pretendard';
 `
 const MobileSelectedMenuBtn = styled.div`
   border: 1px solid black;

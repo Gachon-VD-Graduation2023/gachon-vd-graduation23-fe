@@ -49,6 +49,7 @@ const Container = styled.div<{ mobile: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Pretendard';
 `
 const WhiteSplash = styled.img<{ mobile: string }>`
   width: ${(props) => (props.mobile === 'true' ? '126px' : '217px')};
