@@ -33,13 +33,15 @@ const Guest = () => {
     fetch('https://gcvd-2023-graduation-default-rtdb.firebaseio.com/guestBooks.json')
       .then((response) => response.json())
       .then((data) => {
-        const formattedData = Object.values(data).map((item: any) => ({
+        const sortedData = Object.values(data).sort(
+          (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+        ) // <-- 데이터를 역순으로 정렬
+        const formattedData = sortedData.map((item: any) => ({
           guestName: item.guestName,
           writeDetail: item.writeDetail,
           createdAt: item.createdAt,
         }))
         setGuestBooks(formattedData)
-        console.log(formattedData)
       })
   }, [])
 
@@ -49,7 +51,9 @@ const Guest = () => {
     )
     if (!response.ok) throw new Error('Network response was not ok')
     const data = await response.json()
-    const values = Object.values(data)
+    const values = Object.values(data).sort(
+      (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+    ) // <-- 데이터를 역순으로 정렬
     // 전체 데이터 중에서 현재 페이지의 부분집합만 반환합니다.
     const pageSize = isUnder1000 ? PAGE_SIZE : PC_PAGE_SIZE
     return values.slice(pageParam * pageSize, (pageParam + 1) * pageSize)
@@ -88,12 +92,15 @@ const Guest = () => {
             createdAt: new Date().toString(),
           },
         ])
-        console.log(new Date().toString())
         alert('방명록을 적었습니다! 감사합니다^0^')
-        router.refresh()
 
         setContent('')
         setName('')
+      })
+      .then(() => {
+        if (typeof window !== 'undefined') {
+          window.location.reload()
+        }
       })
   }
 
@@ -115,7 +122,6 @@ const Guest = () => {
     if (bottomBoundaryRef.current) {
       observer = new IntersectionObserver(
         (entries) => {
-          console.log(entries[0].isIntersecting) // <-- 여기
           entries[0].isIntersecting && fetchNextPage()
         },
         { threshold: 1 },
@@ -151,6 +157,7 @@ const Guest = () => {
             <MobileCreateInputContainer
               onChange={(e) => setContent(e.target.value)}
               value={content}
+              placeholder='방명록은 한 번 작성하면 지울 수 없어요!'
             />
             <MobileIconSend
               width={44}
@@ -169,7 +176,11 @@ const Guest = () => {
             <CreateSenderInputContainer onChange={(e) => setName(e.target.value)} value={name} />
           </CreateSenderContainer>
           <CreateContentContainer>
-            <CreateInputContainer onChange={(e) => setContent(e.target.value)} value={content} />
+            <CreateInputContainer
+              onChange={(e) => setContent(e.target.value)}
+              value={content}
+              placeholder='방명록은 한 번 작성하면 지울 수 없어요!'
+            />
             <IconSend
               width={44}
               height={33}
@@ -293,7 +304,7 @@ const ReadGuestBooksContainer = styled.div`
 
 const MobileContainer = styled.div`
   width: 100%;
-  max-width: 480px;
+  max-width: 500px;
   height: 100vh;
   background: linear-gradient(180deg, #18b6ec 0%, #d0f0fb 41.98%, #fff 100%);
   padding-top: 56px;
@@ -307,7 +318,7 @@ const MobileReadGuestBooksContainer = styled.div`
   overflow-y: auto; // 세로 방향으로 스크롤이 가능하게 합니다.
   height: calc(100vh - 56px - 130px);
 
-  max-width: 480px;
+  max-width: 500px;
 
   display: flex;
   flex-direction: column;
