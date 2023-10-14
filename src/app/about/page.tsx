@@ -52,7 +52,7 @@ const About = () => {
           </MobileContentContainer>
           <MobileOverlayContainer
             width={269}
-            height={526}
+            height={490}
             padding={'21px'}
             style={{ marginLeft: '17px' }}
           >
@@ -405,14 +405,34 @@ const About = () => {
               {aboutData.ABOUT_CATEGORIES.map(({ title, content }, index) => {
                 return (
                   <Table key={index}>
-                    <div>{title}</div>
+                    <div>
+                      <b>{title}</b>
+                    </div>
                     <div>{content}</div>
                   </Table>
                 )
               })}
             </ContentContainer>
-            <OverlayContainer width={483} height={248} padding='0 40px'>
-              {aboutData.ABOUT_CONTENT_ENG_3}
+            <OverlayContainer
+              width={483}
+              height={248}
+              padding='40px 0 40px 40px'
+              style={{
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                justifyContent: 'space-between',
+              }}
+            >
+              {aboutData.MOBILE_ABOUT_CATEGORIES_ENG.map(({ title, content }, index) => {
+                return (
+                  <Table key={index} style={{ fontSize: '14px' }}>
+                    <div style={{ width: '130px' }}>
+                      <b>{title}</b>
+                    </div>
+                    <div>{content}</div>
+                  </Table>
+                )
+              })}
             </OverlayContainer>
           </div>
         </TopContainer>
@@ -450,7 +470,7 @@ export default About
 
 const MobileContainer = styled.div`
   width: 100%;
-  max-width: 480px;
+  max-width: 500px;
   height: 4061px;
   background: linear-gradient(180deg, #18b6ec 0%, #d0f0fb 41.98%, #fff 100%);
   padding-top: 56px;

@@ -16,7 +16,7 @@ const MobileGuestBookObject = (guestBook: GuestBookType) => {
   const day = dateObj.getUTCDate().toString().padStart(2, '0') // 일
 
   // 시, 분, 초를 가져옵니다.
-  let hours = dateObj.getUTCHours() // 시간
+  let hours = dateObj.getUTCHours() + 9 // 시간
   const minutes = dateObj.getUTCMinutes().toString().padStart(2, '0')
   const seconds = dateObj.getUTCSeconds() // 초
 
@@ -54,7 +54,7 @@ export default MobileGuestBookObject
 
 const Container = styled.div`
   width: 100%;
-  max-width: 480px; // 원하는 최대 폭을 설정합니다.
+  max-width: 500px; // 원하는 최대 폭을 설정합니다.
   height: auto;
   border: 1px solid;
 `
