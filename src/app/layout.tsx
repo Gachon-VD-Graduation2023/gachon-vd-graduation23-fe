@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import MenuBar from '@/components/MenuBar'
+import ScrollToTop from '@/utils/ScrollToTop'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
+      <ScrollToTop />
       <body className={inter.className}>
         {/* 좌측 메뉴바 */}
         <MenuBar />
