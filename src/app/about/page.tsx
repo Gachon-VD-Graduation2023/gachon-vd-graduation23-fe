@@ -215,11 +215,11 @@ const About = () => {
                         gap: '16px 0',
                       }}
                     >
-                      {subContent.map(({ subTitle, name }, index) => {
+                      {subContent.map(({ subTitle, name }, id) => {
                         return (
                           <MobileFinalInnerTable
                             style={{ width: index % 2 == 0 ? '100px' : 'auto' }}
-                            key={index}
+                            key={id}
                           >
                             <div
                               style={{
@@ -240,14 +240,14 @@ const About = () => {
                                   gap: '8px',
                                 }}
                               >
-                                {name.map((obj) => (
-                                  <p>{obj}</p>
+                                {name.map((obj, idx) => (
+                                  <p key={idx}>{obj}</p>
                                 ))}
                               </div>
                             ) : (
                               <div>
-                                {name.map((obj) => (
-                                  <p>{obj}</p>
+                                {name.map((obj, idx) => (
+                                  <p key={idx}>{obj}</p>
                                 ))}
                               </div>
                             )}
@@ -257,9 +257,9 @@ const About = () => {
                     </div>
                   ) : (
                     <div>
-                      {subContent.map(({ subTitle, name }, index) => {
+                      {subContent.map(({ subTitle, name }, id) => {
                         return (
-                          <MobileFinalInnerTable key={index}>
+                          <MobileFinalInnerTable key={id}>
                             <div
                               style={{
                                 width: '42px',
@@ -271,8 +271,10 @@ const About = () => {
                               {subTitle}
                             </div>
                             <div style={{ display: 'flex' }}>
-                              {name.map((obj) => (
-                                <p style={{ marginRight: '8px' }}>{obj}</p>
+                              {name.map((obj, idx) => (
+                                <p key={idx} style={{ marginRight: '8px' }}>
+                                  {obj}
+                                </p>
                               ))}
                             </div>
                           </MobileFinalInnerTable>
@@ -467,9 +469,9 @@ const About = () => {
                     <b>{title === '' ? <div style={{ height: '24px' }}></div> : title}</b>
                   </div>
                   <div>
-                    {subContent.map(({ subTitle, name }, index) => {
+                    {subContent.map(({ subTitle, name }, id) => {
                       return (
-                        <FinalInnerTable key={index}>
+                        <FinalInnerTable key={id}>
                           <div
                             style={{
                               width: '70px',
@@ -482,8 +484,8 @@ const About = () => {
                           </div>
                           {title === '졸업준비위원회' ? (
                             <div style={{ width: '60px' }}>
-                              {name.map((obj) => (
-                                <p>
+                              {name.map((obj, idx) => (
+                                <p key={idx}>
                                   <b>{obj}</b>
                                 </p>
                               ))}
@@ -496,13 +498,13 @@ const About = () => {
                                 flexWrap: 'wrap',
                               }}
                             >
-                              {name.map((obj) =>
+                              {name.map((obj, idx) =>
                                 obj === '차인' ? (
-                                  <p style={{ letterSpacing: '11px' }}>
+                                  <p key={idx} style={{ letterSpacing: '11px' }}>
                                     <b>{obj}</b>
                                   </p>
                                 ) : (
-                                  <p>
+                                  <p key={idx}>
                                     <b>{obj}</b>
                                   </p>
                                 ),
@@ -510,8 +512,8 @@ const About = () => {
                             </div>
                           ) : title === '후원' ? (
                             <div>
-                              {name.map((obj) => (
-                                <div style={{ display: 'flex', gap: '12px' }}>
+                              {name.map((obj, idx) => (
+                                <div style={{ display: 'flex', gap: '12px' }} key={idx}>
                                   <b>{obj}</b>
                                   <IconFont />
                                 </div>
@@ -519,8 +521,8 @@ const About = () => {
                             </div>
                           ) : (
                             <div>
-                              {name.map((obj) => (
-                                <p>
+                              {name.map((obj, idx) => (
+                                <p key={idx}>
                                   <b>{obj}</b>
                                 </p>
                               ))}
