@@ -28,8 +28,6 @@ export default function MobileObjectPage({ currentMenu }: { currentMenu: string 
   const router = useRouter()
   const mobileMenu = ['BX', 'Graphic', 'Illustration', 'Media', 'UXUI']
 
-  const scrollRef = useRef<HTMLDivElement>(null)
-
   const targetCanvas = useRef<HTMLCanvasElement>(null)
   let engine: Matter.Engine | null = null
   let render: Matter.Render | null = null
@@ -157,15 +155,7 @@ export default function MobileObjectPage({ currentMenu }: { currentMenu: string 
     }
   }
 
-  const scrollDown = () => {
-    window.scrollTo({
-      top: document.body.scrollHeight - window.innerHeight - 76,
-      behavior: 'smooth',
-    })
-  }
-
   useEffect(() => {
-    // scrollDown()
     setup()
 
     setTimeout(() => {
@@ -214,7 +204,7 @@ export default function MobileObjectPage({ currentMenu }: { currentMenu: string 
     }
   }, [])
   return (
-    <div ref={scrollRef}>
+    <>
       <Container>
         <MenuBar>
           {mobileMenu.map((menu, i) => {
@@ -237,7 +227,7 @@ export default function MobileObjectPage({ currentMenu }: { currentMenu: string 
         <Canvas ref={targetCanvas}></Canvas>
       </Container>
       <Footer />
-    </div>
+    </>
   )
 }
 

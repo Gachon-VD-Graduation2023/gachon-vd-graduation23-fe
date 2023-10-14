@@ -12,7 +12,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '강건우',
+    target: '0',
   },
   {
     width: 61,
@@ -24,7 +24,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '강건우',
+    target: '0',
   },
   {
     width: 112.31,
@@ -36,7 +36,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김가선',
+    target: '6',
   },
   {
     width: 61,
@@ -48,31 +48,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김가선',
-  },
-  {
-    width: 82.59,
-    height: 119.81,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/bx/김가연.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '김가연',
-  },
-  {
-    width: 61,
-    height: 33,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/bx/김가연_name.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '김가연',
+    target: '6',
   },
   {
     width: 79.89,
@@ -84,7 +60,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 61,
@@ -96,7 +72,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 61,
@@ -108,7 +84,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 100.11,
@@ -120,7 +96,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이세윤',
+    target: '22',
   },
   {
     width: 61,
@@ -132,7 +108,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이세윤',
+    target: '22',
   },
   {
     width: 131.42,
@@ -144,7 +120,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수정',
+    target: '23',
   },
   {
     width: 61,
@@ -156,7 +132,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수정',
+    target: '23',
   },
   {
     width: 71.72,
@@ -168,7 +144,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이유미',
+    target: '25',
   },
   {
     width: 61,
@@ -180,7 +156,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이유미',
+    target: '25',
   },
   {
     width: 112,
@@ -192,7 +168,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정형민',
+    target: '42',
   },
   {
     width: 61,
@@ -204,7 +180,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정형민',
+    target: '42',
   },
   {
     width: 85.56,
@@ -216,7 +192,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구고은',
+    target: '2',
   },
   {
     width: 61,
@@ -228,7 +204,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구고은',
+    target: '2',
   },
   {
     width: 78.87,
@@ -240,7 +216,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김주영',
+    target: '10',
   },
   {
     width: 61,
@@ -252,7 +228,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김주영',
+    target: '10',
   },
   {
     width: 112,
@@ -264,7 +240,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '유수영',
+    target: '21',
   },
   {
     width: 61,
@@ -276,7 +252,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '유수영',
+    target: '21',
   },
   {
     width: 98,
@@ -288,7 +264,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이유진',
+    target: '26',
   },
   {
     width: 61,
@@ -300,7 +276,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이유진',
+    target: '26',
   },
   {
     width: 75.58,
@@ -312,7 +288,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '임수연',
+    target: '35',
   },
   {
     width: 61,
@@ -324,7 +300,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '임수연',
+    target: '35',
   },
   {
     width: 74.9,
@@ -336,7 +312,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정재현',
+    target: '40',
   },
   {
     width: 61,
@@ -348,7 +324,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정재현',
+    target: '40',
   },
   {
     width: 115.51,
@@ -360,7 +336,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '차인',
+    target: '46',
   },
   {
     width: 49,
@@ -372,7 +348,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '차인',
+    target: '46',
   },
   {
     width: 167.62,
@@ -384,7 +360,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구본준',
+    target: '4',
   },
   {
     width: 61,
@@ -396,7 +372,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구본준',
+    target: '4',
   },
   {
     width: 43.93,
@@ -408,7 +384,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '권우진',
+    target: '5',
   },
   {
     width: 61,
@@ -420,7 +396,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '권우진',
+    target: '5',
   },
   {
     width: 65.03,
@@ -456,7 +432,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김서현',
+    target: '8',
   },
   {
     width: 61,
@@ -468,7 +444,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김서현',
+    target: '8',
   },
   {
     width: 114.3,
@@ -480,7 +456,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박성진',
+    target: '14',
   },
   {
     width: 61,
@@ -492,7 +468,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박성진',
+    target: '14',
   },
   {
     width: 61,
@@ -504,7 +480,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 106.32,
@@ -552,7 +528,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이지환',
+    target: '31',
   },
   {
     width: 61,
@@ -564,7 +540,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이지환',
+    target: '31',
   },
   {
     width: 49.59,
@@ -576,7 +552,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '조성구',
+    target: '44',
   },
   {
     width: 155.75,
@@ -588,7 +564,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '조성구',
+    target: '44',
   },
   {
     width: 75.26,
@@ -600,7 +576,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최민희',
+    target: '47',
   },
   {
     width: 49,
@@ -612,7 +588,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최민희',
+    target: '47',
   },
   {
     width: 53.84,
@@ -624,7 +600,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김태호',
+    target: '11',
   },
   {
     width: 61,
@@ -636,7 +612,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김태호',
+    target: '11',
   },
   {
     width: 88.35,
@@ -648,7 +624,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박도연',
+    target: '13',
   },
   {
     width: 61,
@@ -660,7 +636,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박도연',
+    target: '13',
   },
   {
     width: 134,
@@ -672,7 +648,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '성진루빈',
+    target: '17',
   },
   {
     width: 73,
@@ -684,7 +660,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '성진루빈',
+    target: '17',
   },
   {
     width: 79.89,
@@ -696,7 +672,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 61,
@@ -708,7 +684,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 61,
@@ -720,7 +696,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 99.21,
@@ -732,7 +708,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수진',
+    target: '24',
   },
   {
     width: 61,
@@ -744,7 +720,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수진',
+    target: '24',
   },
   {
     width: 75.37,
@@ -756,7 +732,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이정림',
+    target: '28',
   },
   {
     width: 61,
@@ -768,7 +744,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이정림',
+    target: '28',
   },
   {
     width: 103.7,
@@ -780,7 +756,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이주현',
+    target: '29',
   },
   {
     width: 61,
@@ -792,7 +768,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이주현',
+    target: '29',
   },
   {
     width: 160,
@@ -804,7 +780,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이채연',
+    target: '32',
   },
   {
     width: 61,
@@ -816,7 +792,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이채연',
+    target: '32',
   },
   {
     width: 93.45,
@@ -828,7 +804,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정선아',
+    target: '36',
   },
   {
     width: 61,
@@ -840,31 +816,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정선아',
-  },
-  {
-    width: 87.64,
-    height: 99.84,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/graphic/정세하.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '정세하',
-  },
-  {
-    width: 61,
-    height: 33,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/graphic/정세하_name.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '정세하',
+    target: '36',
   },
   {
     width: 134.33,
@@ -876,7 +828,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정현아',
+    target: '41',
   },
   {
     width: 61,
@@ -888,7 +840,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정현아',
+    target: '41',
   },
   {
     width: 64.39,
@@ -900,7 +852,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정희진',
+    target: '43',
   },
   {
     width: 61,
@@ -912,7 +864,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정희진',
+    target: '43',
   },
   {
     width: 108,
@@ -924,7 +876,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '조현수',
+    target: '45',
   },
   {
     width: 61,
@@ -936,7 +888,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '조현수',
+    target: '45',
   },
   {
     width: 138,
@@ -948,7 +900,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '강선우',
+    target: '1',
   },
   {
     width: 61,
@@ -960,7 +912,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '강선우',
+    target: '1',
   },
   {
     width: 82.86,
@@ -972,7 +924,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구도이',
+    target: '3',
   },
   {
     width: 61,
@@ -984,7 +936,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구도이',
+    target: '3',
   },
   {
     width: 61.38,
@@ -996,7 +948,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김민기',
+    target: '7',
   },
   {
     width: 61,
@@ -1008,7 +960,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김민기',
+    target: '7',
   },
   {
     width: 90.23,
@@ -1020,7 +972,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김예원',
+    target: '9',
   },
   {
     width: 61,
@@ -1032,7 +984,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김예원',
+    target: '9',
   },
   {
     width: 84.84,
@@ -1044,7 +996,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '남근화봉규림',
+    target: '12',
   },
   {
     width: 61,
@@ -1056,7 +1008,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '남근화봉규림',
+    target: '12',
   },
   {
     width: 61,
@@ -1068,7 +1020,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '남근화봉규림',
+    target: '12',
   },
   {
     width: 88.35,
@@ -1080,7 +1032,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박도연',
+    target: '13',
   },
   {
     width: 61,
@@ -1092,7 +1044,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박도연',
+    target: '13',
   },
   {
     width: 121.44,
@@ -1104,7 +1056,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박세연',
+    target: '15',
   },
   {
     width: 61,
@@ -1116,7 +1068,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박세연',
+    target: '15',
   },
   {
     width: 106.71,
@@ -1128,7 +1080,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박은서',
+    target: '16',
   },
   {
     width: 61,
@@ -1140,7 +1092,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박은서',
+    target: '16',
   },
   {
     width: 145.26,
@@ -1152,7 +1104,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '오진우',
+    target: '20',
   },
   {
     width: 61,
@@ -1164,7 +1116,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '오진우',
+    target: '20',
   },
   {
     width: 47,
@@ -1176,7 +1128,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이재유',
+    target: '27',
   },
   {
     width: 61,
@@ -1188,7 +1140,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이재유',
+    target: '27',
   },
   {
     width: 100,
@@ -1200,7 +1152,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이지미',
+    target: '30',
   },
   {
     width: 61,
@@ -1212,7 +1164,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이지미',
+    target: '30',
   },
   {
     width: 101.19,
@@ -1224,7 +1176,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이현주',
+    target: '33',
   },
   {
     width: 61,
@@ -1236,7 +1188,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이현주',
+    target: '33',
   },
   {
     width: 87.07,
@@ -1248,7 +1200,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '임다혜',
+    target: '34',
   },
   {
     width: 61,
@@ -1260,7 +1212,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '임다혜',
+    target: '34',
   },
   {
     width: 46.37,
@@ -1272,7 +1224,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정세현',
+    target: '37',
   },
   {
     width: 61,
@@ -1284,7 +1236,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정세현',
+    target: '37',
   },
   {
     width: 39.55,
@@ -1296,7 +1248,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정윤환',
+    target: '38',
   },
   {
     width: 61,
@@ -1308,7 +1260,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정윤환',
+    target: '38',
   },
   {
     width: 69.91,
@@ -1320,7 +1272,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정은숙',
+    target: '39',
   },
   {
     width: 61,
@@ -1332,7 +1284,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정은숙',
+    target: '39',
   },
   {
     width: 127.3,
@@ -1344,7 +1296,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최승우',
+    target: '48',
   },
   {
     width: 61,
@@ -1356,7 +1308,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최승우',
+    target: '48',
   },
   {
     width: 99.04,
@@ -1368,7 +1320,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최윤녕',
+    target: '49',
   },
   {
     width: 61,
@@ -1380,7 +1332,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최윤녕',
+    target: '49',
   },
   {
     width: 137.23,
@@ -1392,7 +1344,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '홍지은',
+    target: '50',
   },
   {
     width: 61,
@@ -1404,7 +1356,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '홍지은',
+    target: '50',
   },
   {
     width: 98.87,
@@ -1416,7 +1368,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '황진호',
+    target: '51',
   },
   {
     width: 61,
@@ -1428,7 +1380,7 @@ export const allObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '황진호',
+    target: '51',
   },
 ]
 
@@ -1445,7 +1397,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '강건우',
+    target: '0',
   },
   {
     width: 61,
@@ -1457,7 +1409,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '강건우',
+    target: '0',
   },
   {
     width: 85.56,
@@ -1469,7 +1421,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구고은',
+    target: '2',
   },
   {
     width: 61,
@@ -1481,7 +1433,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구고은',
+    target: '2',
   },
   {
     width: 82.86,
@@ -1493,7 +1445,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구도이',
+    target: '3',
   },
   {
     width: 61,
@@ -1505,7 +1457,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구도이',
+    target: '3',
   },
   {
     width: 167.62,
@@ -1517,7 +1469,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구본준',
+    target: '4',
   },
   {
     width: 61,
@@ -1529,7 +1481,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구본준',
+    target: '4',
   },
   {
     width: 43.93,
@@ -1541,7 +1493,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '권우진',
+    target: '5',
   },
   {
     width: 61,
@@ -1553,7 +1505,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '권우진',
+    target: '5',
   },
   {
     width: 112.31,
@@ -1565,7 +1517,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김가선',
+    target: '6',
   },
   {
     width: 61,
@@ -1577,31 +1529,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김가선',
-  },
-  {
-    width: 82.59,
-    height: 119.81,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/bx/김가연.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '김가연',
-  },
-  {
-    width: 61,
-    height: 33,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/bx/김가연_name.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '김가연',
+    target: '6',
   },
   {
     width: 87.27,
@@ -1613,7 +1541,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김서현',
+    target: '8',
   },
   {
     width: 61,
@@ -1625,7 +1553,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김서현',
+    target: '8',
   },
   {
     width: 121.44,
@@ -1637,7 +1565,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박세연',
+    target: '15',
   },
   {
     width: 61,
@@ -1649,7 +1577,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박세연',
+    target: '15',
   },
   {
     width: 134,
@@ -1661,7 +1589,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '성진루빈',
+    target: '17',
   },
   {
     width: 73,
@@ -1673,7 +1601,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '성진루빈',
+    target: '17',
   },
   {
     width: 79.89,
@@ -1685,7 +1613,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 61,
@@ -1697,7 +1625,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 61,
@@ -1709,7 +1637,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 100.11,
@@ -1721,7 +1649,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이세윤',
+    target: '22',
   },
   {
     width: 61,
@@ -1733,7 +1661,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이세윤',
+    target: '22',
   },
   {
     width: 131.42,
@@ -1745,7 +1673,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수정',
+    target: '23',
   },
   {
     width: 61,
@@ -1757,7 +1685,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수정',
+    target: '23',
   },
   {
     width: 99.21,
@@ -1769,7 +1697,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수진',
+    target: '24',
   },
   {
     width: 61,
@@ -1781,7 +1709,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수진',
+    target: '24',
   },
   {
     width: 71.72,
@@ -1793,7 +1721,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이유미',
+    target: '25',
   },
   {
     width: 61,
@@ -1805,7 +1733,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이유미',
+    target: '25',
   },
   {
     width: 103.7,
@@ -1817,7 +1745,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이주현',
+    target: '29',
   },
   {
     width: 61,
@@ -1829,7 +1757,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이주현',
+    target: '29',
   },
   {
     width: 126.77,
@@ -1841,7 +1769,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이지환',
+    target: '31',
   },
   {
     width: 61,
@@ -1853,7 +1781,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이지환',
+    target: '31',
   },
   {
     width: 93.45,
@@ -1865,7 +1793,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정선아',
+    target: '36',
   },
   {
     width: 61,
@@ -1877,7 +1805,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정선아',
+    target: '36',
   },
   {
     width: 134.33,
@@ -1889,7 +1817,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정현아',
+    target: '41',
   },
   {
     width: 61,
@@ -1901,7 +1829,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정현아',
+    target: '41',
   },
   {
     width: 112,
@@ -1913,7 +1841,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정형민',
+    target: '42',
   },
   {
     width: 61,
@@ -1925,7 +1853,7 @@ export const bxObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정형민',
+    target: '42',
   },
 ]
 
@@ -1941,7 +1869,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구고은',
+    target: '2',
   },
   {
     width: 61,
@@ -1953,7 +1881,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구고은',
+    target: '2',
   },
   {
     width: 82.86,
@@ -1965,7 +1893,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구도이',
+    target: '3',
   },
   {
     width: 61,
@@ -1977,7 +1905,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구도이',
+    target: '3',
   },
   {
     width: 78.87,
@@ -1989,7 +1917,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김주영',
+    target: '10',
   },
   {
     width: 61,
@@ -2001,7 +1929,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김주영',
+    target: '10',
   },
   {
     width: 88.35,
@@ -2013,7 +1941,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박도연',
+    target: '13',
   },
   {
     width: 61,
@@ -2025,7 +1953,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박도연',
+    target: '13',
   },
   {
     width: 145.26,
@@ -2037,7 +1965,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '오진우',
+    target: '20',
   },
   {
     width: 61,
@@ -2049,7 +1977,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '오진우',
+    target: '20',
   },
   {
     width: 112,
@@ -2061,7 +1989,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '유수영',
+    target: '21',
   },
   {
     width: 61,
@@ -2073,7 +2001,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '유수영',
+    target: '21',
   },
   {
     width: 98,
@@ -2085,7 +2013,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이유진',
+    target: '26',
   },
   {
     width: 61,
@@ -2097,7 +2025,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이유진',
+    target: '26',
   },
   {
     width: 160,
@@ -2109,7 +2037,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이채연',
+    target: '32',
   },
   {
     width: 61,
@@ -2121,7 +2049,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이채연',
+    target: '32',
   },
   {
     width: 75.58,
@@ -2133,7 +2061,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '임수연',
+    target: '35',
   },
   {
     width: 61,
@@ -2145,7 +2073,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '임수연',
+    target: '35',
   },
   {
     width: 74.9,
@@ -2157,7 +2085,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정재현',
+    target: '40',
   },
   {
     width: 61,
@@ -2169,7 +2097,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정재현',
+    target: '40',
   },
   {
     width: 134.33,
@@ -2181,7 +2109,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정현아',
+    target: '41',
   },
   {
     width: 61,
@@ -2193,7 +2121,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정현아',
+    target: '41',
   },
   {
     width: 115.51,
@@ -2205,7 +2133,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '차인',
+    target: '46',
   },
   {
     width: 49,
@@ -2217,7 +2145,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '차인',
+    target: '46',
   },
   {
     width: 127.3,
@@ -2229,7 +2157,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최승우',
+    target: '48',
   },
   {
     width: 61,
@@ -2241,7 +2169,7 @@ export const mediaObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최승우',
+    target: '48',
   },
 ]
 
@@ -2257,7 +2185,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구도이',
+    target: '3',
   },
   {
     width: 61,
@@ -2269,7 +2197,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구도이',
+    target: '3',
   },
   {
     width: 167.62,
@@ -2281,7 +2209,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구본준',
+    target: '4',
   },
   {
     width: 61,
@@ -2293,7 +2221,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구본준',
+    target: '4',
   },
   {
     width: 43.93,
@@ -2305,7 +2233,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '권우진',
+    target: '5',
   },
   {
     width: 61,
@@ -2317,7 +2245,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '권우진',
+    target: '5',
   },
   {
     width: 65.03,
@@ -2353,7 +2281,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김서현',
+    target: '8',
   },
   {
     width: 61,
@@ -2365,7 +2293,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김서현',
+    target: '8',
   },
   {
     width: 114.3,
@@ -2377,7 +2305,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박성진',
+    target: '14',
   },
   {
     width: 61,
@@ -2389,7 +2317,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박성진',
+    target: '14',
   },
   {
     width: 121.44,
@@ -2401,7 +2329,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박세연',
+    target: '15',
   },
   {
     width: 61,
@@ -2413,7 +2341,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박세연',
+    target: '15',
   },
   {
     width: 134,
@@ -2425,7 +2353,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '성진루빈',
+    target: '17',
   },
   {
     width: 73,
@@ -2437,7 +2365,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '성진루빈',
+    target: '17',
   },
   {
     width: 79.89,
@@ -2449,7 +2377,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 61,
@@ -2461,7 +2389,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 61,
@@ -2473,7 +2401,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 106.32,
@@ -2521,7 +2449,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이지환',
+    target: '31',
   },
   {
     width: 61,
@@ -2533,7 +2461,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이지환',
+    target: '31',
   },
   {
     width: 93.45,
@@ -2545,7 +2473,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정선아',
+    target: '36',
   },
   {
     width: 61,
@@ -2557,7 +2485,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정선아',
+    target: '36',
   },
   {
     width: 49.59,
@@ -2569,7 +2497,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '조성구',
+    target: '44',
   },
   {
     width: 155.75,
@@ -2581,7 +2509,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '조성구',
+    target: '44',
   },
   {
     width: 115.51,
@@ -2593,7 +2521,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '차인',
+    target: '46',
   },
   {
     width: 49,
@@ -2605,7 +2533,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '차인',
+    target: '46',
   },
   {
     width: 75.26,
@@ -2617,7 +2545,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최민희',
+    target: '47',
   },
   {
     width: 49,
@@ -2629,7 +2557,7 @@ export const uxuiObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최민희',
+    target: '47',
   },
 ]
 
@@ -2645,7 +2573,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '강건우',
+    target: '0',
   },
   {
     width: 61,
@@ -2657,7 +2585,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '강건우',
+    target: '0',
   },
   {
     width: 112.31,
@@ -2669,7 +2597,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김가선',
+    target: '6',
   },
   {
     width: 61,
@@ -2681,31 +2609,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김가선',
-  },
-  {
-    width: 82.59,
-    height: 119.81,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/graphic/김가연.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '김가연',
-  },
-  {
-    width: 61,
-    height: 33,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/graphic/김가연_name.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '김가연',
+    target: '6',
   },
   {
     width: 87.27,
@@ -2717,7 +2621,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김서현',
+    target: '8',
   },
   {
     width: 61,
@@ -2729,7 +2633,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김서현',
+    target: '8',
   },
   {
     width: 53.84,
@@ -2741,7 +2645,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김태호',
+    target: '11',
   },
   {
     width: 61,
@@ -2753,7 +2657,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김태호',
+    target: '11',
   },
   {
     width: 88.35,
@@ -2765,7 +2669,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박도연',
+    target: '13',
   },
   {
     width: 61,
@@ -2777,7 +2681,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박도연',
+    target: '13',
   },
   {
     width: 134,
@@ -2789,7 +2693,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '성진루빈',
+    target: '17',
   },
   {
     width: 73,
@@ -2801,7 +2705,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '성진루빈',
+    target: '17',
   },
   {
     width: 79.89,
@@ -2813,7 +2717,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 61,
@@ -2825,7 +2729,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 61,
@@ -2837,7 +2741,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '안성민유지원',
+    target: '18',
   },
   {
     width: 112,
@@ -2849,7 +2753,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '유수영',
+    target: '21',
   },
   {
     width: 61,
@@ -2861,7 +2765,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '유수영',
+    target: '21',
   },
   {
     width: 99.21,
@@ -2873,7 +2777,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수진',
+    target: '24',
   },
   {
     width: 61,
@@ -2885,7 +2789,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수진',
+    target: '24',
   },
   {
     width: 47,
@@ -2897,7 +2801,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이재유',
+    target: '27',
   },
   {
     width: 61,
@@ -2909,7 +2813,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이재유',
+    target: '27',
   },
   {
     width: 75.37,
@@ -2921,7 +2825,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이정림',
+    target: '28',
   },
   {
     width: 61,
@@ -2933,7 +2837,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이정림',
+    target: '28',
   },
   {
     width: 103.7,
@@ -2945,7 +2849,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이주현',
+    target: '29',
   },
   {
     width: 61,
@@ -2957,7 +2861,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이주현',
+    target: '29',
   },
   {
     width: 160,
@@ -2969,7 +2873,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이채연',
+    target: '32',
   },
   {
     width: 61,
@@ -2981,7 +2885,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이채연',
+    target: '32',
   },
   {
     width: 75.58,
@@ -2993,7 +2897,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '임수연',
+    target: '35',
   },
   {
     width: 61,
@@ -3005,7 +2909,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '임수연',
+    target: '35',
   },
   {
     width: 93.45,
@@ -3017,7 +2921,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정선아',
+    target: '36',
   },
   {
     width: 61,
@@ -3029,31 +2933,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정선아',
-  },
-  {
-    width: 87.64,
-    height: 99.84,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/graphic/정세하.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '정세하',
-  },
-  {
-    width: 61,
-    height: 33,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/graphic/정세하_name.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '정세하',
+    target: '36',
   },
   {
     width: 134.33,
@@ -3065,7 +2945,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정현아',
+    target: '41',
   },
   {
     width: 61,
@@ -3077,7 +2957,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정현아',
+    target: '41',
   },
   {
     width: 64.39,
@@ -3089,7 +2969,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정희진',
+    target: '43',
   },
   {
     width: 61,
@@ -3101,7 +2981,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정희진',
+    target: '43',
   },
   {
     width: 108,
@@ -3113,7 +2993,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '조현수',
+    target: '45',
   },
   {
     width: 61,
@@ -3125,7 +3005,7 @@ export const graphicObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '조현수',
+    target: '45',
   },
 ]
 
@@ -3141,7 +3021,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '강선우',
+    target: '1',
   },
   {
     width: 61,
@@ -3153,7 +3033,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '강선우',
+    target: '1',
   },
   {
     width: 82.86,
@@ -3165,7 +3045,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구도이',
+    target: '3',
   },
   {
     width: 61,
@@ -3177,7 +3057,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구도이',
+    target: '3',
   },
   {
     width: 167.62,
@@ -3189,7 +3069,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구본준',
+    target: '4',
   },
   {
     width: 61,
@@ -3201,7 +3081,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '구본준',
+    target: '4',
   },
   {
     width: 61.38,
@@ -3213,7 +3093,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김민기',
+    target: '7',
   },
   {
     width: 61,
@@ -3225,7 +3105,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김민기',
+    target: '7',
   },
   {
     width: 90.23,
@@ -3237,7 +3117,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김예원',
+    target: '9',
   },
   {
     width: 61,
@@ -3249,7 +3129,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김예원',
+    target: '9',
   },
   {
     width: 78.87,
@@ -3261,7 +3141,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김주영',
+    target: '10',
   },
   {
     width: 61,
@@ -3273,7 +3153,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '김주영',
+    target: '10',
   },
   {
     width: 84.84,
@@ -3285,7 +3165,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '남근화봉규림',
+    target: '12',
   },
   {
     width: 61,
@@ -3297,7 +3177,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '남근화봉규림',
+    target: '12',
   },
   {
     width: 61,
@@ -3309,7 +3189,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '남근화봉규림',
+    target: '12',
   },
   {
     width: 88.35,
@@ -3321,7 +3201,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박도연',
+    target: '13',
   },
   {
     width: 61,
@@ -3333,7 +3213,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박도연',
+    target: '13',
   },
   {
     width: 121.44,
@@ -3345,7 +3225,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박세연',
+    target: '15',
   },
   {
     width: 61,
@@ -3357,7 +3237,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박세연',
+    target: '15',
   },
   {
     width: 106.71,
@@ -3369,7 +3249,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박은서',
+    target: '16',
   },
   {
     width: 61,
@@ -3381,7 +3261,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '박은서',
+    target: '16',
   },
   {
     width: 145.26,
@@ -3393,7 +3273,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '오진우',
+    target: '20',
   },
   {
     width: 61,
@@ -3405,7 +3285,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '오진우',
+    target: '20',
   },
   {
     width: 100.11,
@@ -3417,7 +3297,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이세윤',
+    target: '22',
   },
   {
     width: 61,
@@ -3429,7 +3309,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이세윤',
+    target: '22',
   },
   {
     width: 131.42,
@@ -3441,7 +3321,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수정',
+    target: '23',
   },
   {
     width: 61,
@@ -3453,7 +3333,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이수정',
+    target: '23',
   },
   {
     width: 47,
@@ -3465,7 +3345,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이재유',
+    target: '27',
   },
   {
     width: 61,
@@ -3477,7 +3357,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이재유',
+    target: '27',
   },
   {
     width: 100,
@@ -3489,7 +3369,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이지미',
+    target: '30',
   },
   {
     width: 61,
@@ -3501,7 +3381,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이지미',
+    target: '30',
   },
   {
     width: 101.19,
@@ -3513,7 +3393,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이현주',
+    target: '33',
   },
   {
     width: 61,
@@ -3525,7 +3405,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '이현주',
+    target: '33',
   },
   {
     width: 87.07,
@@ -3537,7 +3417,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '임다혜',
+    target: '34',
   },
   {
     width: 61,
@@ -3549,7 +3429,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '임다혜',
+    target: '34',
   },
   {
     width: 46.37,
@@ -3561,7 +3441,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정세현',
+    target: '37',
   },
   {
     width: 61,
@@ -3573,7 +3453,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정세현',
+    target: '37',
   },
   {
     width: 39.55,
@@ -3585,7 +3465,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정윤환',
+    target: '38',
   },
   {
     width: 61,
@@ -3597,7 +3477,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정윤환',
+    target: '38',
   },
   {
     width: 69.91,
@@ -3609,7 +3489,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정은숙',
+    target: '39',
   },
   {
     width: 61,
@@ -3621,7 +3501,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '정은숙',
+    target: '39',
   },
   {
     width: 115.51,
@@ -3633,7 +3513,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '차인',
+    target: '46',
   },
   {
     width: 49,
@@ -3645,7 +3525,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '차인',
+    target: '46',
   },
   {
     width: 127.3,
@@ -3657,7 +3537,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최승우',
+    target: '48',
   },
   {
     width: 61,
@@ -3669,7 +3549,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최승우',
+    target: '48',
   },
   {
     width: 99.04,
@@ -3681,7 +3561,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최윤녕',
+    target: '49',
   },
   {
     width: 61,
@@ -3693,7 +3573,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '최윤녕',
+    target: '49',
   },
   {
     width: 137.23,
@@ -3705,7 +3585,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '홍지은',
+    target: '50',
   },
   {
     width: 61,
@@ -3717,7 +3597,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '홍지은',
+    target: '50',
   },
   {
     width: 98.87,
@@ -3729,7 +3609,7 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '황진호',
+    target: '51',
   },
   {
     width: 61,
@@ -3741,6 +3621,6 @@ export const illustrationObjectData: ObjectProp[] = [
         yScale: 0.25,
       },
     },
-    target: '황진호',
+    target: '51',
   },
 ]
