@@ -1,101 +1,208 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
-import useBetterMediaQuery from '@/utils/common.util'
 import Footer from '@/components/Footer'
+import { useBetterMediaQuery, useVh } from '@/utils/common.util'
+import { WorkDetailData } from '@/types/works.type'
+import { getWorkDetailData } from '@/app/api/works.api'
 
-export default function WorksDetail() {
+export default function WorksDetail({ params }: { params: { menu: string; id: string } }) {
   const isUnder1000 = useBetterMediaQuery('(max-width: 1000px)')
+  const isUnder1470 = useBetterMediaQuery('(max-width: 1470px)')
+  const isMobile = useBetterMediaQuery('(max-width: 500px)')
   const baseUrl = process.env.NEXT_PUBLIC_URL
+  const vh = useVh()
+  const [data, setData] = useState<WorkDetailData | null>(null)
+
+  const getData = async () => {
+    try {
+      const fetchedData: WorkDetailData = await getWorkDetailData(params.id)
+      setData(fetchedData)
+    } catch (error) {
+      console.log('Error setting work data:', error)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, [params.id])
+
   return (
     <>
-      <Container>
+      <TopBar mobile={isMobile?.toString()} />
+      <Container mobile={isMobile?.toString()} vh={vh}>
         <Banner>
-          <BannerImg src={baseUrl + '/images/works/works_detail/banner_sample.png'} />
+          <BannerImg src={data?.workbanner} />
         </Banner>
         {!isUnder1000 ? (
-          <Introduce>
-            <Artist type='largeScreen'>
-              <IntroduceIndicator />
-              <ProfileImg src={baseUrl + '/images/works/works_detail/profile_sample.png'} />
-              <div>
-                <div className='title'>이름</div>
-                <div className='info' style={{ marginBottom: '8px' }}>
-                  chain1999@naver.com
+          <>
+            <Introduce>
+              <Artist type='largeScreen' mobile={isMobile?.toString()}>
+                <IntroduceIndicator />
+                <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap' }}>
+                  {data?.artistName.map((artist, i) => {
+                    return data.artistName.length === 2 && isUnder1470 ? (
+                      <div key={artist}>
+                        <ProfileImg
+                          src={data?.artistImg[i]}
+                          mobile={isMobile?.toString()}
+                          style={{ marginTop: '29px' }}
+                        />
+                        <div className='title'>{data?.artistName[i]}</div>
+                        <div className='info' style={{ marginBottom: '8px' }}>
+                          {data?.artistEmail[i]}
+                        </div>
+                        <div className='info'>{data?.artistInsta[i]}</div>
+                      </div>
+                    ) : (
+                      <div className='wrapper' key={artist}>
+                        <ProfileImg src={data?.artistImg[i]} mobile={isMobile?.toString()} />
+                        <div>
+                          <div className='title'>{data?.artistName[i]}</div>
+                          <div className='info' style={{ marginBottom: '8px' }}>
+                            {data?.artistEmail[i]}
+                          </div>
+                          <div className='info'>{data?.artistInsta[i]}</div>
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
-                <div className='info'>@naver_insta</div>
-              </div>
-            </Artist>
-            <Describe type='largeScreen'>
-              <IntroduceIndicator />
-              <div className='title'>제목</div>
-              <div className='info'>
-                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-                적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
-                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-                적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
-                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-                적어봅시다.
-              </div>
-            </Describe>
-            <Object type='largeScreen'>
-              <IntroduceIndicator />
-              <img src={baseUrl + '/images/works/works_detail/object_sample.png'} />
-            </Object>
-          </Introduce>
+              </Artist>
+              <Describe type='largeScreen' mobile={isMobile?.toString()}>
+                <IntroduceIndicator />
+                <div className='title'>{data?.workName}</div>
+                <div className='info'>{data?.workDetail}</div>
+              </Describe>
+              <Object type='largeScreen'>
+                <IntroduceIndicator />
+                <img src={data?.workObj} />
+              </Object>
+            </Introduce>
+          </>
         ) : (
           <div>
-            <Describe type='smallScreen'>
+            <Describe type='smallScreen' mobile={isMobile?.toString()}>
               <IntroduceIndicator />
-              <div className='title'>제목</div>
-              <div className='info'>
-                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-                적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
-                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-                적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다.
-                설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게 적어봅시다. 설명을 길게
-                적어봅시다.
-              </div>
+              <div className='title'>{data?.workName}</div>
+              <div className='info'>{data?.workDetail}</div>
             </Describe>
             <div style={{ display: 'flex' }}>
-              <Artist type='smallScreen'>
+              <Artist type='smallScreen' mobile={isMobile?.toString()}>
                 <IntroduceIndicator />
-                <ProfileImg src={baseUrl + '/images/works/works_detail/profile_sample.png'} />
-                <div>
-                  <div className='title'>이름</div>
-                  <div className='info' style={{ marginBottom: '8px' }}>
-                    chain1999@naver.com
-                  </div>
-                  <div className='info'>@naver_insta</div>
-                </div>
+                {data?.artistName.map((artist, i) => {
+                  return (
+                    <div className='wrapper' key={artist}>
+                      <ProfileImg src={data.artistImg[i]} mobile={isMobile?.toString()} />
+                      <div style={{ wordBreak: 'break-all', wordWrap: 'break-word' }}>
+                        <div className='title'>{data.artistName[i]}</div>
+                        <div className='info' style={{ marginBottom: isMobile ? '6px' : '8px' }}>
+                          {data.artistEmail[i]}
+                        </div>
+                        <div className='info'>{data.artistInsta[i]}</div>
+                      </div>
+                    </div>
+                  )
+                })}
               </Artist>
               <Object type='smallScreen'>
                 <IntroduceIndicator />
-                <img src={baseUrl + '/images/works/works_detail/object_sample.png'} />
+                <img src={data?.workObj} />
               </Object>
             </div>
           </div>
         )}
 
-        <div>{/* 상세페이지 이미지 영역 */}</div>
+        <Work>
+          {params.id === '48'
+            ? data?.workVid.map((vid, i) => {
+                if (vid !== '')
+                  return (
+                    <div
+                      style={{
+                        position: 'relative',
+                        paddingBottom: '56.25%',
+                        height: 0,
+                        overflow: 'hidden',
+                      }}
+                      key={vid}
+                    >
+                      <iframe
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          border: 'none',
+                        }}
+                        width='100%'
+                        height='720'
+                        src={vid}
+                      />
+                    </div>
+                  )
+              })
+            : null}
+          {data?.workDetImgList.map((detImg, i) => {
+            return <img src={detImg} key={detImg} />
+          })}
+          {params.id !== '48'
+            ? data?.workVid.map((vid, i) => {
+                if (vid !== '')
+                  return (
+                    <div
+                      style={{
+                        position: 'relative',
+                        paddingBottom: '56.25%',
+                        height: 0,
+                        overflow: 'hidden',
+                      }}
+                      key={vid}
+                    >
+                      <iframe
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          border: 'none',
+                        }}
+                        width='100%'
+                        height='720'
+                        src={vid}
+                      />
+                    </div>
+                  )
+              })
+            : null}
+        </Work>
       </Container>
       <Footer />
     </>
   )
 }
 
-const Container = styled.div`
-  padding-left: 201px;
-  min-height: 100vh;
+const TopBar = styled.div<{ mobile?: string }>`
+  height: ${(props) => (props.mobile === 'true' ? '50px' : '56px')};
+  width: 100vw;
+  position: ${(props) => (props.mobile === 'true' ? 'fixed' : '')};
+  background: white;
+  z-index: 997;
+  border-bottom: 1px solid black;
+`
+
+const Container = styled.div<{ mobile?: string; vh: number }>`
+  padding-left: ${(props) => (props.mobile === 'true' ? '0px' : '201px')};
+  // min-height: ${(props) => `${100 * props.vh}px`};
+  margin-top: ${(props) => (props.mobile === 'true' ? '50px' : '0px')};
   background: white;
 `
-const Banner = styled.div`
-  padding-top: 56px;
-`
+const Banner = styled.div``
 const BannerImg = styled.img`
   width: 100%;
   display: block;
-  border-top: 1px solid black;
 `
 const Introduce = styled.div`
   display: flex;
@@ -111,24 +218,56 @@ const IntroduceIndicator = styled.div`
   background: black;
 `
 
-const Artist = styled.div<{ type: string }>`
+const Artist = styled.div<{ type: string; mobile?: string }>`
   border: 1px solid black;
   min-height: 281px;
   position: relative;
-  padding: 29px 0px 29px 24px;
   display: flex;
   flex-wrap: wrap;
+  // -webkit-box-decoration-break: clone;
+  // box-decoration-break: clone;
 
-  .title {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  .info {
-    color: #3F3F3;
-    font-size: 16px;
-    font-weight: 500;
-  }
+  ${(props) =>
+    props.mobile === 'true'
+      ? `
+      padding: 0px 16px 24px 16px;
+    .title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .info {
+      color: #3F3F3;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .wrapper{
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  `
+      : `
+    padding: 0px 0px 29px 24px;
+    .title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .info {
+      color: #3F3F3;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .wrapper{
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 5px;
+      margin-top: 29px;
+    }
+  `}
 
   ${(props) =>
     props.type === 'smallScreen' &&
@@ -141,13 +280,22 @@ const Artist = styled.div<{ type: string }>`
       width: 32.5%;
     `}
 `
-const ProfileImg = styled.img`
+const ProfileImg = styled.img<{ mobile?: string }>`
+  ${(props) =>
+    props.mobile === 'true'
+      ? `
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    `
+      : `
   width: 168px;
   height: 168px;
   margin-right: 19px;
   margin-bottom: 20px;
+  `}
 `
-const Describe = styled.div<{ type: string }>`
+const Describe = styled.div<{ type: string; mobile?: string }>`
   border: 1px solid black;
   ${(props) =>
     props.type === 'smallScreen' &&
@@ -158,24 +306,44 @@ const Describe = styled.div<{ type: string }>`
     props.type !== 'smallScreen' &&
     css`
       width: 47.5%;
+      min-height: 281px;
     `}
 
-  min-height: 281px;
   position: relative;
   padding: 29px 34px 29px 28px;
-  .title {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  .info {
-    color: #3F3F3;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 150%;
-  }
+
+  ${(props) =>
+    props.mobile === 'true'
+      ? `
+      padding: 20px 16px 24px 16px;
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .info {
+      color: #3F3F3;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 150%;
+    }
+  `
+      : `
+    padding: 29px 34px 29px 28px;
+    .title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .info {
+      color: #3F3F3;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 150%;
+    }
+  `}
 `
-const Object = styled.div<{ type: string }>`
+const Object = styled.div<{ type: string; mobile?: string }>`
   border: 1px solid black;
   min-height: 281px;
   position: relative;
@@ -185,7 +353,7 @@ const Object = styled.div<{ type: string }>`
 
   & > img {
     width: auto;
-    height: 200px;
+    height: ${(props) => (props.mobile === 'true' ? '150px' : '170px')};
   }
 
   ${(props) =>
@@ -199,3 +367,11 @@ const Object = styled.div<{ type: string }>`
       width: 20%;
     `}
 `
+
+const Work = styled.div`
+  & > img {
+    width: 100%;
+    display: block;
+  }
+`
+const Video = styled.div``

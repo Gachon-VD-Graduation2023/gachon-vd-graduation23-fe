@@ -5,7 +5,7 @@ import styles from './page.module.css'
 import { IconNext, IconVercel } from '../../public/svgs'
 import MenuBar from '@/components/MenuBar'
 import { styled } from 'styled-components'
-import useBetterMediaQuery from '@/utils/common.util'
+import { useBetterMediaQuery } from '@/utils/common.util'
 import { useState, useEffect } from 'react'
 
 export default function Home() {

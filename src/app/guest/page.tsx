@@ -5,7 +5,7 @@ import { styled } from 'styled-components'
 import { IconSend, MobileIconSend } from '../../../public/svgs'
 import GuestBookObject from './guestBookObject'
 import { useInfiniteQuery } from 'react-query'
-import useBetterMediaQuery from '@/utils/common.util'
+import { useBetterMediaQuery } from '@/utils/common.util'
 import MobileGuestBookObject from './mobileGuestBookObject'
 import { useRouter } from 'next/navigation'
 

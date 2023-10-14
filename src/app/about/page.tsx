@@ -6,7 +6,7 @@ import ReactHtmlParser from 'react-html-parser'
 import { IconDot, IconFont } from '../../../public/svgs'
 import Image from 'next/image'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import useBetterMediaQuery from '@/utils/common.util'
+import { useBetterMediaQuery } from '@/utils/common.util'
 
 const About = () => {
   const isMobile = useBetterMediaQuery('(max-width: 500px)')
