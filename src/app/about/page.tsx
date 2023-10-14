@@ -3,7 +3,7 @@
 import { styled } from 'styled-components'
 import * as aboutData from './aboutData'
 import ReactHtmlParser from 'react-html-parser'
-import { IconDot } from '../../../public/svgs'
+import { IconDot, IconFont } from '../../../public/svgs'
 import Image from 'next/image'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import useBetterMediaQuery from '@/utils/common.util'
@@ -20,9 +20,6 @@ const About = () => {
 
   const handleScroll = (e: any) => {
     setScrollY(Math.abs(topContainer.current.getBoundingClientRect().top))
-    console.log(topContainer.current.getBoundingClientRect().top)
-
-    console.log(window.scrollY)
   }
 
   useEffect(() => {
@@ -133,11 +130,11 @@ const About = () => {
             padding={'20px'}
             style={{ marginLeft: '18px' }}
           >
-            {aboutData.ABOUT_CONTENT_2}
+            {aboutData.MOBILE_ABOUT_CONTENT_2}
           </MobileContentContainer>
           <MobileOverlayContainer
             width={269}
-            height={220}
+            height={202}
             padding={'20px'}
             style={{ marginLeft: '18px' }}
           >
@@ -200,6 +197,10 @@ const About = () => {
           </div>
         </TopContainer>
         <TopContainer top={'3532px'} left={'0'} style={{ zIndex: 1, alignItems: 'center' }}>
+          <SubTitleContainer width={199} height={44}>
+            <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
+            <div>{aboutData.ABOUT_SUB_TITLE_3}</div>
+          </SubTitleContainer>
           <MobileLastContainer>
             {aboutData.MOBILE_ABOUT_CONTENT_3.map(({ title, subContent }, index) => {
               return (
@@ -386,12 +387,21 @@ const About = () => {
             {aboutData.ABOUT_CONTENT_ENG_2}
           </OverlayContainer>
         </TopContainer>
-        <TopContainer top={'2872px'} left={'418px'} style={{ zIndex: 1 }}>
+        <TopContainer
+          top={'2872px'}
+          left={'calc(50%)'}
+          style={{
+            zIndex: 1,
+            transform: 'translateX(-50%)',
+            width: 'calc(100vw - 201px)',
+            alignItems: 'center',
+          }}
+        >
           <SubTitleContainer width={411} height={50}>
             <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
             <div>{aboutData.ABOUT_SUB_TITLE_2}</div>
           </SubTitleContainer>
-          <div style={{ display: 'flex', marginLeft: '-284px' }}>
+          <div style={{ display: 'flex' }}>
             <ContentContainer
               width={483}
               height={248}
@@ -436,7 +446,15 @@ const About = () => {
             </OverlayContainer>
           </div>
         </TopContainer>
-        <TopContainer top={'3289px'} left={'0'} style={{ zIndex: 1, alignItems: 'center' }}>
+        <TopContainer
+          top={'3289px'}
+          left={'calc(50%)'}
+          style={{
+            zIndex: 1,
+            alignItems: 'center',
+            transform: 'translateX(-50%)',
+          }}
+        >
           <SubTitleContainer width={199} height={44}>
             <IconDot style={{ position: 'absolute', top: '0', left: '0' }} />
             <div>{aboutData.ABOUT_SUB_TITLE_3}</div>
@@ -445,13 +463,69 @@ const About = () => {
             {aboutData.ABOUT_CONTENT_3.map(({ title, subContent }, index) => {
               return (
                 <FinalTable key={index}>
-                  <div>{title === '' ? <div></div> : title}</div>
+                  <div>
+                    <b>{title === '' ? <div style={{ height: '24px' }}></div> : title}</b>
+                  </div>
                   <div>
                     {subContent.map(({ subTitle, name }, index) => {
                       return (
                         <FinalInnerTable key={index}>
-                          <div style={{ width: 'auto' }}>{subTitle}</div>
-                          <p>{name}</p>
+                          <div
+                            style={{
+                              width: '70px',
+                              color: '#6A6A6A',
+                              marginBottom: '20px',
+                              letterSpacing: subTitle === '폰트' ? '13.3px' : '0',
+                            }}
+                          >
+                            {subTitle}
+                          </div>
+                          {title === '졸업준비위원회' ? (
+                            <div style={{ width: '60px' }}>
+                              {name.map((obj) => (
+                                <p>
+                                  <b>{obj}</b>
+                                </p>
+                              ))}
+                            </div>
+                          ) : title === '' ? (
+                            <div
+                              style={{
+                                width: '100px',
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                              }}
+                            >
+                              {name.map((obj) =>
+                                obj === '차인' ? (
+                                  <p style={{ letterSpacing: '11px' }}>
+                                    <b>{obj}</b>
+                                  </p>
+                                ) : (
+                                  <p>
+                                    <b>{obj}</b>
+                                  </p>
+                                ),
+                              )}
+                            </div>
+                          ) : title === '후원' ? (
+                            <div>
+                              {name.map((obj) => (
+                                <div style={{ display: 'flex', gap: '12px' }}>
+                                  <b>{obj}</b>
+                                  <IconFont />
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            <div>
+                              {name.map((obj) => (
+                                <p>
+                                  <b>{obj}</b>
+                                </p>
+                              ))}
+                            </div>
+                          )}
                         </FinalInnerTable>
                       )
                     })}
@@ -560,7 +634,7 @@ const ContentContainer = styled.div<{
 const MobileLastContainer = styled.div`
   width: 100vw;
   max-width: 500px;
-  height: 600px;
+  height: 440px;
   padding: 36px 0 0 20px;
 
   border-top: 1px solid #080504;
@@ -582,11 +656,11 @@ const MobileLastContainer = styled.div`
 `
 
 const LastContainer = styled.div`
-  width: 100vw;
+  width: calc(100vw - 201px);
   height: 342px;
   padding: 48px 135px 89px 74px;
 
-  border: 1px solid #080504;
+  border-top: 1px solid #080504;
   background: #fff;
   font-family: Pretendard;
 
@@ -671,10 +745,11 @@ const Table = styled.div`
 `
 
 const FinalTable = styled.div`
-  width: 100%;
+  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 38px;
+  font-weight: 500;
 `
 const MobileFinalInnerTable = styled.div`
   display: flex;
@@ -684,11 +759,16 @@ const MobileFinalInnerTable = styled.div`
 const FinalInnerTable = styled.div`
   display: flex;
   gap: 20px;
+  & > div {
+    width: 200px;
+    display: flex;
+    gap: 8px;
+  }
 `
 
 const MobileTag = styled.div`
   width: 100vw;
-  height: 95px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -79,7 +79,7 @@ const ABOUT_CONTENT_3 = [
       },
       {
         subTitle: '웹 팀',
-        name: ['박세영', '차 인', '송재민', '이연희', '황남주'],
+        name: ['박세영', '차인', '송재민', '이연희', '황남주'],
       },
     ],
   },
@@ -87,7 +87,7 @@ const ABOUT_CONTENT_3 = [
     title: '후원',
     subContent: [
       {
-        subTitle: '폰 트',
+        subTitle: '폰트',
         name: ['산돌구름'],
       },
     ],
@@ -156,10 +156,13 @@ const MOBILE_ABOUT_TITLE =
   "<p>대박(大舶)을&nbsp;&nbsp;</p> <img src='/svgs/mobile-icon-left-stroke.svg'/> <p>&nbsp;향한</p> <img src='/svgs/mobile-icon-right-stroke.svg'/> <p>&nbsp;&nbsp;대박(大拍)</p>"
 
 const MOBILE_CONTENT_ENG_1 =
-  "The theme of the 2023 Gachon University Department of Visual Design Graduation Exhibition, 'Daebak', uses two Chinese characters: 舶 (Bae Park) and 拍 (Seven Parks) to signify 'a great breakthrough toward great success (大舶)'. contains\n\nPark means the world of individual Gachon University visual design department students. Students who have filled their nights for a long time, agonizing over their identity and direction, meeting the averages, standards, and evaluations the world throws at them. Now I'm about to blow that gourd.\n\nThe identity of a designer bursts out like a piece of paper flying freely, breaking the identity of a student. All of them are great without exception. Celebrating graduation as a student, cheering for the challenge of stepping out into the world, let's burst the gourd."
+  "The theme of the 2023 Gachon\nUniversity Department of Visual Design Graduation Exhibition, 'Daebak', uses two Chinese characters: 舶 (Bae Park) and 拍 (Seven Parks) to signify 'a great breakthrough toward great success (大\n舶)'. contains\n\nPark means the world of individual \nGachon University visual design department students. Students who have filled their nights for a long time,\nagonizing over their identity and\ndirection, meeting the averages,\nstandards, and evaluations the world throws at them. Now I'm about to blow\nthat gourd.\n\nThe identity of a designer bursts out like\na piece of paper flying freely, breaking\nthe identity of a student. All of them are great without exception. Celebrating graduation as a student, cheering for the challenge of stepping out into the world, let's burst the gourd."
+
+const MOBILE_ABOUT_CONTENT_2 =
+  '‘디지털 상의 박터뜨리기’라는 상상을 토대로 픽셀의 네모 박스 형태를 디자인 요소로 사용하여 시각디자인과의 특성을 표현하\n고 비주얼 아이덴티티의 완성도를 높였다. 포스터에서는 박이 터질 때마다 섬세한 그\n래픽 내부의 쪼개지고 결합된 이미지가 드\n러나며 새로운 모습을 보여준다.'
 
 const MOBILE_CONTENT_ENG_2 =
-  'Based on the imagination of "breaking the box on digital," the square box shape of the pixel was used as a design element to express the characteristics of the visual design department and enhance the completeness of the visual identity. Every time the gourd bursts, the poster reveals a split and combined image inside the delicate graphic, showing a new look."'
+  'Based on the imagination of "breaking the box on digital," the square box shape of\nthe pixel was used as a design element to express the characteristics of the visual design department and enhance the completeness of the visual identity. Every time the gourd bursts, the poster reveals\na split and combined image inside the delicate graphic, showing a new look.'
 
 const MOBILE_ABOUT_CATEGORIES_ENG = [
   {
@@ -195,4 +198,5 @@ export {
   MOBILE_ABOUT_SUB_TITLE_2,
   MOBILE_ABOUT_CATEGORIES_ENG,
   MOBILE_ABOUT_CONTENT_3,
+  MOBILE_ABOUT_CONTENT_2,
 }

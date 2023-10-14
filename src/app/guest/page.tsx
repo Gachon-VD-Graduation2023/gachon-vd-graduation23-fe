@@ -42,7 +42,6 @@ const Guest = () => {
           createdAt: item.createdAt,
         }))
         setGuestBooks(formattedData)
-        console.log(formattedData)
       })
   }, [])
 
@@ -123,7 +122,6 @@ const Guest = () => {
     if (bottomBoundaryRef.current) {
       observer = new IntersectionObserver(
         (entries) => {
-          console.log(entries[0].isIntersecting) // <-- 여기
           entries[0].isIntersecting && fetchNextPage()
         },
         { threshold: 1 },
