@@ -703,6 +703,7 @@ const MainContainer = styled(ContentContainer)`
 
 const MobileOverlayContainer = styled(MobileContentContainer)`
   background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
   font-size: 12px;
   word-break: keep-all;
@@ -711,6 +712,7 @@ const MobileOverlayContainer = styled(MobileContentContainer)`
 
 const OverlayContainer = styled(ContentContainer)`
   background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
 `
 

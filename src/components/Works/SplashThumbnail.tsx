@@ -45,6 +45,7 @@ const Container = styled.div<{ mobile: string }>`
   height: ${(props) => (props.mobile === 'true' ? '235px' : '357px')};
   background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   box-shadow: 0px 0px 1px 0.5px black;
   display: flex;
   justify-content: center;
