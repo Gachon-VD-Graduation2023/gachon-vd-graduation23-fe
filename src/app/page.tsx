@@ -59,6 +59,7 @@ export default function Home() {
 const Wrapper = styled.div<{ $vh: number }>`
   width: 100%;
   height: ${(props) => `${100 * props.$vh}px`};
+  touch-action: none;
   position: relative;
   overflow: hidden;
 `
