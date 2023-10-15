@@ -7,9 +7,15 @@ import ScrollToTop from '@/utils/ScrollToTop'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const ogImg = process.env.NEXT_PUBLIC_URL + '/images/og_image.png'
+
 export const metadata: Metadata = {
   title: 'GCVD2023',
   description: '2023 가천대학교 시각디자인과 졸업전시',
+  openGraph: {
+    images: ogImg,
+    description: '2023 가천대학교 시각디자인과 졸업전시',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

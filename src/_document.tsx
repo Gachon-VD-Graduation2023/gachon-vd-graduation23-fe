@@ -1,5 +1,4 @@
-import Document, { Html, Main, NextScript, DocumentContext } from 'next/document'
-import Head from 'next/head'
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
@@ -32,12 +31,11 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta name='viewport' content='width=device-width, initial-scale=1' />
-          <meta property='og:title' content='GCVD2023' />
-          <meta property='og:description' content='2023 가천대학교 시각디자인과 졸업전시' />
+          {/* <meta property='og:description' content='2023 가천대학교 시각디자인과 졸업전시' />
           <meta
             property='og:image'
             content={process.env.NEXT_PUBLIC_URL + '/images/og_image.png'}
-          />
+          /> */}
         </Head>
         <body>
           <Main />
