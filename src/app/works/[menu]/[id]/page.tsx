@@ -171,7 +171,7 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
             data?.workDetImgList.map((detImg, i) => {
               return (
                 <React.Fragment key={detImg}>
-                  <Image
+                  {/* <Image
                     src={detImg}
                     fill
                     alt=''
@@ -180,8 +180,13 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
                     }}
                     placeholder='blur'
                     blurDataURL={detImg}
+                  /> */}
+                  <img
+                    src={detImg}
+                    onLoad={() => {
+                      setDetImgLoaded(true)
+                    }}
                   />
-                  {/* <img src={detImg} /> */}
                   {detImgLoaded ? null : (
                     <Skeleton
                       width='100%'
