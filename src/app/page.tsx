@@ -31,6 +31,9 @@ export default function Home() {
   return (
     mounted && (
       <Wrapper $vh={vh}>
+        {isMobile ? (
+          <TitleLogo src={process.env.NEXT_PUBLIC_URL + '/images/title-logo.png'} />
+        ) : null}
         <IntroVideo>
           <Video
             src={
@@ -62,6 +65,16 @@ export default function Home() {
     )
   )
 }
+
+const TitleLogo = styled.img`
+  width: 57px;
+  height: auto;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: block;
+  z-index: 900;
+`
 
 const Wrapper = styled.div<{ $vh: number }>`
   width: 100%;
