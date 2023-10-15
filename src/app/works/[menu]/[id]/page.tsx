@@ -32,10 +32,6 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
     getData()
   }, [params.id])
 
-  // useEffect(() => {
-  //   console.log(data)
-  // }, [data])
-
   return (
     <>
       <TopBar $mobile={isMobile?.toString()} />
