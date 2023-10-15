@@ -4,7 +4,14 @@ module.exports = {
     styledComponents: true,
   },
   images: {
-    domains: ['localhost', 'gcvd2023.com', 'www.gcvd2023.com'],
+    domains: [
+      'localhost',
+      'gcvd2023.com',
+      'www.gcvd2023.com',
+      'i.imgur.com',
+      'imgur.com',
+      'firebasestorage.googleapis.com',
+    ],
   },
   webpack(config) {
     // 이미 설정된 다른 config를 유지한 뒤, svg 로더 설정을 추가합니다.

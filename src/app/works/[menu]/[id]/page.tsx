@@ -4,7 +4,10 @@ import styled, { css } from 'styled-components'
 import Footer from '@/components/Footer'
 import { useBetterMediaQuery, useVh } from '@/utils/common.util'
 import { WorkDetailData } from '@/types/works.type'
+import Image from 'next/image'
 import { getWorkDetailData } from '@/app/api/works.api'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function WorksDetail({ params }: { params: { menu: string; id: string } }) {
   const isUnder1000 = useBetterMediaQuery('(max-width: 1000px)')
@@ -13,6 +16,8 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
   const baseUrl = process.env.NEXT_PUBLIC_URL
   const vh = useVh()
   const [data, setData] = useState<WorkDetailData | null>(null)
+  const [bannerLoaded, setBannerLoaded] = useState(false)
+  const [detImgLoaded, setDetImgLoaded] = useState(false)
 
   const getData = async () => {
     try {
@@ -27,17 +32,39 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
     getData()
   }, [params.id])
 
+  useEffect(() => {
+    console.log(data)
+  }, [data])
+
   return (
     <>
-      <TopBar mobile={isMobile?.toString()} />
-      <Container mobile={isMobile?.toString()} vh={vh}>
+      <TopBar $mobile={isMobile?.toString()} />
+      <Container $mobile={isMobile?.toString()} $vh={vh}>
         <Banner>
-          <BannerImg src={data?.workbanner} />
+          {data?.workbanner ? (
+            <>
+              <Image
+                src={data?.workbanner}
+                alt=''
+                fill
+                placeholder='blur'
+                blurDataURL={data?.workbanner}
+                onLoadingComplete={(e) => {
+                  setBannerLoaded(true)
+                }}
+              />
+              {bannerLoaded ? null : (
+                <Skeleton width='100%' baseColor='#EAF1F3' height={isMobile ? '25vh' : '50vh'} />
+              )}
+            </>
+          ) : (
+            <Skeleton width='100%' baseColor='#EAF1F3' height={isMobile ? '25vh' : '50vh'} />
+          )}
         </Banner>
         {!isUnder1000 ? (
           <>
             <Introduce>
-              <Artist type='largeScreen' mobile={isMobile?.toString()}>
+              <Artist type='largeScreen' $mobile={isMobile?.toString()}>
                 <IntroduceIndicator />
                 <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap' }}>
                   {data?.artistName.map((artist, i) => {
@@ -45,7 +72,7 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
                       <div key={artist}>
                         <ProfileImg
                           src={data?.artistImg[i]}
-                          mobile={isMobile?.toString()}
+                          $mobile={isMobile?.toString()}
                           style={{ marginTop: '29px' }}
                         />
                         <div className='title'>{data?.artistName[i]}</div>
@@ -56,7 +83,7 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
                       </div>
                     ) : (
                       <div className='wrapper' key={artist}>
-                        <ProfileImg src={data?.artistImg[i]} mobile={isMobile?.toString()} />
+                        <ProfileImg src={data?.artistImg[i]} $mobile={isMobile?.toString()} />
                         <div>
                           <div className='title'>{data?.artistName[i]}</div>
                           <div className='info' style={{ marginBottom: '8px' }}>
@@ -69,7 +96,7 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
                   })}
                 </div>
               </Artist>
-              <Describe type='largeScreen' mobile={isMobile?.toString()}>
+              <Describe type='largeScreen' $mobile={isMobile?.toString()}>
                 <IntroduceIndicator />
                 <div className='title'>{data?.workName}</div>
                 <div className='info'>{data?.workDetail}</div>
@@ -82,18 +109,18 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
           </>
         ) : (
           <div>
-            <Describe type='smallScreen' mobile={isMobile?.toString()}>
+            <Describe type='smallScreen' $mobile={isMobile?.toString()}>
               <IntroduceIndicator />
               <div className='title'>{data?.workName}</div>
               <div className='info'>{data?.workDetail}</div>
             </Describe>
             <div style={{ display: 'flex' }}>
-              <Artist type='smallScreen' mobile={isMobile?.toString()}>
+              <Artist type='smallScreen' $mobile={isMobile?.toString()}>
                 <IntroduceIndicator />
                 {data?.artistName.map((artist, i) => {
                   return (
                     <div className='wrapper' key={artist}>
-                      <ProfileImg src={data.artistImg[i]} mobile={isMobile?.toString()} />
+                      <ProfileImg src={data.artistImg[i]} $mobile={isMobile?.toString()} />
                       <div style={{ wordBreak: 'break-all', wordWrap: 'break-word' }}>
                         <div className='title'>{data.artistName[i]}</div>
                         <div className='info' style={{ marginBottom: isMobile ? '6px' : '8px' }}>
@@ -144,9 +171,34 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
                   )
               })
             : null}
-          {data?.workDetImgList.map((detImg, i) => {
-            return <img src={detImg} key={detImg} />
-          })}
+          {data?.workDetImgList ? (
+            data?.workDetImgList.map((detImg, i) => {
+              return (
+                <React.Fragment key={detImg}>
+                  <Image
+                    src={detImg}
+                    fill
+                    alt=''
+                    onLoadingComplete={(e) => {
+                      setDetImgLoaded(true)
+                    }}
+                    placeholder='blur'
+                    blurDataURL={detImg}
+                  />
+                  {/* <img src={detImg} /> */}
+                  {detImgLoaded ? null : (
+                    <Skeleton
+                      width='100%'
+                      baseColor='#EAF1F3'
+                      height={isMobile ? '25vh' : '50vh'}
+                    />
+                  )}
+                </React.Fragment>
+              )
+            })
+          ) : (
+            <Skeleton width='100%' baseColor='#EAF1F3' height={isMobile ? '25vh' : '50vh'} />
+          )}
           {params.id !== '48'
             ? data?.workVid.map((vid, i) => {
                 if (vid !== '')
@@ -184,23 +236,31 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
   )
 }
 
-const TopBar = styled.div<{ mobile?: string }>`
-  height: ${(props) => (props.mobile === 'true' ? '50px' : '56px')};
+const TopBar = styled.div<{ $mobile?: string }>`
+  height: ${(props) => (props.$mobile === 'true' ? '50px' : '56px')};
   width: 100vw;
-  position: ${(props) => (props.mobile === 'true' ? 'fixed' : '')};
+  position: ${(props) => (props.$mobile === 'true' ? 'fixed' : '')};
   background: white;
   z-index: 997;
   border-bottom: 1px solid black;
   font-family: 'Pretendard';
 `
 
-const Container = styled.div<{ mobile?: string; vh: number }>`
-  padding-left: ${(props) => (props.mobile === 'true' ? '0px' : '201px')};
-  // min-height: ${(props) => `${100 * props.vh}px`};
-  margin-top: ${(props) => (props.mobile === 'true' ? '50px' : '0px')};
+const Container = styled.div<{ $mobile?: string; $vh: number }>`
+  padding-left: ${(props) => (props.$mobile === 'true' ? '0px' : '201px')};
+  // min-height: ${(props) => `${100 * props.$vh}px`};
+  margin-top: ${(props) => (props.$mobile === 'true' ? '50px' : '0px')};
   background: white;
 `
-const Banner = styled.div``
+const Banner = styled.div`
+  position: relative;
+  img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    position: relative !important;
+  }
+`
 const BannerImg = styled.img`
   width: 100%;
   display: block;
@@ -219,7 +279,7 @@ const IntroduceIndicator = styled.div`
   background: black;
 `
 
-const Artist = styled.div<{ type: string; mobile?: string }>`
+const Artist = styled.div<{ type: string; $mobile?: string }>`
   border: 1px solid black;
   min-height: 281px;
   position: relative;
@@ -230,7 +290,7 @@ const Artist = styled.div<{ type: string; mobile?: string }>`
   // box-decoration-break: clone;
 
   ${(props) =>
-    props.mobile === 'true'
+    props.$mobile === 'true'
       ? `
       padding: 0px 16px 24px 16px;
     .title {
@@ -282,9 +342,9 @@ const Artist = styled.div<{ type: string; mobile?: string }>`
       width: 32.5%;
     `}
 `
-const ProfileImg = styled.img<{ mobile?: string }>`
+const ProfileImg = styled.img<{ $mobile?: string }>`
   ${(props) =>
-    props.mobile === 'true'
+    props.$mobile === 'true'
       ? `
       width: 100%;
       height: auto;
@@ -297,7 +357,7 @@ const ProfileImg = styled.img<{ mobile?: string }>`
   margin-bottom: 20px;
   `}
 `
-const Describe = styled.div<{ type: string; mobile?: string }>`
+const Describe = styled.div<{ type: string; $mobile?: string }>`
   border: 1px solid black;
   font-family: 'Pretendard';
   ${(props) =>
@@ -316,7 +376,7 @@ const Describe = styled.div<{ type: string; mobile?: string }>`
   padding: 29px 34px 29px 28px;
 
   ${(props) =>
-    props.mobile === 'true'
+    props.$mobile === 'true'
       ? `
       padding: 20px 16px 24px 16px;
     .title {
@@ -346,7 +406,7 @@ const Describe = styled.div<{ type: string; mobile?: string }>`
     }
   `}
 `
-const Object = styled.div<{ type: string; mobile?: string }>`
+const Object = styled.div<{ type: string; $mobile?: string }>`
   border: 1px solid black;
   min-height: 281px;
   position: relative;
@@ -356,7 +416,7 @@ const Object = styled.div<{ type: string; mobile?: string }>`
 
   & > img {
     width: auto;
-    height: ${(props) => (props.mobile === 'true' ? '150px' : '170px')};
+    height: ${(props) => (props.$mobile === 'true' ? '150px' : '170px')};
   }
 
   ${(props) =>
@@ -372,9 +432,17 @@ const Object = styled.div<{ type: string; mobile?: string }>`
 `
 
 const Work = styled.div`
-  & > img {
+  // & > img {
+  //   width: 100%;
+  //   display: block;
+  // }
+  position: relative;
+  img {
     width: 100%;
     display: block;
+    object-fit: cover;
+    position: relative !important;
   }
 `
+
 const Video = styled.div``

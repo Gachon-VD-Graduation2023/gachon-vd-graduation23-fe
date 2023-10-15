@@ -53,7 +53,7 @@ function MenuBar() {
             return (
               <div key={i}>
                 {menu === currentMenu ? (
-                  <SelectedMenuBtn mobile='false'>
+                  <SelectedMenuBtn $mobile='false'>
                     <BottomLeftCorner />
                     <BottomRightCorner />
                     <TopRightCorner />
@@ -62,7 +62,7 @@ function MenuBar() {
                   </SelectedMenuBtn>
                 ) : (
                   <MenuBtn
-                    mobile='false'
+                    $mobile='false'
                     onClick={() => {
                       setShowMobileMenu(false)
                       if (menu === 'object') {
@@ -120,8 +120,8 @@ function MenuBar() {
               setShowMobileMenu(true)
             }}
           />
-          {showMobileMenu ? <MobileBgArea vh={vh} /> : null}
-          <MobileMenuBarComponent showmenu={showMobileMenu.toString()} vh={vh}>
+          {showMobileMenu ? <MobileBgArea $vh={vh} /> : null}
+          <MobileMenuBarComponent $showmenu={showMobileMenu.toString()} $vh={vh}>
             <div style={{ display: 'flex' }}>
               <MobileTitleLogo
                 src={baseUrl + '/images/title-logo.png'}
@@ -143,7 +143,7 @@ function MenuBar() {
               return (
                 <div key={i}>
                   {menu === currentMenu ? (
-                    <SelectedMenuBtn mobile='true'>
+                    <SelectedMenuBtn $mobile='true'>
                       <BottomLeftCorner />
                       <BottomRightCorner />
                       <TopRightCorner />
@@ -152,7 +152,7 @@ function MenuBar() {
                     </SelectedMenuBtn>
                   ) : (
                     <MenuBtn
-                      mobile='true'
+                      $mobile='true'
                       onClick={() => {
                         setShowMobileMenu(false)
                         if (menu === 'object') {
@@ -211,21 +211,21 @@ const MenuBarComponent = styled.div`
   font-family: 'Pretendard';
 `
 //모바일 메뉴 활성화 되어있을 때 메뉴 이외에 검은색 반투명 레이어
-const MobileBgArea = styled.div<{ vh: number }>`
+const MobileBgArea = styled.div<{ $vh: number }>`
   width: 100vw;
-  height: ${(props) => `${100 * props.vh}px`};
+  height: ${(props) => `${100 * props.$vh}px`};
   position: fixed;
   z-index: 999;
   background: rgba(0, 0, 0, 0.4);
 `
-const MobileMenuBarComponent = styled.div<{ showmenu: string; vh: number }>`
+const MobileMenuBarComponent = styled.div<{ $showmenu: string; $vh: number }>`
   width: 235px;
-  height: ${(props) => `${100 * props.vh}px`};
+  height: ${(props) => `${100 * props.$vh}px`};
   padding-top: 16px;
   padding-left: 16px;
   position: fixed;
   top: 0;
-  left: ${(props) => (props.showmenu === 'true' ? '0' : '-235px')};
+  left: ${(props) => (props.$showmenu === 'true' ? '0' : '-235px')};
   transition: left 0.3s ease;
   z-index: 999;
   background: white;
@@ -282,27 +282,27 @@ const MobileTitleLogo = styled.img`
   cursor: pointer;
 `
 
-const MenuBtn = styled.div<{ mobile: string }>`
+const MenuBtn = styled.div<{ $mobile: string }>`
   width: 150px;
   height: 34px;
   line-height: 34px;
   padding: 0px 16px;
   border: 1px solid var(--unnamed, #000);
   font-family: DOSSaemmul;
-  font-size: ${(props) => (props.mobile === 'true' ? '16px' : '23px')};
-  margin-bottom: ${(props) => (props.mobile === 'true' ? '16px' : '27px')};
+  font-size: ${(props) => (props.$mobile === 'true' ? '16px' : '23px')};
+  margin-bottom: ${(props) => (props.$mobile === 'true' ? '16px' : '27px')};
   cursor: pointer;
   z-index: 999;
 `
-const SelectedMenuBtn = styled.div<{ mobile: string }>`
+const SelectedMenuBtn = styled.div<{ $mobile: string }>`
   width: 150px;
   height: 34px;
   line-height: 34px;
   padding: 0px 16px;
   border: 1px solid var(--unnamed, #000);
   font-family: DOSSaemmul;
-  font-size: ${(props) => (props.mobile === 'true' ? '16px' : '23px')};
-  margin-bottom: ${(props) => (props.mobile === 'true' ? '16px' : '27px')};
+  font-size: ${(props) => (props.$mobile === 'true' ? '16px' : '23px')};
+  margin-bottom: ${(props) => (props.$mobile === 'true' ? '16px' : '27px')};
   cursor: pointer;
   z-index: 999;
   position: relative;

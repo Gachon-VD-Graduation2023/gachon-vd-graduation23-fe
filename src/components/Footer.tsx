@@ -7,7 +7,7 @@ export default function Footer() {
   const isMobile = useBetterMediaQuery('(max-width: 500px)')
   const baseUrl = process.env.NEXT_PUBLIC_URL
   return (
-    <Container mobile={isMobile?.toString()}>
+    <Container $mobile={isMobile?.toString()}>
       <LogoImg src={baseUrl + '/images/title-logo.png'} />
       {!isMobile ? (
         <Credit>
@@ -23,16 +23,16 @@ export default function Footer() {
   )
 }
 
-const Container = styled.div<{ mobile?: string }>`
+const Container = styled.div<{ $mobile?: string }>`
   display: flex;
   justify-content: space-between;
   position: relative;
   align-items: center;
   border-top: 1px solid black;
   width: 100%;
-  height: ${(props) => (props.mobile === 'true' ? '76px;' : '101px')};
-  padding-left: ${(props) => (props.mobile === 'true' ? '16px;' : '229px')};
-  padding-right: ${(props) => (props.mobile === 'true' ? '16px;' : '40px')};
+  height: ${(props) => (props.$mobile === 'true' ? '76px;' : '101px')};
+  padding-left: ${(props) => (props.$mobile === 'true' ? '16px;' : '229px')};
+  padding-right: ${(props) => (props.$mobile === 'true' ? '16px;' : '40px')};
 
   font-family: 'Pretendard';
 `

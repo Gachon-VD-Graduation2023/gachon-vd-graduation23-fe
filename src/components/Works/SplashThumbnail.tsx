@@ -50,6 +50,7 @@ const Container = styled.div<{ mobile: string }>`
   justify-content: center;
   align-items: center;
   font-family: 'Pretendard';
+  z-index: 990;
 `
 const WhiteSplash = styled.img<{ mobile: string }>`
   width: ${(props) => (props.mobile === 'true' ? '126px' : '217px')};

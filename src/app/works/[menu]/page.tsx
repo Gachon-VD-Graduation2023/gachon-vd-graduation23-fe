@@ -15,6 +15,7 @@ import {
   getUxuiWorkList,
 } from '@/app/api/works.api'
 import { WorkListData } from '@/types/works.type'
+import Image from 'next/image'
 
 export default function Works({ params }: { params: { menu: string } }) {
   const isMobile = useBetterMediaQuery('(max-width: 500px)')
@@ -54,6 +55,13 @@ export default function Works({ params }: { params: { menu: string } }) {
       {!isMobile ? (
         <>
           <Root>
+            <Image
+              src='https://i.imgur.com/yCV1WP3.jpg'
+              fill
+              objectFit='cover'
+              alt=''
+              objectPosition='top'
+            />
             <Container>
               <Contents>
                 {data?.map((data, i) =>
@@ -88,7 +96,14 @@ export default function Works({ params }: { params: { menu: string } }) {
               )
             })}
           </MenuBar>
-          <MobileContents vh={vh}>
+          <MobileContents $vh={vh}>
+            <Image
+              src='https://i.imgur.com/6Vak1vl.png'
+              fill
+              objectFit='cover'
+              alt=''
+              objectPosition='top'
+            />
             {data?.map((data, i) =>
               i !== 0 && i % 4 === 0 ? (
                 <React.Fragment key={`splash${i}`}>
@@ -109,8 +124,7 @@ export default function Works({ params }: { params: { menu: string } }) {
 const Root = styled.div`
   background-color: white;
   min-height: 100vh;
-  background-image: url(https://i.imgur.com/yCV1WP3.jpg);
-  background-size: cover;
+  position: relative;
 `
 const Container = styled.div`
   padding: 62px 0px 62px 201px;
@@ -132,11 +146,11 @@ const Contents = styled.div`
 //   // background-size: cover;
 //   // min-height: ${(props) => `${100 * props.vh}px`};
 // `
-const MobileContents = styled.div<{ vh: number }>`
+const MobileContents = styled.div<{ $vh: number }>`
   overflow-y: scroll;
-  min-height: ${(props) => `${100 * props.vh}px`};
-  background-image: url(https://i.imgur.com/6Vak1vl.png);
-  background-size: cover;
+  min-height: ${(props) => `${100 * props.$vh}px`};
+  // background-image: url(https://i.imgur.com/6Vak1vl.png);
+  // background-size: cover;
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(157px, max-content));
