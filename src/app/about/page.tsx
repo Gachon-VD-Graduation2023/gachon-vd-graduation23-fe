@@ -218,7 +218,7 @@ const About = () => {
                       {subContent.map(({ subTitle, name }, id) => {
                         return (
                           <MobileFinalInnerTable
-                            style={{ width: index % 2 == 0 ? '100px' : 'auto' }}
+                            style={{ width: id % 2 == 0 ? '100px' : 'auto' }}
                             key={id}
                           >
                             <div
@@ -226,7 +226,7 @@ const About = () => {
                                 width: '36px',
                                 color: '#6A6A6A',
                                 fontWeight: 500,
-                                letterSpacing: subTitle === '웹 팀' ? '2.8px' : '0',
+                                letterSpacing: subTitle === '웹 팀' ? '3.5px' : '0',
                               }}
                             >
                               {subTitle}
@@ -240,9 +240,17 @@ const About = () => {
                                   gap: '8px',
                                 }}
                               >
-                                {name.map((obj, idx) => (
-                                  <p key={idx}>{obj}</p>
-                                ))}
+                                {name.map((obj, idx) =>
+                                  obj === '차인' ? (
+                                    <p key={idx} style={{ letterSpacing: '10px' }}>
+                                      <b>{obj}</b>
+                                    </p>
+                                  ) : (
+                                    <p key={idx}>
+                                      <b>{obj}</b>
+                                    </p>
+                                  ),
+                                )}
                               </div>
                             ) : (
                               <div>
@@ -262,10 +270,11 @@ const About = () => {
                           <MobileFinalInnerTable key={id}>
                             <div
                               style={{
-                                width: '42px',
+                                width: subTitle === '폰트' ? '38px' : '42px',
                                 marginBottom: '16px',
                                 color: '#6A6A6A',
                                 fontWeight: 500,
+                                letterSpacing: subTitle === '폰트' ? '8.5px' : '0',
                               }}
                             >
                               {subTitle}
@@ -739,7 +748,7 @@ const SubTitleContainer = styled(ContentContainer)`
 
 const MobileTable = styled.div`
   display: flex;
-  gap: 27px;
+  gap: 17px;
 `
 
 const Table = styled.div`

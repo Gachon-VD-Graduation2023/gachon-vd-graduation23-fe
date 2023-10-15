@@ -210,6 +210,10 @@ const Container = styled.div`
   margin-left: 201px;
   overflow-y: auto;
   overflow-x: hidden;
+
+  display: flex; /* 추가 */
+  flex-direction: column; /* 추가 */
+  align-items: center; /* 추가 */
 `
 
 const CreateGuestBookContainer = styled.div`
@@ -296,6 +300,9 @@ const ReadGuestBooksContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px 12px;
+
+  justify-content: center; /* 추가 */
+  align-items: center; /* 추가 */
 `
 
 /////////////////////

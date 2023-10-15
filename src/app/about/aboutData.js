@@ -79,7 +79,7 @@ const ABOUT_CONTENT_3 = [
       },
       {
         subTitle: '웹 팀',
-        name: ['박세영', '차인', '송재민', '이연희', '황남주'],
+        name: ['박세연', '차인', '송재민', '이연희', '황남주'],
       },
     ],
   },
@@ -137,7 +137,7 @@ const MOBILE_ABOUT_CONTENT_3 = [
       },
       {
         subTitle: '웹 팀',
-        name: ['박세영', '차 인', '송재민', '이연희', '황남주'],
+        name: ['박세연', '차인', '송재민', '이연희', '황남주'],
       },
     ],
   },
@@ -145,7 +145,7 @@ const MOBILE_ABOUT_CONTENT_3 = [
     title: '후원',
     subContent: [
       {
-        subTitle: '폰 트',
+        subTitle: '폰트',
         name: ['산돌구름'],
       },
     ],
