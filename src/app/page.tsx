@@ -11,22 +11,21 @@ import { useState, useEffect } from 'react'
 export default function Home() {
   const isMobile = useBetterMediaQuery('(max-width: 500px)')
   const [mounted, setMounted] = useState<boolean>(false)
-
   const vh = useVh()
 
   useEffect(() => {
     setMounted(true)
 
-    // window resize 이벤트 리스너 추가
-    const handleResize = () => {
-      setMounted(false)
-      setTimeout(() => setMounted(true), 0)
-    }
+    // // window resize 이벤트 리스너 추가
+    // const handleResize = () => {
+    //   setMounted(false)
+    //   setTimeout(() => setMounted(true), 0)
+    // }
 
-    window.addEventListener('resize', handleResize)
+    // window.addEventListener('resize', handleResize)
 
-    // cleanup 함수에서 이벤트 리스너 제거
-    return () => window.removeEventListener('resize', handleResize)
+    // // cleanup 함수에서 이벤트 리스너 제거
+    // return () => window.removeEventListener('resize', handleResize)
   }, [isMobile]) // isMobile 값이 변경될 때 마다 실행
 
   return (
@@ -42,8 +41,16 @@ export default function Home() {
             muted
             autoPlay
             playsInline
-            preload='metadata'
-          ></Video>
+          >
+            <source
+              src={
+                isMobile
+                  ? process.env.NEXT_PUBLIC_URL + '/videos/video-home-mobile.mp4'
+                  : process.env.NEXT_PUBLIC_URL + '/videos/video-home-web.mp4'
+              }
+              type='video/mp4'
+            />
+          </Video>
           {/* <Video muted autoPlay loop playsinLine>
             <source
               src={isMobile ? '/videos/video-home-mobile.mp4' : '/videos/video-home-web.mp4'}
@@ -59,15 +66,16 @@ export default function Home() {
 const Wrapper = styled.div<{ $vh: number }>`
   width: 100%;
   height: ${(props) => `${100 * props.$vh}px`};
-  touch-action: none;
-  position: relative;
   overflow: hidden;
+  position: relative;
+  touch-action: none;
 `
 
 const IntroVideo = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
+  box-sizing: border-box;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
