@@ -5,12 +5,14 @@ import styles from './page.module.css'
 import { IconNext, IconVercel } from '../../public/svgs'
 import MenuBar from '@/components/MenuBar'
 import { styled } from 'styled-components'
-import { useBetterMediaQuery } from '@/utils/common.util'
+import { useBetterMediaQuery, useVh } from '@/utils/common.util'
 import { useState, useEffect } from 'react'
 
 export default function Home() {
   const isMobile = useBetterMediaQuery('(max-width: 500px)')
   const [mounted, setMounted] = useState<boolean>(false)
+
+  const vh = useVh()
 
   useEffect(() => {
     setMounted(true)
@@ -29,7 +31,7 @@ export default function Home() {
 
   return (
     mounted && (
-      <Wrapper>
+      <Wrapper $vh={vh}>
         <IntroVideo>
           <Video
             src={
@@ -54,9 +56,9 @@ export default function Home() {
   )
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ $vh: number }>`
   width: 100%;
-  height: 100vh;
+  height: ${(props) => `${100 * props.$vh}px`};
   position: relative;
   overflow: hidden;
 `
