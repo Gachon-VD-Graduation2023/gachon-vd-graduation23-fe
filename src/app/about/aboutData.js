@@ -21,7 +21,7 @@ const ABOUT_CATEGORIES = [
   },
   {
     title: '관람 시간',
-    content: '월-토\n10:00 - 20:00',
+    content: '화-일\n10:00 - 20:00',
   },
   {
     title: '전시 기간',
