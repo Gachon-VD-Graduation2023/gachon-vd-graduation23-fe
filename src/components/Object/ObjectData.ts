@@ -1382,6 +1382,30 @@ export const allObjectData: ObjectProp[] = [
     },
     target: '51',
   },
+  {
+    width: 82.59,
+    height: 119.81,
+    render: {
+      sprite: {
+        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/bx/김가연.png`,
+        xScale: 0.25,
+        yScale: 0.25,
+      },
+    },
+    target: '52',
+  },
+  {
+    width: 61,
+    height: 33,
+    render: {
+      sprite: {
+        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/bx/김가연_name.png`,
+        xScale: 0.25,
+        yScale: 0.25,
+      },
+    },
+    target: '52',
+  },
 ]
 
 //////////////////////////////////
@@ -1854,6 +1878,30 @@ export const bxObjectData: ObjectProp[] = [
       },
     },
     target: '42',
+  },
+  {
+    width: 82.59,
+    height: 119.81,
+    render: {
+      sprite: {
+        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/bx/김가연.png`,
+        xScale: 0.25,
+        yScale: 0.25,
+      },
+    },
+    target: '52',
+  },
+  {
+    width: 61,
+    height: 33,
+    render: {
+      sprite: {
+        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/bx/김가연_name.png`,
+        xScale: 0.25,
+        yScale: 0.25,
+      },
+    },
+    target: '52',
   },
 ]
 
@@ -3006,6 +3054,30 @@ export const graphicObjectData: ObjectProp[] = [
       },
     },
     target: '45',
+  },
+  {
+    width: 82.59,
+    height: 119.81,
+    render: {
+      sprite: {
+        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/graphic/김가연.png`,
+        xScale: 0.25,
+        yScale: 0.25,
+      },
+    },
+    target: '52',
+  },
+  {
+    width: 61,
+    height: 33,
+    render: {
+      sprite: {
+        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/graphic/김가연_name.png`,
+        xScale: 0.25,
+        yScale: 0.25,
+      },
+    },
+    target: '52',
   },
 ]
 
