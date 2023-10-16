@@ -137,7 +137,7 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
         )}
 
         <Work>
-          {params.id === '48'
+          {params.id === '48' || params.id === '24'
             ? data?.workVid.map((vid, i) => {
                 if (vid !== '')
                   return (
@@ -200,7 +200,7 @@ export default function WorksDetail({ params }: { params: { menu: string; id: st
           ) : (
             <Skeleton width='100%' baseColor='#EAF1F3' height={isMobile ? '25vh' : '50vh'} />
           )}
-          {params.id !== '48'
+          {params.id !== '48' && params.id !== '24'
             ? data?.workVid.map((vid, i) => {
                 if (vid !== '')
                   return (
