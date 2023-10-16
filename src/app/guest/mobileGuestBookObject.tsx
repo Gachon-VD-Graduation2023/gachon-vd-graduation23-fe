@@ -7,18 +7,17 @@ type GuestBookType = {
 }
 const MobileGuestBookObject = (guestBook: GuestBookType) => {
   const { guestName, writeDetail, createdAt } = guestBook
-  // Date 객체를 생성합니다.
-  const dateObj = new Date(createdAt)
+  // Date 객체 생성
+  let dateObj = new Date(createdAt)
 
-  // 연, 월, 일을 가져옵니다.
+  // 한국의 현재 날짜 및 시간 계산하기
+  dateObj.setUTCHours(dateObj.getUTCHours() + 9)
+
   const year = dateObj.getUTCFullYear() // 연도
   const month = (dateObj.getUTCMonth() + 1).toString().padStart(2, '0') // 월 (월은 0부터 시작하므로 1을 더해줍니다)
   const day = dateObj.getUTCDate().toString().padStart(2, '0') // 일
 
-  // 시, 분, 초를 가져옵니다.
-  let hours = dateObj.getUTCHours() + 9 // 시간
-  const minutes = dateObj.getUTCMinutes().toString().padStart(2, '0')
-  const seconds = dateObj.getUTCSeconds() // 초
+  let hours = dateObj.getUTCHours() // 한국의 현재 시각
 
   // AM/PM 값을 결정합니다.
   let periodOfDay
@@ -28,11 +27,13 @@ const MobileGuestBookObject = (guestBook: GuestBookType) => {
     periodOfDay = 'PM'
   }
 
-  // 시간을 12시간 형식으로 변환합니다.
+  // 시각을 12시간 형식으로 변환합니다.
   hours %= 12
   if (hours === 0) {
     hours = 12
   }
+
+  const minutes = dateObj.getUTCMinutes().toString().padStart(2, '0')
 
   return (
     <Container>
@@ -42,7 +43,7 @@ const MobileGuestBookObject = (guestBook: GuestBookType) => {
       <ReadContentGuestBookContainer>
         <p>{writeDetail}</p>
         <UpdateDateGuestBookContainer>
-          <p>{year + '. ' + month + '. ' + day + '.'}</p>
+          <p>{year + '. ' + month + '. ' + day}</p>
           <p>{hours.toString().padStart(2, '0') + ':' + minutes + periodOfDay}</p>
         </UpdateDateGuestBookContainer>
       </ReadContentGuestBookContainer>
@@ -105,4 +106,5 @@ const UpdateDateGuestBookContainer = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 140%;
+  text-align: right;
 `
