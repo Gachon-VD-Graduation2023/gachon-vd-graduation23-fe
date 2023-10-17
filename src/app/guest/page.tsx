@@ -187,15 +187,19 @@ const Guest = () => {
             />
           </CreateContentContainer>
         </CreateGuestBookContainer>
-        <ReadGuestBooksContainer>
-          {data?.pages
-            .flat()
-            .map((guestBook: any, index: number) => <GuestBookObject key={index} {...guestBook} />)}
-          {/* Scroll ref */}
-          {!isFetchingNextPage && hasNextPage && (
-            <div id='page-bottom-boundary' ref={bottomBoundaryRef}></div>
-          )}
-        </ReadGuestBooksContainer>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <ReadGuestBooksContainer>
+            {data?.pages
+              .flat()
+              .map((guestBook: any, index: number) => (
+                <GuestBookObject key={index} {...guestBook} />
+              ))}
+            {/* Scroll ref */}
+            {!isFetchingNextPage && hasNextPage && (
+              <div id='page-bottom-boundary' ref={bottomBoundaryRef}></div>
+            )}
+          </ReadGuestBooksContainer>
+        </div>
       </Container>
     ))
   )
@@ -296,13 +300,15 @@ const CreateInputContainer = styled.textarea`
 
 const ReadGuestBooksContainer = styled.div`
   padding: 16px;
-
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(390px, auto)
+  ); // 이 부분은 GuestBookObject의 크기에 따라 조정해야 합니다.
   gap: 8px 12px;
-
-  justify-content: center; /* 추가 */
-  align-items: center; /* 추가 */
+  justify-content: center;
+  align-content: center; // 추가된 부분
+  width: inherit;
 `
 
 /////////////////////
