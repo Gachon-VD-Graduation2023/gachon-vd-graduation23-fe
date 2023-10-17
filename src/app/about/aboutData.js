@@ -3,7 +3,7 @@ const ABOUT_TITLE =
 const ABOUT_CONTENT_1 =
   '2023 가천대학교 시각디자인과 졸업전시 주제인 ‘대박’은 舶 (배 박)과 拍 (칠 박) 두 가지 한자를 사용해 ‘큰 성공(大舶)을 향한 큰 터뜨림(大拍)’이라는 의미를 담고 있다.\n\n<b>박</b>은 가천대학교 시각디자인과 <b>학생 개개인의 세계</b>를 의미한다. 세상이 던지는 평균과 기준과 평가를 맞으며, 정체성과 방향성에 대해 고민하며 오랜 시간 자신의 박을 채워온 학생들. \n이제 <b>그 박을 터뜨리려</b> 한다.\n\n자유롭게 흩날리는 종잇조각처럼 학생이라는 신분을 깨고 터져 나오는 <b>디자이너의 아이덴티티.</b> 한 명도 빠짐없이 모두 <b>大박</b>이다. \n학생 신분의 <b>졸업을 축하</b>하며, 세상으로 발걸음을 내딛는 <b>도전을 응원</b>하며 <b>大박을 터뜨리자.</b>'
 const ABOUT_CONTENT_ENG_1 =
-  "The theme of the 2023 Gachon University\nDepartment of Visual Design Graduation Exhibition, \n'Daebak', uses two Chinese characters: 舶 (Bae Park) and 拍 (Seven Parks) to signify 'a great breakthrough toward great success (大舶)'. contains\n\nPark means the world of individual Gachon University visual design department students. Students who \nhave filled their nights for a long time, agonizing over their identity and direction, meeting the averages,\nstandards, and evaluations the world throws at them. Now I'm about to blow that gourd.\n\nThe identity of a designer bursts out like a piece of\npaper flying freely, breaking the identity of a student. All of them are great without exception. Celebrating\ngraduation as a student, cheering for the challenge of stepping out into the world, let's burst the gourd."
+  "The theme of the 2023 Gachon University\nDepartment of Visual Design Graduation Exhibition, \n'Daebak', uses two Chinese characters: 舶 (배 박) and 拍 (칠 박) to signify 'a great breakthrough toward great success (大舶)'. \n\n'Bak' means the world of individual Gachon University visual design department students. Students who \nhave filled their nights for a long time, agonizing over their identity and direction, meeting the averages,\nstandards, and evaluations the world throws at them. Now I'm about to blow that gourd.\n\nThe identity of a designer bursts out like a piece of\npaper flying freely, breaking the identity of a student. All of them are great without exception. Celebrating\ngraduation as a student, cheering for the challenge of stepping out into the world, let's burst the gourd."
 
 const ABOUT_SUB_TITLE_1 = '디지털 박이 터진다면?'
 const ABOUT_CONTENT_2 =
@@ -156,7 +156,7 @@ const MOBILE_ABOUT_TITLE =
   "<p>대박(大舶)을&nbsp;&nbsp;</p> <img src='/svgs/mobile-icon-left-stroke.svg'/> <p>&nbsp;향한</p> <img src='/svgs/mobile-icon-right-stroke.svg'/> <p>&nbsp;&nbsp;대박(大拍)</p>"
 
 const MOBILE_CONTENT_ENG_1 =
-  "The theme of the 2023 Gachon\nUniversity Department of Visual Design Graduation Exhibition, 'Daebak', uses two Chinese characters: 舶 (Bae Park) and 拍 (Seven Parks) to signify 'a great breakthrough toward great success (大\n舶)'. contains\n\nPark means the world of individual \nGachon University visual design department students. Students who have filled their nights for a long time,\nagonizing over their identity and\ndirection, meeting the averages,\nstandards, and evaluations the world throws at them. Now I'm about to blow\nthat gourd.\n\nThe identity of a designer bursts out like\na piece of paper flying freely, breaking\nthe identity of a student. All of them are great without exception. Celebrating graduation as a student, cheering for the challenge of stepping out into the world, let's burst the gourd."
+  "The theme of the 2023 Gachon\nUniversity Department of Visual Design Graduation Exhibition, 'Daebak', uses two Chinese characters: 舶 (배 박) and 拍 (칠 박) to signify 'a great breakthrough toward great success (大\n舶)'. \n\n'Bak' means the world of individual \nGachon University visual design department students. Students who have filled their nights for a long time,\nagonizing over their identity and\ndirection, meeting the averages,\nstandards, and evaluations the world throws at them. Now I'm about to blow\nthat gourd.\n\nThe identity of a designer bursts out like\na piece of paper flying freely, breaking\nthe identity of a student. All of them are great without exception. Celebrating graduation as a student, cheering for the challenge of stepping out into the world, let's burst the gourd."
 
 const MOBILE_ABOUT_CONTENT_2 =
   '‘디지털 상의 박터뜨리기’라는 상상을 토대로 픽셀의 네모 박스 형태를 디자인 요소로 사용하여 시각디자인과의 특성을 표현하\n고 비주얼 아이덴티티의 완성도를 높였다. 포스터에서는 박이 터질 때마다 섬세한 그\n래픽 내부의 쪼개지고 결합된 이미지가 드\n러나며 새로운 모습을 보여준다.'
@@ -171,7 +171,7 @@ const MOBILE_ABOUT_CATEGORIES_ENG = [
   },
   {
     title: 'Viewing Hours',
-    content: 'Mon-Sat\n10:00 - 20:00',
+    content: 'Tue-Sun\n10:00 - 20:00',
   },
   {
     title: 'Exhibition Period',
