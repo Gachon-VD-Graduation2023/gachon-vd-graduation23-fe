@@ -71,7 +71,7 @@ const ABOUT_CONTENT_3 = [
     subContent: [
       {
         subTitle: '편집팀',
-        name: ['김도연', '김주영'],
+        name: ['박도연', '김주영'],
       },
       {
         subTitle: '영상팀',
@@ -121,7 +121,7 @@ const MOBILE_ABOUT_CONTENT_3 = [
       },
       {
         subTitle: '편집팀',
-        name: ['김도연', '김주영'],
+        name: ['박도연', '김주영'],
       },
       {
         subTitle: '회계팀',
