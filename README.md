@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 2023 가천대학교 시각디자인학과 졸업작품 웹사이트
 
-## Getting Started
+![image](https://github.com/Gachon-VD-Graduation2023/gachon-vd-graduation23-fe/assets/48910081/bebd85af-7104-45dd-9ba6-51bcdd22f7db)
 
-First, run the development server:
+![image](https://github.com/Gachon-VD-Graduation2023/gachon-vd-graduation23-fe/assets/48910081/03e610b9-1fca-4930-9018-0fa3d5830d44)
+![image](https://github.com/Gachon-VD-Graduation2023/gachon-vd-graduation23-fe/assets/48910081/bc7254f6-df02-47a5-9c61-6ec282930cbe)
+![제목 없음](https://github.com/Gachon-VD-Graduation2023/gachon-vd-graduation23-fe/assets/48910081/14ff148e-744e-430e-828e-658c2842995a)
+![image](https://github.com/Gachon-VD-Graduation2023/gachon-vd-graduation23-fe/assets/48910081/765c08cf-2fa1-46eb-b53c-d82f9909ca7f)
+![image](https://github.com/Gachon-VD-Graduation2023/gachon-vd-graduation23-fe/assets/48910081/6d8be1b9-e332-4ecb-8447-1d1438f94cde)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### 🛠️ Stack
+* React
+* Nextjs
+* <a href="https://github.com/liabru/matter-js">Matterjs</a>
+* Firebase Realtime Database
+* Vercel
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 👩🏼‍💻 Contributor
+| [송재민](https://github.com/xongjaemin) | [황남주](https://github.com/NamNamju) | [이연희](https://github.com/LeeYeonhee-00) |
+| ------------------------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------- |
+| <img src="https://github.com/xongjaemin.png" width="100"> | <img src="https://github.com/NamNamju.png" width="100"> | <img src="https://github.com/LeeYeonhee-00.png" width="100"> |
+| <p width="100" align="center">Frontend</p> | <p width="100" align="center">Frontend</p> | <p width="100" align="center">Backend</p> |
