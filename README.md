@@ -1,6 +1,6 @@
 ## 2023 가천대학교 시각디자인학과 졸업작품 웹사이트
 
-![image](https://github.com/Gachon-VD-Graduation2023/gachon-vd-graduation23-fe/assets/48910081/bebd85af-7104-45dd-9ba6-51bcdd22f7db)
+![image](https://github.com/Gachon-VD-Graduation2023/gachon-vd-graduation23-fe/assets/48910081/66a8e79b-eac0-4b0c-ac8d-7f6da46052f0)
 
 ![image](https://github.com/Gachon-VD-Graduation2023/gachon-vd-graduation23-fe/assets/48910081/03e610b9-1fca-4930-9018-0fa3d5830d44)
 ![image](https://github.com/Gachon-VD-Graduation2023/gachon-vd-graduation23-fe/assets/48910081/bc7254f6-df02-47a5-9c61-6ec282930cbe)
