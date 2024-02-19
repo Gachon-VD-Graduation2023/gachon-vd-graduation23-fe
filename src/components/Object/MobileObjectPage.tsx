@@ -189,7 +189,7 @@ export default function MobileObjectPage({ currentMenu }: { currentMenu: string 
       )
       mouseConstraint.mouse.element.removeEventListener('touchend', mouseConstraint.mouse.mouseup)
 
-      Events.on(mouseConstraint, 'mousedown', (event) => {
+      Events.on(mouseConstraint, 'mouseup', (event) => {
         handleClick(event)
       })
 
