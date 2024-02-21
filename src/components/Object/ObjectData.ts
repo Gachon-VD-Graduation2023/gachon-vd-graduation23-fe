@@ -399,30 +399,6 @@ export const allObjectData: ObjectProp[] = [
     target: '5',
   },
   {
-    width: 65.03,
-    height: 124,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/uxui/김민지.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '김민지',
-  },
-  {
-    width: 61,
-    height: 33,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/uxui/김민지_name.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '김민지',
-  },
-  {
     width: 87.27,
     height: 99.18,
     render: {
@@ -2294,30 +2270,6 @@ export const uxuiObjectData: ObjectProp[] = [
       },
     },
     target: '5',
-  },
-  {
-    width: 65.03,
-    height: 124,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/uxui/김민지.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '김민지',
-  },
-  {
-    width: 61,
-    height: 33,
-    render: {
-      sprite: {
-        texture: `${process.env.NEXT_PUBLIC_URL}/images/objects/uxui/김민지_name.png`,
-        xScale: 0.25,
-        yScale: 0.25,
-      },
-    },
-    target: '김민지',
   },
   {
     width: 87.27,
