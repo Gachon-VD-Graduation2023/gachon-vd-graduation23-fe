@@ -7,6 +7,7 @@
 <img src="https://i.imgur.com/tNzlElf.png"/>
 <img src="https://i.imgur.com/19e7gLz.png"/>
 <img src="https://i.imgur.com/95t0Vt7.png"/>
+<img src="https://i.imgur.com/VIxVYYy.png" width="300"/>
 
 ### 🛠️ Stack
 * React
